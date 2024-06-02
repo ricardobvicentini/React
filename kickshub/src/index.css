@@ -6,6 +6,37 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 body {
   font-family: system-ui, sans-serif;
+}
+
+.app {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: beige;
+  display: grid;
+  place-items: center;
+}
+
+.card__wrapper {
+  width: min(50rem, 80vw);
+  display: flex;
+  background-color: aliceblue;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 2em;
+}
+
+/* .card__img { 
+} */
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
