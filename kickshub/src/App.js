@@ -29,7 +29,7 @@ function Card({ sneaker }) {
 
 function SneakerCard() {
   return (
-    <div className='sneakerCard hidden'>
+    <div className='sneakerCard'>
       <div>
         <img
           src='assets/images/nike-max-90-black-blue.jpg'
@@ -43,7 +43,7 @@ function SneakerCard() {
           consectetur, adipisci velit...'
         </p>
         <div className='sneakerCard__colors'></div>
-        <p className='sneakerCard__size'>36 37 38 39 40 41 42</p>
+        <p className='sneakerCard__sizes'>36 37 38 39 40 41 42</p>
         <div class='sneakerCard__quantity-price'>
           <div className='quantity__wrapper'>
             <button>-</button>

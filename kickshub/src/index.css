@@ -86,6 +86,16 @@ body {
   }
 }
 
+.sneakerCard__quantity-price {
+  display: flex;
+  justify-content: space-between;
+  & .quantity__wrapper {
+    display: flex;
+    gap: 1rem;
+    width: 20%;
+  }
+}
+
 /*  Utility */
 .overlay {
   backdrop-filter: blur(15px);
