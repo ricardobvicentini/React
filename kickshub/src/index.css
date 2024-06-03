@@ -90,9 +90,10 @@ body {
   display: flex;
   justify-content: space-between;
   & .quantity__wrapper {
-    display: flex;
+    width: 40%;
+    display: grid;
+    grid-template-columns: 10% 20% 10%;
     gap: 1rem;
-    width: 20%;
   }
 }
 

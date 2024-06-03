@@ -50,7 +50,7 @@ function SneakerCard() {
             <input type='number'></input>
             <button>+</button>
           </div>
-          <p className='sneakerCard__price'>'$ 150.00'</p>
+          <p className='sneakerCard__price'>$ 150.00</p>
         </div>
         <button className='sneakerCard__btn'>Add to cart</button>
       </div>
