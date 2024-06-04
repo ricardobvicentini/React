@@ -10,6 +10,7 @@ export default function App() {
         ))}
       </main>
       <SneakerCard />
+      <CartTab />
     </div>
   );
 }
@@ -77,6 +78,19 @@ function SneakerCard() {
           <p className='sneakerCard__price'>$ 150.00</p>
         </div>
         <button className='sneakerCard__btn'>Add to cart</button>
+      </div>
+    </div>
+  );
+}
+
+function CartTab() {
+  return (
+    <div className='cart-tab'>
+      <h2>Shopping Cart</h2>
+      <p>show item here</p>
+      <div className='cart-tab__btns'>
+        <button>Close</button>
+        <button>Check Out</button>
       </div>
     </div>
   );

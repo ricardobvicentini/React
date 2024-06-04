@@ -35,7 +35,7 @@ export const sneakerData = [
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
     price: '$ 0.00',
   },
-  {
+  /* {
     id: 5,
     photo: 'assets/images/coming-soon.jpg',
     altText: 'Coming soon image',
@@ -70,5 +70,5 @@ export const sneakerData = [
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
     price: '$ 0.00',
-  },
+  }, */
 ];
