@@ -3,11 +3,31 @@ import { sneakerData } from './sneakerData';
 export default function App() {
   return (
     <div className='app'>
-      {sneakerData.map((sneaker) => (
-        <Card sneaker={sneaker} key={sneaker.id} />
-      ))}
+      <Header />
+      <main>
+        {sneakerData.map((sneaker) => (
+          <Card sneaker={sneaker} key={sneaker.id} />
+        ))}
+      </main>
       <SneakerCard />
     </div>
+  );
+}
+
+function Header() {
+  return (
+    <header>
+      <div className='logo'>
+        <img
+          src='assets/images/sneaker-logo.png'
+          alt='Sneaker with wings'
+        ></img>
+      </div>
+      <div className='icon-cart'>
+        <i className='bx bx-cart'></i>
+        <span>0</span>
+      </div>
+    </header>
   );
 }
 
@@ -29,7 +49,7 @@ function Card({ sneaker }) {
 
 function SneakerCard() {
   return (
-    <div className='sneakerCard'>
+    <div className='sneakerCard hidden'>
       <div className='sneakerCard__img'>
         <img
           src='assets/images/nike-max-90-black-blue.jpg'

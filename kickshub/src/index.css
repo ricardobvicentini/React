@@ -19,7 +19,33 @@ body {
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  background-color: beige;
+}
+
+header {
+  outline: 1px solid red;
+  width: min(56.25rem, 80vw);
+  margin-inline: auto;
+  padding-block: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & .logo {
+    width: 10rem;
+  }
+  & .icon-cart {
+    & i {
+      font-size: 3rem;
+      position: relative;
+      outline: 1px solid red;
+    }
+  }
+}
+
+main {
+  outline: 1px solid red;
+  width: min(56.25rem, 80vw);
+  margin-inline: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,11 +53,12 @@ body {
 }
 
 .card__wrapper {
+  outline: 1px solid red;
   width: min(20rem, 80%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: aliceblue;
+  background-color: #eeeee6;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 2em;
