@@ -1,97 +1,52 @@
 import { sneakerData } from './sneakerData';
+import { useState } from 'react';
+import Header from './components/Header';
+import Card from './components/Card';
+import SneakerCard from './components/SneakerCard';
+import CartTab from './components/CardTab';
 
 export default function App() {
+  const [hidden, setHidden] = useState(true);
+  const [showCart, setShowCart] = useState(false);
+  const [sneakerCard, setSneakerCard] = useState([]);
+
+  function handleClickCard() {
+    setHidden(!hidden);
+  }
+
+  function handleClickCart() {
+    setShowCart(!showCart);
+  }
+
+  function handleSetCard(id) {
+    const newSneakerData = sneakerData.filter((sneaker) => sneaker.id === id);
+    setSneakerCard(newSneakerData[0]);
+  }
+
   return (
-    <div className='app'>
-      <Header />
+    <div
+      className={`app ${showCart && 'active-cart'}`}
+      style={{ pointerEvents: `${hidden === true ? 'auto' : 'none'}` }}
+    >
+      <Header onClickCart={handleClickCart} />
       <main>
         {sneakerData.map((sneaker) => (
-          <Card sneaker={sneaker} key={sneaker.id} />
+          <Card
+            onClickCard={handleClickCard}
+            onSetCard={handleSetCard}
+            sneaker={sneaker}
+            id={sneaker.id}
+            key={sneaker.id}
+          />
         ))}
       </main>
-      <SneakerCard />
-      <CartTab />
-    </div>
-  );
-}
-
-function Header() {
-  return (
-    <header>
-      <div className='logo'>
-        <img
-          src='assets/images/sneaker-logo.png'
-          alt='Sneaker with wings'
-        ></img>
-      </div>
-      <div className='search-icon'>
-        <input id='search__input' type='text'></input>
-        <i class='bx bx-search'></i>
-        <div className='icon-cart'>
-          <i className='bx bx-cart'></i>
-          <span>0</span>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-function Card({ sneaker }) {
-  return (
-    <div className='card__wrapper'>
-      <div className='card__img'>
-        <img src={sneaker.photo} alt={sneaker.altText}></img>
-      </div>
-      <div className='card__info'>
-        <h2>{sneaker.name}</h2>
-        <p>{sneaker.description}</p>
-        <p className='card__price'>{sneaker.price}</p>
-        <button className='card__btn'>Add to cart</button>
-      </div>
-    </div>
-  );
-}
-
-function SneakerCard() {
-  return (
-    <div className='sneakerCard hidden'>
-      <div className='sneakerCard__img'>
-        <img
-          src='assets/images/nike-max-90-black-blue.jpg'
-          alt='Nike Air Max 90 Black and Blue'
-        ></img>
-      </div>
-      <div className='sneakerCard__info'>
-        <h2>Nike Air Max 90</h2>
-        <p>
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-          consectetur, adipisci velit...
-        </p>
-        <div className='sneakerCard__colors'></div>
-        <p className='sneakerCard__sizes'>36 37 38 39 40 41 42</p>
-        <div className='sneakerCard__quantity-price'>
-          <div className='quantity__wrapper'>
-            <button>-</button>
-            <input type='number'></input>
-            <button>+</button>
-          </div>
-          <p className='sneakerCard__price'>$ 150.00</p>
-        </div>
-        <button className='sneakerCard__btn'>Add to cart</button>
-      </div>
-    </div>
-  );
-}
-
-function CartTab() {
-  return (
-    <div className='cart-tab'>
-      <h2>Shopping Cart</h2>
-      <p>show item here</p>
-      <div className='cart-tab__btns'>
-        <button>Close</button>
-        <button>Check Out</button>
-      </div>
+      <SneakerCard
+        onClickCard={handleClickCard}
+        hidden={hidden}
+        sneakerCardData={sneakerCard}
+      />
+      <CartTab onClickCart={handleClickCart} />
+      <div className={`overlay ${hidden && 'hidden'}`}></div>
     </div>
   );
 }
