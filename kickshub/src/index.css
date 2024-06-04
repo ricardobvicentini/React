@@ -22,8 +22,7 @@ body {
 }
 
 header {
-  outline: 1px solid red;
-  width: min(56.25rem, 80vw);
+  width: min(75rem, 80vw);
   margin-inline: auto;
   padding-block: 2rem;
   margin-bottom: 2rem;
@@ -33,53 +32,82 @@ header {
   & .logo {
     width: 10rem;
   }
-  & .icon-cart {
+  & .search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    & #search__input {
+      padding: 0.5em 1em;
+      border: 2px solid #000;
+      border-radius: 100vw;
+    }
     & i {
-      font-size: 3rem;
+      font-size: 2rem;
+    }
+    & .icon-cart {
       position: relative;
-      outline: 1px solid red;
+      & i {
+        font-size: 3rem;
+      }
+      & span {
+        position: absolute;
+        background-color: red;
+        top: 50%;
+        right: -0.5em;
+        width: 1.75em;
+        aspect-ratio: 1;
+        border-radius: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
     }
   }
 }
 
 main {
-  outline: 1px solid red;
-  width: min(56.25rem, 80vw);
+  width: min(75rem, 80vw);
   margin-inline: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  gap: 2rem;
 }
 
 .card__wrapper {
-  outline: 1px solid red;
-  width: min(20rem, 80%);
+  /* width: min(20rem, 80%); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #eeeee6;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  padding: 2em;
+  padding: 1.75em;
 }
 
-/* .card__img { 
-} */
+.card__img {
+  margin-bottom: 1rem;
+}
 
 .card__info,
 .sneakerCard__info {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  & h2 {
+    min-height: 4rem;
+  }
   & .card__price,
   .sneakerCard__price {
     align-self: flex-end;
+    font-weight: 700;
   }
   & .card__btn,
   .sneakerCard__btn {
     align-self: center;
-    width: 50%;
+    width: 100%;
     padding: 1em 1.5em;
     background-color: #000;
     color: #fff;

@@ -23,9 +23,13 @@ function Header() {
           alt='Sneaker with wings'
         ></img>
       </div>
-      <div className='icon-cart'>
-        <i className='bx bx-cart'></i>
-        <span>0</span>
+      <div className='search-icon'>
+        <input id='search__input' type='text'></input>
+        <i class='bx bx-search'></i>
+        <div className='icon-cart'>
+          <i className='bx bx-cart'></i>
+          <span>0</span>
+        </div>
       </div>
     </header>
   );
@@ -64,7 +68,7 @@ function SneakerCard() {
         </p>
         <div className='sneakerCard__colors'></div>
         <p className='sneakerCard__sizes'>36 37 38 39 40 41 42</p>
-        <div class='sneakerCard__quantity-price'>
+        <div className='sneakerCard__quantity-price'>
           <div className='quantity__wrapper'>
             <button>-</button>
             <input type='number'></input>
