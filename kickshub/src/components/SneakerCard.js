@@ -1,7 +1,9 @@
-import cardData from '../cardData.js';
+import { cardData } from '../cardData.js';
+import { useState } from 'react';
 
 export default function SneakerCard({ hidden, onClickCard, sneakerCardData }) {
-  let colorId = sneakerCardData.id - 1;
+  const [colorId, setColorId] = useState(0);
+
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
@@ -13,7 +15,7 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardData }) {
         <p>{sneakerCardData.description}</p>
         <div className='color-wrapper'>
           <p>Colors</p>
-          {cardData[1].colors.flatMap((colorObj) => (
+          {cardData[colorId].colors.flatMap((colorObj) => (
             <div
               className='sneakerCard__colors'
               style={{

@@ -1,4 +1,4 @@
-const cardData = [
+export const cardData = [
   {
     id: 1,
     photo: 'assets/images/nike-max-90-black-blue.jpg',
@@ -31,5 +31,3 @@ const cardData = [
     price: '$ 199.00',
   },
 ];
-
-export default cardData;
