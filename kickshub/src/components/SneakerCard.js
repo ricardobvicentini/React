@@ -1,4 +1,7 @@
+import cardData from '../cardData.js';
+
 export default function SneakerCard({ hidden, onClickCard, sneakerCardData }) {
+  let colorId = sneakerCardData.id - 1;
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
@@ -10,7 +13,15 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardData }) {
         <p>{sneakerCardData.description}</p>
         <div className='color-wrapper'>
           <p>Colors</p>
-          <div className='sneakerCard__colors'></div>
+          {cardData[1].colors.flatMap((colorObj) => (
+            <div
+              className='sneakerCard__colors'
+              style={{
+                '--c1': Object.values(colorObj)[0][0],
+                '--c2': Object.values(colorObj)[0][1],
+              }}
+            ></div>
+          ))}
         </div>
         <div className='size-wrapper'>
           <p>Sizes</p>
