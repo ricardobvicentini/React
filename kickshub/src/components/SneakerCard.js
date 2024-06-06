@@ -1,9 +1,11 @@
 import { cardData } from '../cardData.js';
-import { useState } from 'react';
 
-export default function SneakerCard({ hidden, onClickCard, sneakerCardData }) {
-  const [colorId, setColorId] = useState(0);
-
+export default function SneakerCard({
+  hidden,
+  onClickCard,
+  sneakerCardData,
+  colorId,
+}) {
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
