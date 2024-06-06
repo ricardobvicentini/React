@@ -4,8 +4,10 @@ export default function SneakerCard({
   hidden,
   onClickCard,
   sneakerCardData,
-  colorId,
+  colorArr,
 }) {
+  const allInfo = cardData.map((item) => item.info);
+  console.log(allInfo);
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
@@ -17,7 +19,7 @@ export default function SneakerCard({
         <p>{sneakerCardData.description}</p>
         <div className='color-wrapper'>
           <p>Colors</p>
-          {cardData[colorId].colors.flatMap((colorObj) => (
+          {colorArr.flatMap((colorObj) => (
             <div
               className='sneakerCard__colors'
               style={{

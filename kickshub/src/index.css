@@ -203,9 +203,11 @@ main {
     }
   }
   & .color-wrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 1.25rem);
-    grid-template-rows: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: repeat(auto, 1.25rem);
+    grid-template-rows: 1fr 1fr; */
+    display: flex;
+    flex-wrap: wrap;
     gap: 1em;
     & p {
       grid-column: 1/-1;

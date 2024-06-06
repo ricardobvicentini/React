@@ -7,6 +7,12 @@ export const sneakerData = [
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
     price: '$ 150.00',
+    colors: [
+      { blackBlue: ['#000000', '#22334c'] },
+      { blackWhite: ['#000000', '#ffffff'] },
+      { greyYellow: ['grey', 'yellow'] },
+      { white: ['#ffffff', '#ffffff'] },
+    ],
   },
   {
     id: 2,
@@ -16,6 +22,12 @@ export const sneakerData = [
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
     price: '$ 199.00',
+    colors: [
+      { blackWhite: ['#000000', '#ffffff'] },
+      { whiteBeige: ['#ffffff', 'beige'] },
+      { whiteBlue: ['#ffffff', '#22334c'] },
+      { whiteYellow: ['#ffffff', 'yellow'] },
+    ],
   },
   {
     id: 3,
