@@ -1,25 +1,26 @@
-import { cardData } from '../cardData.js';
+import { sneakerData } from '../sneakerData.js';
+import { useState } from 'react';
 
-export default function SneakerCard({
-  hidden,
-  onClickCard,
-  sneakerCardData,
-  colorArr,
-}) {
-  const allInfo = cardData.map((item) => item.info);
-  console.log(allInfo);
+export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
+  /* const newSneakerData = sneakerData.filter(
+    (sneaker) => sneaker.id === sneakerCardId
+  ); */
+  console.log(sneakerCardId);
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
-        <img src={sneakerCardData.photo} alt={sneakerCardData.altText}></img>
+        <img
+          src={sneakerData[sneakerCardId - 1 || 0].photo[0]}
+          alt={sneakerData[sneakerCardId - 1 || 0].altText[0]}
+        ></img>
       </div>
       <div className='sneakerCard__info'>
         <i onClick={onClickCard} className='bx bx-x-circle'></i>
-        <h2>{sneakerCardData.name}</h2>
-        <p>{sneakerCardData.description}</p>
+        <h2>{sneakerData[sneakerCardId - 1 || 0].name}</h2>
+        <p>{sneakerData[sneakerCardId - 1 || 0].description}</p>
         <div className='color-wrapper'>
           <p>Colors</p>
-          {colorArr.flatMap((colorObj) => (
+          {/* {colorArr.flatMap((colorObj) => (
             <div
               className='sneakerCard__colors'
               style={{
@@ -27,7 +28,7 @@ export default function SneakerCard({
                 '--c2': Object.values(colorObj)[0][1],
               }}
             ></div>
-          ))}
+          ))} */}
         </div>
         <div className='size-wrapper'>
           <p>Sizes</p>
@@ -42,7 +43,9 @@ export default function SneakerCard({
             <input type='number'></input>
             <button>+</button>
           </div>
-          <p className='sneakerCard__price'>{sneakerCardData.price}</p>
+          <p className='sneakerCard__price'>
+            {sneakerData[sneakerCardId - 1 || 0].price}
+          </p>
         </div>
         <button className='sneakerCard__btn'>Add to cart</button>
       </div>

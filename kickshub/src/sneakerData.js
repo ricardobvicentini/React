@@ -1,8 +1,18 @@
 export const sneakerData = [
   {
     id: 1,
-    photo: 'assets/images/nike-max-90-black-blue.jpg',
-    altText: 'Nike Air Max 90 Black and Blue',
+    photo: [
+      'assets/images/nike-max-90-black-blue.jpg',
+      'assets/images/nike-max-90-black-white.jpg',
+      'assets/images/nike-max-90-grey-yellow.jpg',
+      'assets/images/nike-max-90-white.jpg',
+    ],
+    altText: [
+      'Nike Air Max 90 Black and Blue',
+      'Nike Air Max 90 Black and White',
+      'Nike Air Max 90 Grey and Yellow',
+      'Nike Air Max 90 White',
+    ],
     name: 'Nike Air Max 90',
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
@@ -16,8 +26,18 @@ export const sneakerData = [
   },
   {
     id: 2,
-    photo: 'assets/images/nike-max-excee-black-white.jpg',
-    altText: 'Nike Air Max Excee Black and White',
+    photo: [
+      'assets/images/nike-max-excee-black-white.jpg',
+      'assets/images/nike-max-excee-white-beige.jpg',
+      'assets/images/nike-max-excee-white-blue.jpg',
+      'assets/images/nike-max-excee-white-yellow.jpg',
+    ],
+    altText: [
+      'Nike Air Max Excee Black and White',
+      'Nike Air Max Excee White and Beige',
+      'Nike Air Max Excee White and Blue',
+      'Nike Air Max Excee White and Yellow',
+    ],
     name: 'Nike Air Max Excee',
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
@@ -31,8 +51,8 @@ export const sneakerData = [
   },
   {
     id: 3,
-    photo: 'assets/images/coming-soon.jpg',
-    altText: 'Coming soon image',
+    photo: ['assets/images/coming-soon.jpg'],
+    altText: ['Coming soon image'],
     name: 'Coming soon',
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
@@ -40,8 +60,8 @@ export const sneakerData = [
   },
   {
     id: 4,
-    photo: 'assets/images/coming-soon.jpg',
-    altText: 'Coming soon image',
+    photo: ['assets/images/coming-soon.jpg'],
+    altText: ['Coming soon image'],
     name: 'Coming soon',
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',

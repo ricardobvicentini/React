@@ -8,7 +8,7 @@ export default function Card({ sneaker, onClickCard, onSetCard, id }) {
       className='card__wrapper'
     >
       <div className='card__img'>
-        <img src={sneaker.photo} alt={sneaker.altText}></img>
+        <img src={sneaker.photo[0]} alt={sneaker.altText[0]}></img>
       </div>
       <div className='card__info'>
         <h2>{sneaker.name}</h2>

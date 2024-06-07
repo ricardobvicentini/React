@@ -8,8 +8,7 @@ import CartTab from './components/CardTab';
 export default function App() {
   const [hidden, setHidden] = useState(true);
   const [showCart, setShowCart] = useState(false);
-  const [sneakerCard, setSneakerCard] = useState([]);
-  const [colorArr, setColorArr] = useState([]);
+  const [sneakerCardId, setSneakerCardId] = useState();
 
   function handleClickCard() {
     setHidden(!hidden);
@@ -20,9 +19,7 @@ export default function App() {
   }
 
   function handleSetCard(id) {
-    const newSneakerData = sneakerData.filter((sneaker) => sneaker.id === id);
-    setSneakerCard(newSneakerData[0]);
-    setColorArr(sneakerData[id - 1].colors);
+    setSneakerCardId(id);
   }
 
   return (
@@ -45,8 +42,7 @@ export default function App() {
       <SneakerCard
         onClickCard={handleClickCard}
         hidden={hidden}
-        sneakerCardData={sneakerCard}
-        colorArr={colorArr}
+        sneakerCardId={sneakerCardId}
       />
       <CartTab onClickCart={handleClickCart} />
       <div className={`overlay ${hidden && 'hidden'}`}></div>
