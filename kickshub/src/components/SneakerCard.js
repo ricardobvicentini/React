@@ -2,10 +2,6 @@ import { sneakerData } from '../sneakerData.js';
 import { useState } from 'react';
 
 export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
-  /* const newSneakerData = sneakerData.filter(
-    (sneaker) => sneaker.id === sneakerCardId
-  ); */
-  console.log(sneakerCardId);
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
@@ -20,7 +16,7 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
         <p>{sneakerData[sneakerCardId - 1 || 0].description}</p>
         <div className='color-wrapper'>
           <p>Colors</p>
-          {/* {colorArr.flatMap((colorObj) => (
+          {sneakerData[sneakerCardId - 1 || 0].colors.flatMap((colorObj) => (
             <div
               className='sneakerCard__colors'
               style={{
@@ -28,7 +24,7 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
                 '--c2': Object.values(colorObj)[0][1],
               }}
             ></div>
-          ))} */}
+          ))}
         </div>
         <div className='size-wrapper'>
           <p>Sizes</p>
