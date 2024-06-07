@@ -16,15 +16,21 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
         <p>{sneakerData[sneakerCardId - 1 || 0].description}</p>
         <div className='color-wrapper'>
           <p>Colors</p>
-          {sneakerData[sneakerCardId - 1 || 0].colors.flatMap((colorObj) => (
-            <div
-              className='sneakerCard__colors'
-              style={{
-                '--c1': Object.values(colorObj)[0][0],
-                '--c2': Object.values(colorObj)[0][1],
-              }}
-            ></div>
-          ))}
+          {sneakerData[sneakerCardId - 1 || 0].colors.flatMap(
+            (colorObj, index) => {
+              const key = Object.keys(colorObj)[0] + '-' + index;
+              return (
+                <div
+                  className='sneakerCard__colors'
+                  style={{
+                    '--c1': Object.values(colorObj)[0][0],
+                    '--c2': Object.values(colorObj)[0][1],
+                  }}
+                  key={key}
+                ></div>
+              );
+            }
+          )}
         </div>
         <div className='size-wrapper'>
           <p>Sizes</p>
