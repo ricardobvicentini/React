@@ -3,6 +3,15 @@ import { useState } from 'react';
 
 export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
   const [colorId, setColorId] = useState(0);
+  const [sizes, setSizes] = useState(sneakerData[sneakerCardId - 1 || 0].sizes);
+
+  console.log(sizes);
+  /* function sizeOptions() {
+    console.log(Object.keys(sneakerData[sneakerCardId - 1].colors[colorId]));
+  }
+
+  sizeOptions(); */
+
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
@@ -12,7 +21,13 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
         ></img>
       </div>
       <div className='sneakerCard__info'>
-        <i onClick={onClickCard} className='bx bx-x-circle'></i>
+        <i
+          onClick={() => {
+            onClickCard();
+            setColorId(0);
+          }}
+          className='bx bx-x-circle'
+        ></i>
         <h2>{sneakerData[sneakerCardId - 1 || 0].name}</h2>
         <p>{sneakerData[sneakerCardId - 1 || 0].description}</p>
         <div className='color-wrapper'>
@@ -39,8 +54,10 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
         <div className='size-wrapper'>
           <p>Sizes</p>
           <p className='sneakerCard__sizes'>
-            <span>36</span> <span>37</span> <span>38</span> <span>39</span>{' '}
-            <span>40</span> <span>41</span> <span>42</span>
+            {sizes.map((size, index) => {
+              const key = size + '-' + index;
+              return <span key={key}>{size}</span>;
+            })}
           </p>
         </div>
         <div className='sneakerCard__quantity-price'>

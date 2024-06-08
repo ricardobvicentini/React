@@ -23,6 +23,7 @@ export const sneakerData = [
       { greyYellow: ['grey', 'yellow'] },
       { white: ['#ffffff', '#ffffff'] },
     ],
+    sizes: [36, 37, 38, 39, 40, 41, 42],
   },
   {
     id: 2,
@@ -30,13 +31,13 @@ export const sneakerData = [
       'assets/images/nike-max-excee-black-white.jpg',
       'assets/images/nike-max-excee-white-beige.jpg',
       'assets/images/nike-max-excee-white-blue.jpg',
-      'assets/images/nike-max-excee-white-yellow.jpg',
+      'assets/images/nike-max-excee-white-orange.jpg',
     ],
     altText: [
       'Nike Air Max Excee Black and White',
       'Nike Air Max Excee White and Beige',
       'Nike Air Max Excee White and Blue',
-      'Nike Air Max Excee White and Yellow',
+      'Nike Air Max Excee White and Orange',
     ],
     name: 'Nike Air Max Excee',
     description:
@@ -46,8 +47,9 @@ export const sneakerData = [
       { blackWhite: ['#000000', '#ffffff'] },
       { whiteBeige: ['#ffffff', 'beige'] },
       { whiteBlue: ['#ffffff', '#22334c'] },
-      { whiteYellow: ['#ffffff', 'yellow'] },
+      { whiteOrange: ['#ffffff', 'orange'] },
     ],
+    sizes: [36, 37, 38, 39, 40, 41, 42],
   },
   {
     id: 3,
@@ -58,6 +60,7 @@ export const sneakerData = [
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
     price: '$ 0.00',
     colors: [{ white: ['#ffffff', '#ffffff'] }],
+    sizes: [36, 37, 38, 39, 40, 41, 42],
   },
 
   /* {

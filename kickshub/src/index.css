@@ -13,6 +13,7 @@ img {
 
 body {
   font-family: system-ui, sans-serif;
+  background-image: linear-gradient(45deg, rgb(252, 218, 155), #c4c4fd);
 }
 
 .app {
@@ -121,8 +122,7 @@ main {
   margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, 20rem);
-
-  place-items: center;
+  justify-content: center;
   gap: 2rem;
   transition: all 500ms ease-in-out;
 }
@@ -205,9 +205,6 @@ main {
     }
   }
   & .color-wrapper {
-    /* display: grid;
-    grid-template-columns: repeat(auto, 1.25rem);
-    grid-template-rows: 1fr 1fr; */
     display: grid;
     grid-template-columns: repeat(auto-fill, 2rem);
     flex-wrap: wrap;
@@ -227,7 +224,7 @@ main {
   }
   & .sneakerCard__sizes {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(auto-fill, 2rem);
   }
   @media (width < 54.68em) {
     flex-direction: column;
