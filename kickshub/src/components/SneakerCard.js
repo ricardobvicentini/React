@@ -2,12 +2,13 @@ import { sneakerData } from '../sneakerData.js';
 import { useState } from 'react';
 
 export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
+  const [colorId, setColorId] = useState(0);
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
         <img
-          src={sneakerData[sneakerCardId - 1 || 0].photo[0]}
-          alt={sneakerData[sneakerCardId - 1 || 0].altText[0]}
+          src={sneakerData[sneakerCardId - 1 || 0].photo[colorId]}
+          alt={sneakerData[sneakerCardId - 1 || 0].altText[colorId]}
         ></img>
       </div>
       <div className='sneakerCard__info'>
@@ -21,6 +22,9 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
               const key = Object.keys(colorObj)[0] + '-' + index;
               return (
                 <div
+                  onClick={() => {
+                    setColorId(index);
+                  }}
                   className='sneakerCard__colors'
                   style={{
                     '--c1': Object.values(colorObj)[0][0],
