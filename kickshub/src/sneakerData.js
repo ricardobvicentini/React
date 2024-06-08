@@ -57,16 +57,9 @@ export const sneakerData = [
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
     price: '$ 0.00',
+    colors: [{ white: ['#ffffff', '#ffffff'] }],
   },
-  {
-    id: 4,
-    photo: ['assets/images/coming-soon.jpg'],
-    altText: ['Coming soon image'],
-    name: 'Coming soon',
-    description:
-      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-    price: '$ 0.00',
-  },
+
   /* {
     id: 5,
     photo: 'assets/images/coming-soon.jpg',

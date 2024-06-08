@@ -120,7 +120,8 @@ main {
   width: min(75rem, 80vw);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, 20rem);
+
   place-items: center;
   gap: 2rem;
   transition: all 500ms ease-in-out;

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Card from './components/Card';
 import SneakerCard from './components/SneakerCard';
-import CartTab from './components/CardTab';
+import CartTab from './components/CartTab';
 
 export default function App() {
   const [hidden, setHidden] = useState(true);
