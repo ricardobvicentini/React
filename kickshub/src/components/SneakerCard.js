@@ -12,6 +12,14 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
   const colors = selectedSneakerData
     .slice(1, selectedSneakerData.length - 4)
     .map((colorObj) => colorObj.color);
+  const sizes = selectedSneakerData
+    .slice(1, selectedSneakerData.length - 4)
+    .map((sizeObj) => sizeObj.sizes);
+
+  /* console.log(sneakerData[sneakerCardId - 1 || 0].allSizes); */
+
+  const unitSize = sizes[colorId].flatMap((unit) => unit);
+  console.log(unitSize);
 
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
@@ -50,10 +58,9 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
         <div className='size-wrapper'>
           <p>Sizes</p>
           <p className='sneakerCard__sizes'>
-            {/* {sizes.map((size, index) => {
-              const key = size + '-' + index;
-              return <span key={key}>{size}</span>;
-            })} */}
+            {sizes[colorId].flatMap((unit, index) => (
+              <span key={index + colorId}>{unit}</span>
+            ))}
           </p>
         </div>
         <div className='sneakerCard__quantity-price'>

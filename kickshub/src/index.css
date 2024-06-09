@@ -253,6 +253,10 @@ main {
   pointer-events: none;
 }
 
+.strike-off {
+  text-decoration: line-through;
+}
+
 .hidden {
   display: none;
 }

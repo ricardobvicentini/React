@@ -43,13 +43,13 @@ export const sneakerData = [
       img: 'assets/images/nike-max-excee-white-beige.jpg',
       altText: 'Nike Air Max Excee White and Beige',
       color: ['#ffffff', 'beige'],
-      sizes: [36, 37, 38, 39, 40, 41, 42],
+      sizes: [38, 39, 40, 41, 42],
     },
     whiteBlue: {
       img: 'assets/images/nike-max-excee-white-blue.jpg',
       altText: 'Nike Air Max Excee White and Blue',
       color: ['#ffffff', '#22334c'],
-      sizes: [36, 37, 38, 39, 40, 41, 42],
+      sizes: [37, 38, 39, 40, 41, 42],
     },
     whiteOrange: {
       img: 'assets/images/nike-max-excee-white-orange.jpg',
