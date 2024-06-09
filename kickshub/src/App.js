@@ -1,4 +1,4 @@
-import { sneakerData } from './sneakerData';
+import { sneakerData } from './sneakerData.js';
 import { useState } from 'react';
 import Header from './components/Header';
 import Card from './components/Card';
@@ -13,13 +13,11 @@ export default function App() {
   function handleClickCard() {
     setHidden(!hidden);
   }
-
-  function handleClickCart() {
-    setShowCart(!showCart);
-  }
-
   function handleSetCard(id) {
     setSneakerCardId(id);
+  }
+  function handleClickCart() {
+    setShowCart(!showCart);
   }
 
   return (

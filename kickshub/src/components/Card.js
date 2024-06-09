@@ -1,4 +1,6 @@
 export default function Card({ sneaker, onClickCard, onSetCard, id }) {
+  const firstImg = Object.keys(sneaker)[1];
+
   return (
     <div
       onClick={() => {
@@ -8,7 +10,7 @@ export default function Card({ sneaker, onClickCard, onSetCard, id }) {
       className='card__wrapper'
     >
       <div className='card__img'>
-        <img src={sneaker.photo[0]} alt={sneaker.altText[0]}></img>
+        <img src={sneaker[firstImg].img} alt={sneaker[firstImg].altText}></img>
       </div>
       <div className='card__info'>
         <h2>{sneaker.name}</h2>

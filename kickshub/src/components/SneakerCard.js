@@ -3,22 +3,20 @@ import { useState } from 'react';
 
 export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
   const [colorId, setColorId] = useState(0);
-  const [sizes, setSizes] = useState(sneakerData[sneakerCardId - 1 || 0].sizes);
 
-  console.log(sizes);
-  /* function sizeOptions() {
-    console.log(Object.keys(sneakerData[sneakerCardId - 1].colors[colorId]));
-  }
+  const selectedSneakerData = Object.values(
+    sneakerData[sneakerCardId - 1 || 0]
+  );
 
-  sizeOptions(); */
+  const image = selectedSneakerData[colorId + 1];
+  const colors = selectedSneakerData
+    .slice(1, selectedSneakerData.length - 4)
+    .map((colorObj) => colorObj.color);
 
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
       <div className='sneakerCard__img'>
-        <img
-          src={sneakerData[sneakerCardId - 1 || 0].photo[colorId]}
-          alt={sneakerData[sneakerCardId - 1 || 0].altText[colorId]}
-        ></img>
+        <img src={image.img} alt={image.altText}></img>
       </div>
       <div className='sneakerCard__info'>
         <i
@@ -32,32 +30,30 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
         <p>{sneakerData[sneakerCardId - 1 || 0].description}</p>
         <div className='color-wrapper'>
           <p>Colors</p>
-          {sneakerData[sneakerCardId - 1 || 0].colors.flatMap(
-            (colorObj, index) => {
-              const key = Object.keys(colorObj)[0] + '-' + index;
-              return (
-                <div
-                  onClick={() => {
-                    setColorId(index);
-                  }}
-                  className='sneakerCard__colors'
-                  style={{
-                    '--c1': Object.values(colorObj)[0][0],
-                    '--c2': Object.values(colorObj)[0][1],
-                  }}
-                  key={key}
-                ></div>
-              );
-            }
-          )}
+          {colors.map((colorObj, index) => {
+            const key = colorObj + '-' + index;
+            return (
+              <div
+                onClick={() => {
+                  setColorId(index);
+                }}
+                className='sneakerCard__colors'
+                style={{
+                  '--c1': colorObj[0],
+                  '--c2': colorObj[1],
+                }}
+                key={key}
+              ></div>
+            );
+          })}
         </div>
         <div className='size-wrapper'>
           <p>Sizes</p>
           <p className='sneakerCard__sizes'>
-            {sizes.map((size, index) => {
+            {/* {sizes.map((size, index) => {
               const key = size + '-' + index;
               return <span key={key}>{size}</span>;
-            })}
+            })} */}
           </p>
         </div>
         <div className='sneakerCard__quantity-price'>
