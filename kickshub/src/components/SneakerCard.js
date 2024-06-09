@@ -7,7 +7,6 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
   const selectedSneakerData = Object.values(
     sneakerData[sneakerCardId - 1 || 0]
   );
-
   const image = selectedSneakerData[colorId + 1];
   const colors = selectedSneakerData
     .slice(1, selectedSneakerData.length - 4)
@@ -16,10 +15,9 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
     .slice(1, selectedSneakerData.length - 4)
     .map((sizeObj) => sizeObj.sizes);
 
-  /* console.log(sneakerData[sneakerCardId - 1 || 0].allSizes); */
-
-  const unitSize = sizes[colorId].flatMap((unit) => unit);
-  console.log(unitSize);
+  const allSizes = sneakerData[sneakerCardId - 1 || 0].allSizes;
+  const sizeOptions = sizes[colorId].flatMap((unit) => unit);
+  const strikeOffSizes = allSizes.filter((size) => !sizeOptions.includes(size));
 
   return (
     <div className={`sneakerCard ${hidden && 'hidden'}`}>
@@ -58,8 +56,17 @@ export default function SneakerCard({ hidden, onClickCard, sneakerCardId }) {
         <div className='size-wrapper'>
           <p>Sizes</p>
           <p className='sneakerCard__sizes'>
-            {sizes[colorId].flatMap((unit, index) => (
-              <span key={index + colorId}>{unit}</span>
+            {allSizes.map((size, index) => (
+              <span
+                style={
+                  strikeOffSizes.includes(size)
+                    ? { textDecoration: 'line-through' }
+                    : {}
+                }
+                key={index}
+              >
+                {size}
+              </span>
             ))}
           </p>
         </div>
