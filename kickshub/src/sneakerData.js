@@ -65,6 +65,40 @@ export const sneakerData = [
   },
   {
     id: 3,
+    black: {
+      img: 'assets/images/reebok-classic-black.jpg',
+      altText: 'Reebok Classic Black',
+      color: ['#000000', '#000000'],
+      sizes: [36, 37, 38, 39, 40],
+    },
+    grey: {
+      img: 'assets/images/reebok-classic-grey.jpg',
+      altText: 'Reebok Classic Grey',
+      color: ['grey', 'grey'],
+      sizes: [37, 38, 39, 40, 41, 42],
+    },
+    name: 'Reebok Classic',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    price: '$ 175.00',
+    allSizes: [36, 37, 38, 39, 40, 41, 42],
+  },
+  {
+    id: 4,
+    comingSoon: {
+      img: 'assets/images/coming-soon.jpg',
+      altText: 'Coming soon image',
+      color: ['#ffffff', '#ffffff'],
+      sizes: [36, 37, 38, 39, 40, 41, 42],
+    },
+    name: 'Coming soon',
+    description:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    price: '$ 0.00',
+    allSizes: [36, 37, 38, 39, 40, 41, 42],
+  },
+  {
+    id: 5,
     comingSoon: {
       img: 'assets/images/coming-soon.jpg',
       altText: 'Coming soon image',
