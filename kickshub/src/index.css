@@ -34,6 +34,33 @@ header {
     width: 10rem;
   }
   & .search-icon {
+    width: min(30rem, 40%);
+    & .search {
+      width: 100%;
+      display: flex;
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      & .search__input {
+        flex-grow: 1;
+        border: none;
+        outline: none;
+        padding: 0.5em 1em;
+        font-size: 1rem;
+        border-right: 1px solid #ddd;
+      }
+      & button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        padding-inline: 0.5em;
+      }
+    }
+  }
+  /* & .search-icon {
+    outline: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,29 +81,30 @@ header {
         font-size: 1.5em;
       }
     }
-    & .icon-cart {
-      position: relative;
-      pointer-events: auto;
-      cursor: pointer;
-      & i {
-        font-size: 3rem;
-        /* pointer-events: auto;
+  } */
+}
+
+.icon-cart {
+  position: relative;
+  pointer-events: auto;
+  cursor: pointer;
+  & i {
+    font-size: 3rem;
+    /* pointer-events: auto;
         cursor: pointer; */
-      }
-      & span {
-        position: absolute;
-        background-color: red;
-        top: 50%;
-        right: -0.5em;
-        width: 1.75em;
-        aspect-ratio: 1;
-        border-radius: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-      }
-    }
+  }
+  & span {
+    position: absolute;
+    background-color: red;
+    top: 50%;
+    right: -0.5em;
+    width: 1.75em;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
   }
 }
 
@@ -122,7 +150,7 @@ main {
   margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, 20rem);
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 2rem;
   transition: all 500ms ease-in-out;
 }
