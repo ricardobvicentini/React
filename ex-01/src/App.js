@@ -1,18 +1,30 @@
-/* import { data } from './data';
-import { useState } from 'react'; */
+import { data } from './data';
+import { useState } from 'react';
 
 function App() {
+  const [showCart, setShowCart] = useState(false);
+  const [itemId, setItemId] = useState(1);
+
+  function handleSetId(id) {
+    setItemId(id);
+  }
+
+  function handleClickCart() {
+    setShowCart(!showCart);
+  }
+
   return (
-    <div className='App'>
-      <Header />
+    <div className={`app ${showCart && 'active-cart'}`}>
+      <Header onClickCart={handleClickCart} />
       <main>
-        <SneakerCard />
+        <SneakerCard onSetId={handleSetId} id={itemId} />
       </main>
+      <CartTab onClickCart={handleClickCart} />
     </div>
   );
 }
 
-function Header() {
+function Header({ onClickCart }) {
   return (
     <header>
       <div className='logo'>
@@ -22,7 +34,7 @@ function Header() {
         ></img>
       </div>
 
-      <div className='icon-cart'>
+      <div onClick={onClickCart} className='icon-cart'>
         <i className='bx bx-cart'></i>
         <span>0</span>
       </div>
@@ -30,27 +42,36 @@ function Header() {
   );
 }
 
-function SneakerCard() {
+function SneakerCard({ onSetId, id }) {
   return (
     <div className='sneakerCard'>
       <div className='sneakerCard__img'>
-        <img
-          src='assets/images/nike-max-90-black-blue.jpg'
-          alt='Nike Air Max 90 Black and Blue'
-        ></img>
+        <img src={data[id - 1].img} alt={data[id - 1].altText}></img>
       </div>
       <div className='sneakerCard__info'>
-        <h2>Name</h2>
-        <p>Description</p>
+        <h2>{data[id - 1].name}</h2>
+        <p>{data[id - 1].description}</p>
         <div className='color-wrapper'>
           <p>Colors</p>
-
-          <div className='sneakerCard__colors'></div>
+          {data.map((item, index) => (
+            <div
+              onClick={() => onSetId(item.id)}
+              className='sneakerCard__colors'
+              style={{
+                '--c1': item.color[0],
+                '--c2': item.color[1],
+              }}
+              key={item.id + '-' + index}
+            ></div>
+          ))}
         </div>
         <div className='size-wrapper'>
           <p>Sizes</p>
           <p className='sneakerCard__sizes'>
-            <span></span>
+            {data[id - 1].sizes.map((size) => {
+              console.log(size);
+              return <span>{size}</span>;
+            })}
           </p>
         </div>
         <div className='sneakerCard__quantity-price'>
@@ -59,9 +80,22 @@ function SneakerCard() {
             <input type='number'></input>
             <button>+</button>
           </div>
-          <p className='sneakerCard__price'>Price</p>
+          <p className='sneakerCard__price'>{data[id - 1].price}</p>
         </div>
         <button className='sneakerCard__btn'>Add to cart</button>
+      </div>
+    </div>
+  );
+}
+
+function CartTab({ onClickCart }) {
+  return (
+    <div className='cart-tab'>
+      <h2>Shopping Cart</h2>
+      <div className='cart-tab__products'>Items here</div>
+      <div className='cart-tab__btns'>
+        <button onClick={onClickCart}>Close</button>
+        <button>Check Out</button>
       </div>
     </div>
   );

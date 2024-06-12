@@ -25,11 +25,11 @@ header {
   width: min(75rem, 80vw);
   margin-inline: auto;
   padding-block: 2rem;
-  margin-bottom: 2rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
   & .logo {
     width: 10rem;
   }
@@ -83,15 +83,60 @@ header {
   }
 }
 
+.cart-tab {
+  position: fixed;
+  top: 0;
+  right: -23.43em;
+  bottom: 0;
+  width: min(23.43rem, 100%);
+  background-color: #353432;
+  color: #fff;
+  display: grid;
+  grid-template-rows: 4.375rem 1fr 4.375rem;
+  transition: all 500ms ease-in-out;
+  & h2 {
+    padding: 1.25em;
+    margin: 0;
+  }
+  & .cart-tab__products {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+  }
+  & .cart-tab__btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    & button {
+      border: none;
+      font-weight: 700;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background-color 300ms ease-in-out;
+      &:hover {
+        background-color: #f1ebeb;
+      }
+      &:last-child {
+        background-color: orange;
+        &:hover {
+          background-color: rgb(206, 138, 11);
+        }
+      }
+    }
+  }
+}
+
 main {
   width: min(75rem, 80vw);
   min-height: 100vh;
   margin-inline: auto;
   display: grid;
   place-items: center;
+  transition: transform 500ms ease-in-out;
 }
 
 .sneakerCard {
+  max-width: 50rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -100,6 +145,15 @@ main {
   border-radius: 10px;
   padding: 2em;
   pointer-events: auto;
+  & .sneakerCard__img {
+    max-width: 20rem;
+    aspect-ratio: 1;
+  }
+  & .sneakerCard__info {
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+  }
   .size-wrapper {
     & p {
       font-weight: 700;
@@ -140,13 +194,28 @@ main {
   }
   .sneakerCard__btn {
     align-self: center;
-    width: 100%;
+    width: 50%;
     padding: 1em 1.5em;
     background-color: #000;
     color: #fff;
     border: none;
     border-radius: 5px;
     margin-inline: auto;
+    text-transform: uppercase;
     cursor: pointer;
   }
+}
+
+/* Utility */
+.hidden {
+  display: none;
+}
+
+.app.active-cart .cart-tab {
+  right: 0;
+}
+
+.app.active-cart header,
+.app.active-cart main {
+  transform: translateX(-6rem);
 }
