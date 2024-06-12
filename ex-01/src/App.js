@@ -17,7 +17,7 @@ function Header() {
     <header>
       <div className='logo'>
         <img
-          src='./assets/images/sneaker-logo.png'
+          src='assets/images/sneaker-logo.png'
           alt='Sneaker with wings'
         ></img>
       </div>
@@ -35,7 +35,7 @@ function SneakerCard() {
     <div className='sneakerCard'>
       <div className='sneakerCard__img'>
         <img
-          src='./assets/images/nike-max-90-black-blue.jpg'
+          src='assets/images/nike-max-90-black-blue.jpg'
           alt='Nike Air Max 90 Black and Blue'
         ></img>
       </div>
