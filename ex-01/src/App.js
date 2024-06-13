@@ -43,7 +43,7 @@ function Header({ onClickCart, cartActive }) {
 }
 
 function SneakerCard({ onSetId, id, cartActive }) {
-  const [quantityByColor, setQuantityByColor] = useState({});
+  /* const [quantityByColor, setQuantityByColor] = useState({}); */
 
   return (
     <div
@@ -85,7 +85,8 @@ function SneakerCard({ onSetId, id, cartActive }) {
             <button>
               <i className='bx bx-minus-circle'></i>
             </button>
-            <span>{data[id - 1].quantity}</span>
+            <span>0</span>
+
             <button>
               <i className='bx bx-plus-circle'></i>
             </button>
