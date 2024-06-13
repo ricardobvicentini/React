@@ -43,6 +43,8 @@ function Header({ onClickCart, cartActive }) {
 }
 
 function SneakerCard({ onSetId, id, cartActive }) {
+  const [quantityByColor, setQuantityByColor] = useState({});
+
   return (
     <div
       className='sneakerCard'
@@ -58,7 +60,9 @@ function SneakerCard({ onSetId, id, cartActive }) {
           <p>Colors</p>
           {data.map((item, index) => (
             <div
-              onClick={() => onSetId(item.id)}
+              onClick={() => {
+                onSetId(item.id);
+              }}
               className='sneakerCard__colors'
               style={{
                 '--c1': item.color[0],
@@ -72,7 +76,6 @@ function SneakerCard({ onSetId, id, cartActive }) {
           <p>Sizes</p>
           <p className='sneakerCard__sizes'>
             {data[id - 1].sizes.map((size) => {
-              console.log(size);
               return <span>{size}</span>;
             })}
           </p>
@@ -80,11 +83,11 @@ function SneakerCard({ onSetId, id, cartActive }) {
         <div className='sneakerCard__quantity-price'>
           <div className='quantity__wrapper'>
             <button>
-              <i class='bx bx-minus-circle'></i>
+              <i className='bx bx-minus-circle'></i>
             </button>
-            <input type='text' value={0}></input>
+            <span>{data[id - 1].quantity}</span>
             <button>
-              <i class='bx bx-plus-circle'></i>
+              <i className='bx bx-plus-circle'></i>
             </button>
           </div>
           <p className='sneakerCard__price'>${data[id - 1].price}</p>
