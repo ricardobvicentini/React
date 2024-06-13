@@ -15,18 +15,18 @@ function App() {
 
   return (
     <div className={`app ${showCart && 'active-cart'}`}>
-      <Header onClickCart={handleClickCart} />
+      <Header onClickCart={handleClickCart} cartActive={showCart} />
       <main>
-        <SneakerCard onSetId={handleSetId} id={itemId} />
+        <SneakerCard onSetId={handleSetId} id={itemId} cartActive={showCart} />
       </main>
       <CartTab onClickCart={handleClickCart} />
     </div>
   );
 }
 
-function Header({ onClickCart }) {
+function Header({ onClickCart, cartActive }) {
   return (
-    <header>
+    <header style={{ pointerEvents: cartActive ? 'none' : 'auto' }}>
       <div className='logo'>
         <img
           src='assets/images/sneaker-logo.png'
@@ -42,9 +42,12 @@ function Header({ onClickCart }) {
   );
 }
 
-function SneakerCard({ onSetId, id }) {
+function SneakerCard({ onSetId, id, cartActive }) {
   return (
-    <div className='sneakerCard'>
+    <div
+      className='sneakerCard'
+      style={{ pointerEvents: cartActive ? 'none' : 'auto' }}
+    >
       <div className='sneakerCard__img'>
         <img src={data[id - 1].img} alt={data[id - 1].altText}></img>
       </div>
@@ -76,11 +79,15 @@ function SneakerCard({ onSetId, id }) {
         </div>
         <div className='sneakerCard__quantity-price'>
           <div className='quantity__wrapper'>
-            <button>-</button>
-            <input type='number'></input>
-            <button>+</button>
+            <button>
+              <i class='bx bx-minus-circle'></i>
+            </button>
+            <input type='text' value={0}></input>
+            <button>
+              <i class='bx bx-plus-circle'></i>
+            </button>
           </div>
-          <p className='sneakerCard__price'>{data[id - 1].price}</p>
+          <p className='sneakerCard__price'>${data[id - 1].price}</p>
         </div>
         <button className='sneakerCard__btn'>Add to cart</button>
       </div>

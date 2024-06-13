@@ -36,7 +36,7 @@ export const data = [
     name: 'Nike Air Max 90 - Black/Blue',
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-    price: '$150.00',
+    price: 150.99,
     img: 'assets/images/nike-max-90-black-blue.jpg',
     altText: 'Nike Air Max 90 Black and Blue',
     color: ['#000000', '#22334c'],
@@ -47,7 +47,7 @@ export const data = [
     name: 'Nike Air Max 90 - Black/White',
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-    price: '$140.00',
+    price: 140.99,
     img: 'assets/images/nike-max-90-black-white.jpg',
     altText: 'Nike Air Max 90 Black and White',
     color: ['#000000', '#ffffff'],
@@ -58,7 +58,7 @@ export const data = [
     name: 'Nike Air Max 90 - Grey/Yellow',
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-    price: '$150.00',
+    price: 150.99,
     img: 'assets/images/nike-max-90-grey-yellow.jpg',
     altText: 'Nike Air Max 90 Grey and Yellow',
     color: ['grey', 'yellow'],
@@ -69,7 +69,7 @@ export const data = [
     name: 'Nike Air Max 90 - White',
     description:
       'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-    price: '$130.00',
+    price: 130.99,
     img: 'assets/images/nike-max-90-white.jpg',
     altText: 'Nike Air Max 90 White',
     color: ['#ffffff', '#ffffff'],
