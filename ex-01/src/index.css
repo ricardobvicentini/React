@@ -190,7 +190,7 @@ main {
       width: 40%;
       display: flex;
       justify-content: space-between;
-      & span {
+      & input {
         width: 3rem;
         background: none;
         border: none;

@@ -43,7 +43,17 @@ function Header({ onClickCart, cartActive }) {
 }
 
 function SneakerCard({ onSetId, id, cartActive }) {
-  /* const [quantityByColor, setQuantityByColor] = useState({}); */
+  const [quantityByColor, setQuantityByColor] = useState(0);
+
+  function handleIncrementQty() {
+    setQuantityByColor(quantityByColor + 1);
+  }
+
+  function handleDecrementQty() {
+    setQuantityByColor(
+      quantityByColor > 0 ? quantityByColor - 1 : quantityByColor
+    );
+  }
 
   return (
     <div
@@ -82,12 +92,11 @@ function SneakerCard({ onSetId, id, cartActive }) {
         </div>
         <div className='sneakerCard__quantity-price'>
           <div className='quantity__wrapper'>
-            <button>
+            <button onClick={handleDecrementQty}>
               <i className='bx bx-minus-circle'></i>
             </button>
-            <span>0</span>
-
-            <button>
+            <input type='text' value={quantityByColor}></input>
+            <button onClick={handleIncrementQty}>
               <i className='bx bx-plus-circle'></i>
             </button>
           </div>
