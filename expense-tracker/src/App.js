@@ -5,7 +5,7 @@ import IncomeExpenses from './components/IncomeExpenses';
 import TransactionList from './components/TransactionList';
 import AddTransaction from './components/AddTransaction';
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Header />
@@ -17,6 +17,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
