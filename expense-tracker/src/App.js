@@ -9,21 +9,37 @@ import AddTransaction from './components/AddTransaction';
 const App = () => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState(0);
-  const [historyItem, setHistoryItem] = useState([]);
+  const [historyList, setHistoryList] = useState([]);
 
-  console.log(text, amount);
+  const handleAddItem = (e) => {
+    e.preventDefault();
+    const newItem = {
+      id:
+        historyList.length === 0
+          ? 1
+          : historyList[historyList.length - 1].id + 1,
+      description: text,
+      amount: amount,
+    };
+
+    setHistoryList((prevHistoryList) => [...prevHistoryList, newItem]);
+    setText('');
+    setAmount('');
+  };
+
   return (
     <div className='App'>
       <Header />
       <div className='container'>
         <Balance />
         <IncomeExpenses />
-        <TransactionList />
+        <TransactionList historyList={historyList} />
         <AddTransaction
           text={text}
           setText={setText}
           amount={amount}
           setAmount={setAmount}
+          onAddItem={handleAddItem}
         />
       </div>
     </div>

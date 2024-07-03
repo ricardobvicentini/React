@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react'; */
 
-const AddTransaction = ({ text, amount, setText, setAmount }) => {
+const AddTransaction = ({ text, amount, setText, setAmount, onAddItem }) => {
   /* const [text, setText] = useState('');
   const [amount, setAmount] = useState(0); */
-
-  console.log(text, amount);
 
   return (
     <>
       <h3>Add new transaction</h3>
-      <form>
+      <form onSubmit={onAddItem}>
         <div className='form-control'>
           <label htmlFor='text'>Text</label>
           <input
