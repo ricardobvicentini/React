@@ -1,6 +1,6 @@
-import React from 'react';
+/* import React, { useState } from 'react'; */
 
-const IncomeExpenses = () => {
+const IncomeExpenses = ({ historyList }) => {
   return (
     <div className='inc-exp-container'>
       <div>

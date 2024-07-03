@@ -37,7 +37,7 @@ const App = () => {
       <Header />
       <div className='container'>
         <Balance />
-        <IncomeExpenses />
+        <IncomeExpenses historyList={historyList} />
         <TransactionList
           historyList={historyList}
           onDeleteItem={handleDeleteItem}
