@@ -21,10 +21,15 @@ const App = () => {
       description: text,
       amount: amount,
     };
-
-    setHistoryList((prevHistoryList) => [...prevHistoryList, newItem]);
+    newItem.description &&
+      newItem.amount &&
+      setHistoryList((prevHistoryList) => [...prevHistoryList, newItem]);
     setText('');
     setAmount('');
+  };
+
+  const handleDeleteItem = (id) => {
+    setHistoryList(historyList.filter((delItem) => delItem.id !== id));
   };
 
   return (
@@ -33,7 +38,10 @@ const App = () => {
       <div className='container'>
         <Balance />
         <IncomeExpenses />
-        <TransactionList historyList={historyList} />
+        <TransactionList
+          historyList={historyList}
+          onDeleteItem={handleDeleteItem}
+        />
         <AddTransaction
           text={text}
           setText={setText}
