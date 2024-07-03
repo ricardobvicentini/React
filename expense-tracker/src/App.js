@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Balance from './components/Balance';
@@ -6,6 +7,11 @@ import TransactionList from './components/TransactionList';
 import AddTransaction from './components/AddTransaction';
 
 const App = () => {
+  const [text, setText] = useState('');
+  const [amount, setAmount] = useState(0);
+  const [historyItem, setHistoryItem] = useState([]);
+
+  console.log(text, amount);
   return (
     <div className='App'>
       <Header />
@@ -13,7 +19,12 @@ const App = () => {
         <Balance />
         <IncomeExpenses />
         <TransactionList />
-        <AddTransaction />
+        <AddTransaction
+          text={text}
+          setText={setText}
+          amount={amount}
+          setAmount={setAmount}
+        />
       </div>
     </div>
   );

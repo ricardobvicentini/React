@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const AddTransaction = () => {
-  const [text, setText] = useState('');
-  const [amount, setAmount] = useState(0);
+const AddTransaction = ({ text, amount, setText, setAmount }) => {
+  /* const [text, setText] = useState('');
+  const [amount, setAmount] = useState(0); */
 
   console.log(text, amount);
 
