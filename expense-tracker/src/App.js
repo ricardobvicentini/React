@@ -18,8 +18,7 @@ const App = () => {
 
   const expenses = historyList
     .filter((item) => item.amount < 0)
-    .reduce((acc, item) => acc + item.amount, 0)
-    .toFixed(2);
+    .reduce((acc, item) => acc + item.amount, 0);
 
   const handleAddItem = (e) => {
     e.preventDefault();
@@ -46,7 +45,7 @@ const App = () => {
     <div className='App'>
       <Header />
       <div className='container'>
-        <Balance />
+        <Balance income={income} expenses={expenses} />
         <IncomeExpenses income={income} expenses={expenses} />
         <TransactionList
           historyList={historyList}

@@ -9,7 +9,7 @@ const IncomeExpenses = ({ income, expenses }) => {
       </div>
       <div>
         <h4>Expenses</h4>
-        <p className='money minus'>-${expenses}</p>
+        <p className='money minus'>-${Math.abs(expenses).toFixed(2)}</p>
       </div>
     </div>
   );
