@@ -1,16 +1,6 @@
 /* import React, { useState } from 'react'; */
 
-const IncomeExpenses = ({ historyList }) => {
-  const income = historyList
-    .filter((item) => item.amount > 0)
-    .reduce((acc, item) => acc + item.amount, 0)
-    .toFixed(2);
-
-  const expenses = historyList
-    .filter((item) => item.amount < 0)
-    .reduce((acc, item) => acc + item.amount, 0)
-    .toFixed(2);
-
+const IncomeExpenses = ({ income, expenses }) => {
   return (
     <div className='inc-exp-container'>
       <div>

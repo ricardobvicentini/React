@@ -11,6 +11,16 @@ const App = () => {
   const [amount, setAmount] = useState(0);
   const [historyList, setHistoryList] = useState([]);
 
+  const income = historyList
+    .filter((item) => item.amount > 0)
+    .reduce((acc, item) => acc + item.amount, 0)
+    .toFixed(2);
+
+  const expenses = historyList
+    .filter((item) => item.amount < 0)
+    .reduce((acc, item) => acc + item.amount, 0)
+    .toFixed(2);
+
   const handleAddItem = (e) => {
     e.preventDefault();
     const newItem = {
@@ -37,7 +47,7 @@ const App = () => {
       <Header />
       <div className='container'>
         <Balance />
-        <IncomeExpenses historyList={historyList} />
+        <IncomeExpenses income={income} expenses={expenses} />
         <TransactionList
           historyList={historyList}
           onDeleteItem={handleDeleteItem}
