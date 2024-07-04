@@ -19,7 +19,7 @@ const App = () => {
           ? 1
           : historyList[historyList.length - 1].id + 1,
       description: text,
-      amount: amount,
+      amount: +amount,
     };
     newItem.description &&
       newItem.amount &&
