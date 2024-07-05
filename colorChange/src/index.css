@@ -7,6 +7,9 @@
 }
 
 :root {
+  --light: 0%;
+  --primary: hsl(240, 20%, calc(var(--light) - 30%));
+  --primary-highlight: hsl(240, 20%, calc(var(--light) + 20%));
 }
 
 img {
@@ -19,9 +22,9 @@ body {
 }
 
 .app {
-  --light: 50%;
+  /*  --light: 50%;
   --primary: oklch(calc(var(--light) - 20%) 0.2 210);
-  --primary-highlight: oklch(var(--light) 0.2 210);
+  --primary-highlight: oklch(var(--light) 0.2 210); */
 
   min-height: 100vh;
   position: relative;

@@ -1,35 +1,32 @@
 import { useState } from 'react';
 
 function App() {
-  const [light, setLight] = useState(50);
+  const [light, setLight] = useState(0);
 
-  function handleColorChange(e) {
-    setLight(parseInt(e.target.value));
-  }
-
-  const colorStyle = `${light}%`;
   console.log(light);
 
+  const handleColorChange = (e) => {
+    setLight(e.target.value);
+    document.documentElement.style.setProperty('--light', `${light}%`);
+  };
+
   return (
-    <div className='app' style={{ '--light': colorStyle }}>
-      <Header light={light} onChangeColor={handleColorChange} />
-      <h1 style={{ color: `oklch(${colorStyle}% 0 0)` }}>
-        Color change sample
-      </h1>
+    <div className='app' /* style={{ '--light': colorStyle }} */>
+      <Header onColorChange={handleColorChange} light={light} />
+      <h1>Color change sample</h1>
     </div>
   );
 }
 
-function Header({ light, onChangeColor }) {
-  console.log(light);
+function Header({ light, onColorChange }) {
   return (
     <header>
       <input
-        onChange={onChangeColor}
+        onChange={onColorChange}
         type='range'
         value={light}
-        min='50'
-        max='70'
+        min='0'
+        max='100'
         id='light'
       />
     </header>
