@@ -8,6 +8,7 @@
 
 :root {
   --light: 0%;
+  --textColor: hwb(0 calc(100% - var(--light)) var(--light));
   --primary: hsl(240, 20%, calc(var(--light) - 30%));
   --primary-highlight: hsl(240, 20%, calc(var(--light) + 20%));
 }
@@ -22,10 +23,6 @@ body {
 }
 
 .app {
-  /*  --light: 50%;
-  --primary: oklch(calc(var(--light) - 20%) 0.2 210);
-  --primary-highlight: oklch(var(--light) 0.2 210); */
-
   min-height: 100vh;
   position: relative;
   display: grid;
@@ -36,6 +33,10 @@ body {
     var(--primary-highlight),
     var(--primary)
   );
+}
+
+h1 {
+  color: var(--textColor);
 }
 
 header {
