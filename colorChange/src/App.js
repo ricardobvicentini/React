@@ -26,7 +26,7 @@ function Header({ light, onColorChange }) {
         type='range'
         value={light}
         min='0'
-        max='2'
+        max='100'
         id='light'
       />
     </header>
