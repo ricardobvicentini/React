@@ -8,7 +8,7 @@
 
 :root {
   --light: 0%;
-  --textColor: hwb(0 calc(100% - var(--light)) var(--light));
+  --textColor: hsl(0, 0%, calc(100% - var(--light)));
   --primary: hsl(240, 20%, calc(var(--light) - 30%));
   --primary-highlight: hsl(240, 20%, calc(var(--light) + 20%));
 }

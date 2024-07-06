@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <div className='app' /* style={{ '--light': colorStyle }} */>
+    <div className='app'>
       <Header onColorChange={handleColorChange} light={light} />
       <h1>Color change sample</h1>
     </div>
