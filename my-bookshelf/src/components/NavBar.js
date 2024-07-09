@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <nav className='navbar fixed-top bg-body-tertiary'>
       <div className='container-sm'>
-        <a className='navbar-brand' href='/'>
+        <a className='navbar-brand mx-0' href='/'>
           My Book<span style={{ color: 'red' }}>s</span>helf
         </a>
         <form className='d-flex' role='search'>
