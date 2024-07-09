@@ -1,14 +1,12 @@
-import './App.css';
-import bookData from './bookData';
+import NavBar from './components/NavBar';
+/* import bookData from './bookData'; */
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
-      <h1>
-        Hello MyBook<span>s</span>helf
-      </h1>
+      <NavBar />
     </div>
   );
-}
+};
 
 export default App;
