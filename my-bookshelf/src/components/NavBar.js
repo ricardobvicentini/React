@@ -30,7 +30,8 @@ const NavBar = () => {
             </div>
           </div>
         </form>
-        <button className='btn btn-outline-warning' type='submit'>
+
+        <button className='btn btn-warning dropdown-toggle' type='button'>
           <FaFilter />
         </button>
       </div>
