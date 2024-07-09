@@ -1,3 +1,5 @@
+import { FaSearch, FaFilter } from 'react-icons/fa';
+
 const NavBar = () => {
   return (
     <nav className='navbar fixed-top bg-body-tertiary'>
@@ -6,16 +8,31 @@ const NavBar = () => {
           My Book<span style={{ color: 'red' }}>s</span>helf
         </a>
         <form className='d-flex' role='search'>
-          <input
+          {/* <input
             className='form-control me-2'
             type='search'
             placeholder='Search'
             aria-label='Search'
           />
-          <button className='btn btn-outline-success' type='submit'>
+          <button className='btn btn-outline-warning' type='submit'>
             Search
-          </button>
+          </button> */}
+          <div class='input-group'>
+            <input
+              type='text'
+              className='form-control'
+              placeholder='Search...'
+              aria-label='Input group example'
+              aria-describedby='btnGroupAddon2'
+            />
+            <div className='input-group-text' id='btnGroupAddon2' type='submit'>
+              <FaSearch />
+            </div>
+          </div>
         </form>
+        <button className='btn btn-outline-warning' type='submit'>
+          <FaFilter />
+        </button>
       </div>
     </nav>
   );
