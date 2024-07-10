@@ -2,8 +2,8 @@ import { FaSearch, FaFilter } from 'react-icons/fa';
 
 const NavBar = () => {
   return (
-    <nav className='navbar fixed-top bg-body-tertiary'>
-      <div className='container-sm'>
+    <nav className='navbar navbar-expand-sm fixed-top bg-body-tertiary '>
+      <div className='container'>
         <a className='navbar-brand mx-0' href='/'>
           My Book<span style={{ color: 'red' }}>s</span>helf
         </a>
@@ -17,7 +17,11 @@ const NavBar = () => {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse' id='nav'>
-          <form className='d-flex' role='search'>
+          <form
+            className='d-flex m-auto'
+            role='search'
+            style={{ width: '20rem' }}
+          >
             {/* <input
             className='form-control me-2'
             type='search'
@@ -45,7 +49,10 @@ const NavBar = () => {
             </div>
           </form>
 
-          <button className='btn btn-warning dropdown-toggle' type='button'>
+          <button
+            className='btn btn-warning dropdown-toggle ms-auto'
+            type='button'
+          >
             <FaFilter />
           </button>
         </div>
