@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <nav className='navbar navbar-expand-sm fixed-top bg-body-tertiary'>
       <div className='container'>
-        <a className='navbar-brand mx-0' href='/'>
+        <a className='navbar-brand mx-0 fw-bold fs-4' href='/'>
           My Book<span style={{ color: 'red' }}>s</span>helf
         </a>
         <button
@@ -20,7 +20,7 @@ const NavBar = () => {
           <form
             className='py-2 ms-auto'
             role='search'
-            style={{ width: '20rem' }}
+            style={{ width: 'min(20rem, 60%)' }}
           >
             {/* <input
             className='form-control me-2'

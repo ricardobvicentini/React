@@ -10,24 +10,38 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-}
-
-.App {
   min-height: 100vh;
 }
 
+/* .App {
+  min-height: 100vh;
+} */
+
 .hero {
-  border: 1px solid red;
-  margin-top: 70px;
-  min-height: 50vh;
+  background-image: url(../assets/images/bg.jpg);
+
+  padding-top: 70px;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
   & .hero-wrapper {
-    border: 1px solid red;
-    min-height: 100%;
+    width: min(71.25rem, 80vw);
+    min-height: 50%;
+    background-color: #ffffff34;
+    backdrop-filter: blur(5px);
+    border: 2px solid #f0ad4e;
+    border-radius: 10px;
+    padding: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 2em;
+    text-align: center;
+    z-index: 2;
+    & h1 {
+      color: #fff;
+    }
   }
 }
