@@ -31,7 +31,7 @@ const NavBar = () => {
           <button className='btn btn-outline-warning' type='submit'>
             Search
           </button> */}
-            <div class='input-group'>
+            <div className='input-group'>
               <input
                 type='text'
                 className='form-control'

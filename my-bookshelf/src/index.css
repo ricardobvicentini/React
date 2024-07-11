@@ -18,7 +18,7 @@ body {
 } */
 
 .hero {
-  background-image: url(../assets/images/bg.jpg);
+  background-image: url(../public/assets/images/bg.jpg);
 
   padding-top: 70px;
   height: 60vh;
