@@ -2,13 +2,13 @@ import { FaSearch, FaFilter } from 'react-icons/fa';
 
 const NavBar = () => {
   return (
-    <nav className='navbar navbar-expand-sm fixed-top bg-body-tertiary '>
+    <nav className='navbar navbar-expand-sm fixed-top bg-body-tertiary'>
       <div className='container'>
         <a className='navbar-brand mx-0' href='/'>
           My Book<span style={{ color: 'red' }}>s</span>helf
         </a>
         <button
-          className='navbar-toggler'
+          className='navbar-toggler my-2'
           data-bs-toggle='collapse'
           data-bs-target='#nav'
           aria-controls='nav'
@@ -16,9 +16,9 @@ const NavBar = () => {
         >
           <span className='navbar-toggler-icon'></span>
         </button>
-        <div className='collapse navbar-collapse' id='nav'>
+        <div className='collapse navbar-collapse justify-content-end' id='nav'>
           <form
-            className='d-flex m-auto'
+            className='py-2 ms-auto'
             role='search'
             style={{ width: '20rem' }}
           >
@@ -49,12 +49,11 @@ const NavBar = () => {
             </div>
           </form>
 
-          <button
-            className='btn btn-warning dropdown-toggle ms-auto'
-            type='button'
-          >
-            <FaFilter />
-          </button>
+          <div className='d-flex ms-auto mt-2 mt-sm-0'>
+            <button className='btn btn-warning ms-auto'>
+              <FaFilter />
+            </button>
+          </div>
         </div>
       </div>
     </nav>
