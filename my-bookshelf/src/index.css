@@ -8,7 +8,14 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 body {
+  background-image: radial-gradient(circle, #eeeeee, #fcf8e6);
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
 }
@@ -43,5 +50,14 @@ body {
     & h1 {
       color: #fff;
     }
+  }
+}
+
+.card {
+  user-select: none;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;
+  &:hover {
+    transform: scale(1.05);
   }
 }
