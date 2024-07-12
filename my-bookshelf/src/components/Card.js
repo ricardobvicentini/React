@@ -3,8 +3,12 @@ const Card = ({ image, title, author, genre, pages }) => {
     <div className='col-12 col-md-6'>
       <div className='card shadow mb-3' style={{ maxWidth: '33.75rem' }}>
         <div className='row g-0'>
-          <div className='col-md-4'>
-            <img src={image} className='img-fluid rounded-start' alt='...' />
+          <div className='col-md-4 justify-content-center align-items-center'>
+            <img
+              src={image}
+              className='img-fluid img-thumbnail rounded-start'
+              alt='...'
+            />
           </div>
           <div className='col-md-8'>
             <div className='card-body'>
