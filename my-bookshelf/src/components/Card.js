@@ -1,19 +1,19 @@
 const Card = ({ image, title, author, genre, pages }) => {
   return (
-    <div className='col-12 col-lg-6'>
+    <div className='col-sm-12 col-lg-6'>
       <div
         className='card shadow h-100 mb-3 mx-auto'
         style={{ maxWidth: '33.75rem' }}
       >
         <div className='row g-0 h-100'>
-          <div className='col-md-4 '>
+          <div className='col-4'>
             <img
               src={image}
-              className='img-fluid  rounded-start h-100'
+              className='img-fluid img-thumbnail rounded-start h-100'
               alt='...'
             />
           </div>
-          <div className='col-md-8 h-100'>
+          <div className='col-8'>
             <div className='card-body h-100 d-flex flex-column'>
               <h5 className='card-title'>{title}</h5>
 

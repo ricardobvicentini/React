@@ -22,15 +22,6 @@ const NavBar = () => {
             role='search'
             style={{ width: 'min(20rem, 60%)' }}
           >
-            {/* <input
-            className='form-control me-2'
-            type='search'
-            placeholder='Search'
-            aria-label='Search'
-          />
-          <button className='btn btn-outline-warning' type='submit'>
-            Search
-          </button> */}
             <div className='input-group'>
               <input
                 type='text'
@@ -49,10 +40,37 @@ const NavBar = () => {
             </div>
           </form>
 
-          <div className='d-flex ms-auto mt-2 mt-sm-0'>
+          {/* <div className='d-flex ms-auto mt-2 mt-sm-0'>
             <button className='btn btn-warning ms-auto'>
               <FaFilter />
             </button>
+          </div> */}
+          <div className='btn-group d-flex ms-auto mt-2 mt-sm-0'>
+            <button
+              type='button'
+              className='btn btn-warning dropdown-toggle'
+              data-bs-toggle='dropdown'
+              aria-expanded='false'
+            >
+              <FaFilter />
+            </button>
+            <ul className='dropdown-menu dropdown-menu-end'>
+              <li>
+                <a className='dropdown-item' href='/'>
+                  Action
+                </a>
+              </li>
+              <li>
+                <a className='dropdown-item' href='/'>
+                  Another action
+                </a>
+              </li>
+              <li>
+                <a className='dropdown-item' href='/'>
+                  Something else here
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
