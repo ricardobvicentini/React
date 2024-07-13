@@ -33,24 +33,20 @@ body {
 }
 
 input[type='checkbox'],
-.search-btn {
+.search-input {
   &:checked {
     background-color: #ffc107;
     border-color: #ffc107;
   }
   &:focus {
-    box-shadow: 0 0 1px 1px #ffc107;
+    box-shadow: none;
     border-color: #ffc107;
   }
 }
 
-.input-group-text {
-  transition: border-color 150ms ease-in-out, background-color 150ms ease-in-out;
-  &:hover {
-    background-color: #ffc107;
-    border-color: #ffc107;
-    box-shadow: 0 0 1px 1px #ffc107;
-  }
+.search-btn {
+  border-color: #dee2e6;
+  color: #6c757d;
 }
 
 /* Hero */

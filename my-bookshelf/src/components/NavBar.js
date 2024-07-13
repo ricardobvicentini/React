@@ -32,18 +32,24 @@ const NavBar = () => {
               <div className='input-group'>
                 <input
                   type='text'
-                  className='search-btn form-control'
+                  className='search-input form-control'
                   placeholder='Search...'
                   aria-label='Input group example'
                   aria-describedby='btnGroupAddon2'
                 />
-                <div
-                  className='input-group-text'
+                {/* <div
+                  className='input-group-text btn btn-warning'
                   id='btnGroupAddon2'
                   type='submit'
                 >
                   <FaSearch />
-                </div>
+                </div> */}
+                <button
+                  className='search-btn btn btn-outline-warning'
+                  type='button'
+                >
+                  <FaSearch />
+                </button>
               </div>
             </form>
 
@@ -145,6 +151,15 @@ const NavBar = () => {
               </div>
             </div>
           </div>
+        </div>
+        {/* Filter btns */}
+        <div class='d-grid gap-2 col-6 mx-auto mb-5'>
+          <button class='btn btn-outline-warning' type='button'>
+            Clear
+          </button>
+          <button class='btn btn-warning' type='button'>
+            Apply
+          </button>
         </div>
       </div>
     </>
