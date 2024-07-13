@@ -3,7 +3,7 @@ const bookData = [
     image: 'assets/images/image-1.jpg',
     title: 'História da Beleza',
     author: 'Umberco Eco',
-    genre: 'history',
+    genre: 'História',
     pages: 440,
     description:
       'Se a Beleza está nos olhos de quem vê, é certo que esse olhar é influenciado pelos padrões culturais de quem observa. Afinal, o que é beleza? O que é arte? Gosto se discute? A Beleza deve ser analisada friamente ou livre das amarras da razão? Com a perspicácia e erudição de sempre, Umberto Eco propõe essas indagações em História da beleza , um ensaio sobre as transformações do conceito do Belo através dos tempos.',

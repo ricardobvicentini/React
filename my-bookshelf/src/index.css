@@ -11,7 +11,6 @@
 img {
   width: 100%;
   height: auto;
-
   display: block;
 }
 
@@ -21,9 +20,40 @@ body {
   min-height: 100vh;
 }
 
-/* .App {
-  min-height: 100vh;
-} */
+/* Navbar */
+
+.accordion {
+  --bs-accordion-active-bg: none;
+  --bs-accordion-active-color: #ffc107;
+  --bs-accordion-btn-focus-box-shadow: none;
+}
+
+.offcanvas {
+  user-select: none;
+}
+
+input[type='checkbox'],
+.search-btn {
+  &:checked {
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
+  &:focus {
+    box-shadow: 0 0 1px 1px #ffc107;
+    border-color: #ffc107;
+  }
+}
+
+.input-group-text {
+  transition: border-color 150ms ease-in-out, background-color 150ms ease-in-out;
+  &:hover {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    box-shadow: 0 0 1px 1px #ffc107;
+  }
+}
+
+/* Hero */
 
 .hero {
   background-image: url(../public/assets/images/bg.jpg);
@@ -38,7 +68,7 @@ body {
     min-height: 50%;
     background-color: #ffffff34;
     backdrop-filter: blur(5px);
-    border: 2px solid #f0ad4e;
+    border: 2px solid #ffc107;
     border-radius: 10px;
     padding: 1em;
     display: flex;
@@ -53,6 +83,8 @@ body {
     }
   }
 }
+
+/* Cardbox */
 
 .card {
   user-select: none;
