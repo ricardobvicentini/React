@@ -1,5 +1,4 @@
 import { FaSearch, FaFilter } from 'react-icons/fa';
-import GenreBtns from './GenreBtns';
 
 const NavBar = ({ children }) => {
   return (
