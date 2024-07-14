@@ -1,7 +1,7 @@
 import { FaSearch, FaFilter } from 'react-icons/fa';
 import GenreBtns from './GenreBtns';
 
-const NavBar = ({ genreItems }) => {
+const NavBar = ({ children }) => {
   return (
     <>
       <nav
@@ -116,9 +116,7 @@ const NavBar = ({ genreItems }) => {
                   data-bs-parent='#accordion'
                 >
                   <div className='accordion-body'>
-                    <div className='vstack gap-2'>
-                      <GenreBtns genreItems={genreItems} />
-                    </div>
+                    <div className='vstack gap-2'>{children}</div>
                   </div>
                 </div>
               </div>

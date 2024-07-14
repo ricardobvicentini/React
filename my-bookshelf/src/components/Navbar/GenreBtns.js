@@ -2,7 +2,7 @@ import React from 'react';
 
 const GenreBtns = ({ genreItems }) => {
   return (
-    <div>
+    <>
       {genreItems.map((item, i) => (
         <div key={i}>
           <input
@@ -16,7 +16,7 @@ const GenreBtns = ({ genreItems }) => {
           </label>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

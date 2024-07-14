@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NavBar from './components/Navbar/NavBar';
+import GenreBtns from './components/Navbar/GenreBtns';
 import Hero from './components/Hero';
 import CardBox from './components/CardBox';
 import Card from './components/Card';
@@ -11,11 +12,11 @@ const App = () => {
   const homeBooks = bookData.slice(0, bookNum);
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
 
-  console.log(genreItems);
-
   return (
     <div className='App'>
-      <NavBar genreItems={genreItems} />
+      <NavBar>
+        <GenreBtns genreItems={genreItems} />
+      </NavBar>
       <Hero />
       <CardBox>
         {homeBooks.map(({ image, title, author, genre, pages }, i) => (
