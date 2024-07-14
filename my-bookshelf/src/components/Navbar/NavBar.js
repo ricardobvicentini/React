@@ -1,6 +1,7 @@
 import { FaSearch, FaFilter } from 'react-icons/fa';
+import GenreBtns from './GenreBtns';
 
-const NavBar = () => {
+const NavBar = ({ genreItems }) => {
   return (
     <>
       <nav
@@ -37,13 +38,6 @@ const NavBar = () => {
                   aria-label='Input group example'
                   aria-describedby='btnGroupAddon2'
                 />
-                {/* <div
-                  className='input-group-text btn btn-warning'
-                  id='btnGroupAddon2'
-                  type='submit'
-                >
-                  <FaSearch />
-                </div> */}
                 <button
                   className='search-btn btn btn-outline-warning'
                   type='button'
@@ -70,7 +64,7 @@ const NavBar = () => {
       {/* Sidebar Filter */}
       <div
         className='offcanvas offcanvas-end'
-        tabindex='-1'
+        tabIndex='-1'
         id='offcanvasRight'
         aria-labelledby='offcanvasRightLabel'
         style={{ maxWidth: '70vw' }}
@@ -101,8 +95,8 @@ const NavBar = () => {
               </label>
             </div>
             {/* Genre */}
-            <div className='accordion' id='accordion'>
-              <div className='accordion-item'>
+            <div className='accordion ' id='accordion'>
+              <div className='accordion-item '>
                 <h2 className='accordion-header' id='genre'>
                   <button
                     className='accordion-button'
@@ -123,28 +117,7 @@ const NavBar = () => {
                 >
                   <div className='accordion-body'>
                     <div className='vstack gap-2'>
-                      <div className='form-check'>
-                        <input
-                          className='form-check-input'
-                          type='checkbox'
-                          value=''
-                          id='história'
-                        />
-                        <label className='form-check-label' htmlFor='história'>
-                          História
-                        </label>
-                      </div>
-                      <div className='form-check'>
-                        <input
-                          className='form-check-input'
-                          type='checkbox'
-                          value=''
-                          id='autoajuda'
-                        />
-                        <label className='form-check-label' htmlFor='autoajuda'>
-                          Autoajuda
-                        </label>
-                      </div>
+                      <GenreBtns genreItems={genreItems} />
                     </div>
                   </div>
                 </div>
@@ -153,11 +126,11 @@ const NavBar = () => {
           </div>
         </div>
         {/* Filter btns */}
-        <div class='d-grid gap-2 col-6 mx-auto mb-5'>
-          <button class='btn btn-outline-warning' type='button'>
+        <div className='d-grid gap-2 col-6 mx-auto mb-5'>
+          <button className='btn btn-outline-warning' type='button'>
             Clear
           </button>
-          <button class='btn btn-warning' type='button'>
+          <button className='btn btn-warning' type='button'>
             Apply
           </button>
         </div>
