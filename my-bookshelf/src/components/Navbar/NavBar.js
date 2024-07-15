@@ -1,6 +1,7 @@
 import { FaSearch, FaFilter, FaStar } from 'react-icons/fa';
 
 const NavBar = ({ children }) => {
+  const starNum = 5;
   return (
     <>
       <nav
@@ -125,16 +126,21 @@ const NavBar = ({ children }) => {
                 </div>
               </div>
             </div>
-            {Array.from({ length: 5 }, (_, i) => (
-              <div key={5 - i} className='form-check'>
+            {Array.from({ length: starNum }, (_, i) => (
+              <div key={starNum - i} className='form-check'>
                 <input
                   className='form-check-input'
                   type='checkbox'
                   value=''
-                  id={5 - i + '-star'}
+                  id={starNum - i + '-star'}
                 />
-                <label className='form-check-label' htmlFor={5 - i + '-star'}>
-                  <FaStar style={{ color: '#ffc107' }} />
+                <label
+                  className='form-check-label'
+                  htmlFor={starNum - i + '-star'}
+                >
+                  {Array.from({ length: starNum - i }, (_, i) => (
+                    <FaStar key={starNum - i} style={{ color: '#ffc107' }} />
+                  ))}
                 </label>
               </div>
             ))}
