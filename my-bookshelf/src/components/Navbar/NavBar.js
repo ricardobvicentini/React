@@ -126,6 +126,7 @@ const NavBar = ({ children }) => {
                 </div>
               </div>
             </div>
+            {/* Star Rating */}
             {Array.from({ length: starNum }, (_, i) => (
               <div
                 key={starNum - i}
