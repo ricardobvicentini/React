@@ -117,7 +117,7 @@ const NavBar = ({ children }) => {
                   <div className='accordion-body'>
                     <div
                       className='vstack gap-2 overflow-auto'
-                      style={{ height: '10.5rem' }}
+                      style={{ height: '10rem' }}
                     >
                       {children}
                     </div>
@@ -131,10 +131,10 @@ const NavBar = ({ children }) => {
                   className='form-check-input'
                   type='checkbox'
                   value=''
-                  id='alphabetical'
+                  id={5 - i + '-star'}
                 />
-                <label className='form-check-label' htmlFor='alphabetical'>
-                  <FaStar key={5 - i} style={{ color: '#ffc107' }} />
+                <label className='form-check-label' htmlFor={5 - i + '-star'}>
+                  <FaStar style={{ color: '#ffc107' }} />
                 </label>
               </div>
             ))}
