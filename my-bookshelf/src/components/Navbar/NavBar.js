@@ -127,7 +127,10 @@ const NavBar = ({ children }) => {
               </div>
             </div>
             {Array.from({ length: starNum }, (_, i) => (
-              <div key={starNum - i} className='form-check'>
+              <div
+                key={starNum - i}
+                className='form-check d-flex align-items-center'
+              >
                 <input
                   className='form-check-input'
                   type='checkbox'
@@ -135,7 +138,7 @@ const NavBar = ({ children }) => {
                   id={starNum - i + '-star'}
                 />
                 <label
-                  className='form-check-label'
+                  className='form-check-label  ps-2'
                   htmlFor={starNum - i + '-star'}
                 >
                   {Array.from({ length: starNum - i }, (_, i) => (
