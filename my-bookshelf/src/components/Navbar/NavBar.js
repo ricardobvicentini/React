@@ -1,4 +1,4 @@
-import { FaSearch, FaFilter } from 'react-icons/fa';
+import { FaSearch, FaFilter, FaStar } from 'react-icons/fa';
 
 const NavBar = ({ children }) => {
   return (
@@ -69,9 +69,9 @@ const NavBar = ({ children }) => {
         style={{ maxWidth: '70vw' }}
       >
         <div className='offcanvas-header'>
-          <h5 className='offcanvas-title' id='offcanvasRightLabel'>
+          <h4 className='offcanvas-title' id='offcanvasRightLabel'>
             Filters
-          </h5>
+          </h4>
           <button
             type='button'
             className='btn-close'
@@ -117,7 +117,7 @@ const NavBar = ({ children }) => {
                   <div className='accordion-body'>
                     <div
                       className='vstack gap-2 overflow-auto'
-                      style={{ height: '12.5rem' }}
+                      style={{ height: '10.5rem' }}
                     >
                       {children}
                     </div>
@@ -125,6 +125,19 @@ const NavBar = ({ children }) => {
                 </div>
               </div>
             </div>
+            {Array.from({ length: 5 }, (_, i) => (
+              <div key={5 - i} className='form-check'>
+                <input
+                  className='form-check-input'
+                  type='checkbox'
+                  value=''
+                  id='alphabetical'
+                />
+                <label className='form-check-label' htmlFor='alphabetical'>
+                  <FaStar key={5 - i} style={{ color: '#ffc107' }} />
+                </label>
+              </div>
+            ))}
           </div>
         </div>
         {/* Filter btns */}
