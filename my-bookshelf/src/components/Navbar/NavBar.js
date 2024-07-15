@@ -94,8 +94,8 @@ const NavBar = ({ children }) => {
               </label>
             </div>
             {/* Genre */}
-            <div className='accordion ' id='accordion'>
-              <div className='accordion-item '>
+            <div className='accordion' id='accordion'>
+              <div className='accordion-item'>
                 <h2 className='accordion-header' id='genre'>
                   <button
                     className='accordion-button'
@@ -115,7 +115,12 @@ const NavBar = ({ children }) => {
                   data-bs-parent='#accordion'
                 >
                   <div className='accordion-body'>
-                    <div className='vstack gap-2'>{children}</div>
+                    <div
+                      className='vstack gap-2 overflow-auto'
+                      style={{ height: '12.5rem' }}
+                    >
+                      {children}
+                    </div>
                   </div>
                 </div>
               </div>

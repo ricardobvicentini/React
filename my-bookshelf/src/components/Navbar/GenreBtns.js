@@ -4,7 +4,7 @@ const GenreBtns = ({ genreItems }) => {
   return (
     <>
       {genreItems.map((item, i) => (
-        <div key={i}>
+        <div className='form-check' key={i}>
           <input
             className='form-check-input'
             type='checkbox'
