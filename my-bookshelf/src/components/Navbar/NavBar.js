@@ -9,7 +9,7 @@ const NavBar = ({ children }) => {
         className='navbar navbar-expand-sm fixed-top'
         /* style={{ backgroundColor: '#fcf8e6' }} */
       >
-        <div className='container'>
+        <div className='container px-4'>
           <a className='navbar-brand mx-0 fw-bold fs-4' href='/'>
             My Book<span style={{ color: '#ffc107' }}>s</span>helf
           </a>
