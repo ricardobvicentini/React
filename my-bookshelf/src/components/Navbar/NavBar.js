@@ -11,19 +11,19 @@ const NavBar = ({ children }) => {
       >
         <div className='container px-4'>
           <a className='navbar-brand mx-0 fw-bold fs-4' href='/'>
-            My Book<span style={{ color: '#ffc107' }}>s</span>helf
+            My Book<span style={{ color: 'red' }}>s</span>helf
           </a>
           <button
-            className='navbar-toggler my-2'
+            className='navbar-dark navbar-toggler my-2'
             data-bs-toggle='collapse'
             data-bs-target='#nav'
             aria-controls='nav'
             aria-label='Expand Navigation'
           >
-            <span className='navbar-toggler-icon'></span>
+            <span className='navbar-dark navbar-toggler-icon'></span>
           </button>
           <div
-            className='collapse navbar-collapse justify-content-end'
+            className='collapse navbar-dark navbar-collapse justify-content-end'
             id='nav'
           >
             <form

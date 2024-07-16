@@ -16,17 +16,18 @@ img {
 
 body {
   background-image: radial-gradient(circle, #eeeeee, #fcf8e6);
+
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
 }
 
 /* Navbar */
 .navbar {
-  background-color: #fcf8e6d5;
+  background-color: #3030309f;
   backdrop-filter: blur(10px);
-  /* & .navbar-brand {
+  & .navbar-brand {
     color: #fff;
-  } */
+  }
 }
 
 .accordion {
