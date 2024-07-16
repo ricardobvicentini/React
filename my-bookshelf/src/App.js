@@ -19,7 +19,7 @@ const App = () => {
       </NavBar>
       <Hero />
       <CardBox>
-        {homeBooks.map(({ image, title, author, genre, pages }, i) => (
+        {homeBooks.map(({ image, title, author, genre, pages, stars }, i) => (
           <Card
             key={i}
             image={image}
@@ -27,6 +27,7 @@ const App = () => {
             author={author}
             genre={genre}
             pages={pages}
+            stars={stars}
           />
         ))}
       </CardBox>

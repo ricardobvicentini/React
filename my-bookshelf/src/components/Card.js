@@ -1,4 +1,6 @@
-const Card = ({ image, title, author, genre, pages }) => {
+import { FaStar } from 'react-icons/fa';
+
+const Card = ({ image, title, author, genre, pages, stars }) => {
   return (
     <div className='col-sm-12 col-lg-6'>
       <div
@@ -10,7 +12,7 @@ const Card = ({ image, title, author, genre, pages }) => {
             <img
               src={image}
               className='img-fluid img-thumbnail rounded-start h-100'
-              alt='...'
+              alt='Book cover'
             />
           </div>
           <div className='col-8'>
@@ -21,6 +23,12 @@ const Card = ({ image, title, author, genre, pages }) => {
                 <li className='list-group-item'>Author: {author}</li>
                 <li className='list-group-item'>Genre: {genre}</li>
                 <li className='list-group-item'>Pages: {pages}</li>
+                <li className='list-group-item d-flex align-items-center gap-1'>
+                  Rating:{' '}
+                  {Array.from({ length: stars }, (_, i) => (
+                    <FaStar key={stars - i} style={{ color: '#ffc107' }} />
+                  ))}
+                </li>
               </ul>
               <a
                 href='/'

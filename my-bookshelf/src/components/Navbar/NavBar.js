@@ -2,15 +2,16 @@ import { FaSearch, FaFilter, FaStar } from 'react-icons/fa';
 
 const NavBar = ({ children }) => {
   const starNum = 5;
+
   return (
     <>
       <nav
         className='navbar navbar-expand-sm fixed-top'
-        style={{ backgroundColor: '#fcf8e6' }}
+        /* style={{ backgroundColor: '#fcf8e6' }} */
       >
         <div className='container'>
           <a className='navbar-brand mx-0 fw-bold fs-4' href='/'>
-            My Book<span style={{ color: 'red' }}>s</span>helf
+            My Book<span style={{ color: '#ffc107' }}>s</span>helf
           </a>
           <button
             className='navbar-toggler my-2'
@@ -139,7 +140,7 @@ const NavBar = ({ children }) => {
                   id={starNum - i + '-star'}
                 />
                 <label
-                  className='form-check-label  ps-2'
+                  className='form-check-label ps-2'
                   htmlFor={starNum - i + '-star'}
                 >
                   {Array.from({ length: starNum - i }, (_, i) => (
@@ -151,7 +152,7 @@ const NavBar = ({ children }) => {
           </div>
         </div>
         {/* Filter btns */}
-        <div className='d-grid gap-2 col-6 mx-auto mb-5'>
+        <div className='d-grid gap-2 col-6 mx-auto my-4'>
           <button className='btn btn-outline-warning' type='button'>
             Clear
           </button>

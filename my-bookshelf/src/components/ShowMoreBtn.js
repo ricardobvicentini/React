@@ -1,6 +1,6 @@
 const ShowMoreBtn = ({ setBookNum }) => {
   return (
-    <div className='d-grid gap-2 col-3 mx-auto my-5'>
+    <div className='d-grid gap-2 col-6 col-md-3 mx-auto my-5'>
       <button
         onClick={() => setBookNum((prevBookNum) => prevBookNum + 4)}
         className='btn btn-outline-primary shadow-sm'
