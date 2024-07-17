@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import CardBox from './components/CardBox';
 import Card from './components/Card';
 import ShowMoreBtn from './components/ShowMoreBtn';
-import bookData from './db.bookdata/';
+import bookData from './db/bookdata/';
 
 const App = () => {
   const [bookNum, setBookNum] = useState(4);
