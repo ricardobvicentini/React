@@ -105,7 +105,7 @@ const NavBar = ({ children, query, onQueryChange }) => {
                 </h2>
                 <div
                   id='collapseOne'
-                  className='accordion-collapse collapse show'
+                  className='accordion-collapse collapse'
                   aria-labelledby='genre'
                   data-bs-parent='#accordion'
                 >
