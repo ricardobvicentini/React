@@ -1,12 +1,12 @@
 import { FaFilter, FaStar } from 'react-icons/fa';
 
-const NavBar = ({ children }) => {
+const NavBar = ({ children, query, onQueryChange }) => {
   const starNum = 5;
 
   return (
     <>
       <nav
-        className='navbar navbar-expand-sm fixed-top'
+        className='navbar navbar-expand-sm fixed-top '
         /* style={{ backgroundColor: '#fcf8e6' }} */
       >
         <div className='container px-4'>
@@ -30,6 +30,8 @@ const NavBar = ({ children }) => {
             >
               <div className='input-group'>
                 <input
+                  value={query}
+                  onChange={onQueryChange}
                   type='search'
                   className='search-input form-control'
                   placeholder='Search...'

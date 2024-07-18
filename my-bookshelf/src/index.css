@@ -23,7 +23,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #3030309f;
+  background-color: #6c757dc7;
   backdrop-filter: blur(10px);
   & .navbar-brand {
     color: #fff;
