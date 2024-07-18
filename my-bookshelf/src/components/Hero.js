@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className='hero'>
+    <div className='hero position-relative'>
       <div className='hero-wrapper'>
         <h1>
           <em>Organize your books quickly and easily</em>

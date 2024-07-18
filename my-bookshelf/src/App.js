@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import NavBar from './components/Navbar/NavBar';
 import GenreBtns from './components/Navbar/GenreBtns';
 import Hero from './components/Hero';
+import Results from './components/Results';
 import CardBox from './components/CardBox';
 import Card from './components/Card';
 import ShowMoreBtn from './components/ShowMoreBtn';
@@ -34,6 +35,7 @@ const App = () => {
         <GenreBtns genreItems={genreItems} />
       </NavBar>
       <Hero />
+      {<Results query={query} filteredBooks={filteredBooks} />}
       <CardBox>
         {filteredBooks
           .map(({ image, title, author, genre, pages, stars }, i) => (
