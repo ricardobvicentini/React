@@ -1,4 +1,4 @@
-import { FaSearch, FaFilter, FaStar } from 'react-icons/fa';
+import { FaFilter, FaStar } from 'react-icons/fa';
 
 const NavBar = ({ children }) => {
   const starNum = 5;
@@ -11,7 +11,7 @@ const NavBar = ({ children }) => {
       >
         <div className='container px-4'>
           <a className='navbar-brand mx-0 fw-bold fs-4' href='/'>
-            My Book<span style={{ color: 'red' }}>s</span>helf
+            My Book<span style={{ color: '#ffc107' }}>s</span>helf
           </a>
           <button
             className='navbar-dark navbar-toggler my-2'
@@ -22,10 +22,7 @@ const NavBar = ({ children }) => {
           >
             <span className='navbar-dark navbar-toggler-icon'></span>
           </button>
-          <div
-            className='collapse navbar-dark navbar-collapse justify-content-end'
-            id='nav'
-          >
+          <div className='collapse navbar-dark navbar-collapse gap-5' id='nav'>
             <form
               className='py-2 ms-auto'
               role='search'
@@ -33,18 +30,12 @@ const NavBar = ({ children }) => {
             >
               <div className='input-group'>
                 <input
-                  type='text'
+                  type='search'
                   className='search-input form-control'
                   placeholder='Search...'
                   aria-label='Input group example'
                   aria-describedby='btnGroupAddon2'
                 />
-                <button
-                  className='search-btn btn btn-outline-warning'
-                  type='button'
-                >
-                  <FaSearch />
-                </button>
               </div>
             </form>
 
