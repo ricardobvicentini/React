@@ -27,7 +27,6 @@ const App = () => {
     [books, query]
   );
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
-  /* console.log(genreItems); */
 
   return (
     <div className='App'>
