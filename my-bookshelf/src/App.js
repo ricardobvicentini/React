@@ -17,8 +17,6 @@ const App = () => {
     setQuery(e.target.value);
   }
 
-  /* const homeBooks = bookData.slice(0, bookNum); */
-  const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const filteredBooks = useMemo(
     () =>
       books.filter(
@@ -28,6 +26,7 @@ const App = () => {
       ),
     [books, query]
   );
+  const genreItems = [...new Set(bookData.map((item) => item.genre))];
 
   return (
     <div className='App'>
