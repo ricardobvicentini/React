@@ -19,6 +19,7 @@ const App = () => {
   }
 
   function handleGenreChange(e) {
+    setQuery('');
     if (e.target.checked) {
       setCheckedGenres([...checkedGenres, e.target.value]);
     } else {
@@ -36,13 +37,18 @@ const App = () => {
     [books, query]
   );
 
+  const booksByGenres = useMemo(() => {
+    if (checkedGenres.length === 0) {
+      return filteredBooks;
+    } else {
+      return filteredBooks.filter(({ genre }) =>
+        checkedGenres.some((checkedGenre) => genre.includes(checkedGenre))
+      );
+    }
+  }, [checkedGenres, filteredBooks]);
+
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
 
-  const checkedGenre = checkedGenres.map((genre) => genre);
-  const booksByGenres = books.filter(({ genre }) =>
-    genre.includes(checkedGenre)
-  );
-  console.log(checkedGenre);
   console.log(booksByGenres);
 
   return (
