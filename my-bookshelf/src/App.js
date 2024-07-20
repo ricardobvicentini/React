@@ -12,9 +12,18 @@ const App = () => {
   const [bookNum, setBookNum] = useState(4);
   const [books, setBooks] = useState(bookData);
   const [query, setQuery] = useState('');
+  const [checkedGenres, setCheckedGenres] = useState([]);
 
   function handleQueryChange(e) {
     setQuery(e.target.value);
+  }
+
+  function handleGenreChange(e) {
+    if (e.target.checked) {
+      setCheckedGenres([...checkedGenres, e.target.value]);
+    } else {
+      setCheckedGenres(checkedGenres.filter((item) => item !== e.target.value));
+    }
   }
 
   const filteredBooks = useMemo(
@@ -26,12 +35,24 @@ const App = () => {
       ),
     [books, query]
   );
+
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
+
+  const checkedGenre = checkedGenres.map((genre) => genre);
+  const booksByGenres = books.filter(({ genre }) =>
+    genre.includes(checkedGenre)
+  );
+  console.log(checkedGenre);
+  console.log(booksByGenres);
 
   return (
     <div className='App'>
       <NavBar query={query} onQueryChange={handleQueryChange}>
-        <GenreBtns genreItems={genreItems} />
+        <GenreBtns
+          genreItems={genreItems}
+          checkedGenres={checkedGenres}
+          onGenreChange={handleGenreChange}
+        />
       </NavBar>
       <Hero />
       {<Results query={query} filteredBooks={filteredBooks} />}

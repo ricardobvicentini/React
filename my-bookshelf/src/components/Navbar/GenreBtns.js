@@ -1,17 +1,4 @@
-import { useState } from 'react';
-
-const GenreBtns = ({ genreItems }) => {
-  const [checkedGenres, setCheckedGenres] = useState([]);
-
-  function handleGenreChange(e) {
-    if (e.target.checked) {
-      setCheckedGenres([...checkedGenres, e.target.value]);
-    } else {
-      setCheckedGenres(checkedGenres.filter((item) => item !== e.target.value));
-    }
-  }
-
-  console.log(checkedGenres);
+const GenreBtns = ({ genreItems, onGenreChange }) => {
   return (
     <>
       {genreItems.map((item, i) => (
@@ -21,7 +8,7 @@ const GenreBtns = ({ genreItems }) => {
             type='checkbox'
             value={item}
             id={item}
-            onChange={handleGenreChange}
+            onChange={onGenreChange}
           />
           <label className='form-check-label' htmlFor={item}>
             {item}
