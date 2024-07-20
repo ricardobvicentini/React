@@ -27,7 +27,7 @@ const App = () => {
     }
   }
 
-  const filteredBooks = useMemo(
+  const booksBySearch = useMemo(
     () =>
       books.filter(
         ({ title, author }) =>
@@ -39,17 +39,16 @@ const App = () => {
 
   const booksByGenres = useMemo(() => {
     if (checkedGenres.length === 0) {
-      return filteredBooks;
+      return books;
     } else {
-      return filteredBooks.filter(({ genre }) =>
+      return books.filter(({ genre }) =>
         checkedGenres.some((checkedGenre) => genre.includes(checkedGenre))
       );
     }
-  }, [checkedGenres, filteredBooks]);
+  }, [checkedGenres, books]);
 
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
-
-  console.log(booksByGenres);
+  const booksToBeFiltered = query ? booksBySearch : booksByGenres;
 
   return (
     <div className='App'>
@@ -61,9 +60,15 @@ const App = () => {
         />
       </NavBar>
       <Hero />
-      {<Results query={query} filteredBooks={filteredBooks} />}
+      {
+        <Results
+          query={query}
+          checkedGenres={checkedGenres}
+          booksToBeFiltered={booksToBeFiltered}
+        />
+      }
       <CardBox>
-        {filteredBooks
+        {booksToBeFiltered
           .map(({ image, title, author, genre, pages, stars }, i) => (
             <Card
               key={i}
