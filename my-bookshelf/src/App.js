@@ -14,10 +14,12 @@ const App = () => {
   const [query, setQuery] = useState('');
   const [checkedGenres, setCheckedGenres] = useState([]);
 
+  /* Search */
   function handleQueryChange(e) {
     setQuery(e.target.value);
   }
 
+  /* Genre */
   function handleGenreChange(e) {
     setQuery('');
     if (e.target.checked) {

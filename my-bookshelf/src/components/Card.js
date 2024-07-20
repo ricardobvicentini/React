@@ -23,7 +23,7 @@ const Card = ({ image, title, author, genre, pages, stars }) => {
                 <li className='list-group-item'>Author: {author}</li>
                 <li className='list-group-item'>Genre: {genre}</li>
                 <li className='list-group-item'>Pages: {pages}</li>
-                <li className='list-group-item d-flex align-items-center gap-1'>
+                <li className='list-group-item d-flex align-items-center gap-1 '>
                   Rating:{' '}
                   {Array.from({ length: stars }, (_, i) => (
                     <FaStar key={stars - i} style={{ color: '#ffc107' }} />
