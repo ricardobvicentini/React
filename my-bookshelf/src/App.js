@@ -13,6 +13,7 @@ const App = () => {
   const [books, setBooks] = useState(bookData);
   const [query, setQuery] = useState('');
   const [checkedGenres, setCheckedGenres] = useState([]);
+  const [apply, setApply] = useState(false);
 
   /* Search */
   function handleQueryChange(e) {
@@ -22,7 +23,7 @@ const App = () => {
   /* Genre */
   function handleGenreChange(e) {
     setQuery('');
-    if (e.target.checked) {
+    if (e.target.checked && apply) {
       setCheckedGenres([...checkedGenres, e.target.value]);
     } else {
       setCheckedGenres(checkedGenres.filter((item) => item !== e.target.value));
@@ -51,6 +52,8 @@ const App = () => {
 
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const booksToBeFiltered = query ? booksBySearch : booksByGenres;
+
+  console.log(checkedGenres);
 
   return (
     <div className='App'>
