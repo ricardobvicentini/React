@@ -5,6 +5,7 @@ const NavBar = ({
   query,
   onQueryChange,
   onStarChange,
+
   onApplyFilters,
   onClearFilters,
 }) => {

@@ -15,10 +15,10 @@ const App = () => {
   const [checkedGenres, setCheckedGenres] = useState([]);
   const [tempCheckedGenres, setTempCheckedGenres] = useState([]);
   const [tempCheckedStars, setTempCheckedStars] = useState([]);
-  /* const [checkedFilters, setCheckedFilters] = useState({
-    star: '',
+  const [checkedFilters, setCheckedFilters] = useState({
+    star: [],
     genre: [],
-  }); */
+  });
 
   /* Search */
   function handleQueryChange(e) {
@@ -53,12 +53,22 @@ const App = () => {
   /* Apply Filters */
   function handleApplyFilters() {
     setCheckedGenres(tempCheckedGenres);
+    setCheckedFilters({
+      ...checkedFilters,
+      star: tempCheckedStars,
+      genre: tempCheckedGenres,
+    });
   }
 
   /* Clear Filters */
   function handleClearFilters() {
     setTempCheckedGenres([]);
     setCheckedGenres([]);
+    setCheckedFilters({
+      ...checkedFilters,
+      star: '',
+      genre: '',
+    });
   }
 
   const booksBySearch = useMemo(
@@ -84,14 +94,14 @@ const App = () => {
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const booksToBeFiltered = query ? booksBySearch : booksByGenres;
 
-  console.log(tempCheckedGenres);
-  console.log(tempCheckedStars);
+  console.log(checkedFilters);
 
   return (
     <div className='App'>
       <NavBar
         query={query}
         onQueryChange={handleQueryChange}
+        tempCheckedStars={tempCheckedStars}
         onStarChange={handleStarChange}
         onApplyFilters={handleApplyFilters}
         onClearFilters={handleClearFilters}
