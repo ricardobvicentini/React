@@ -1,4 +1,5 @@
-const GenreBtns = ({ genreItems, onGenreChange }) => {
+const GenreBtns = ({ genreItems, onGenreChange, tempCheckedGenres }) => {
+  const isChecked = (genre) => tempCheckedGenres.includes(genre);
   return (
     <>
       {genreItems.map((item, i) => (
@@ -8,6 +9,7 @@ const GenreBtns = ({ genreItems, onGenreChange }) => {
             type='checkbox'
             value={item}
             id={item}
+            checked={isChecked(item)}
             onChange={onGenreChange}
           />
           <label className='form-check-label' htmlFor={item}>

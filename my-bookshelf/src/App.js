@@ -13,7 +13,12 @@ const App = () => {
   const [books, setBooks] = useState(bookData);
   const [query, setQuery] = useState('');
   const [checkedGenres, setCheckedGenres] = useState([]);
-  const [apply, setApply] = useState(false);
+  const [tempCheckedGenres, setTempCheckedGenres] = useState([]);
+  const [tempCheckedStars, setTempCheckedStars] = useState([]);
+  /* const [checkedFilters, setCheckedFilters] = useState({
+    star: '',
+    genre: [],
+  }); */
 
   /* Search */
   function handleQueryChange(e) {
@@ -23,11 +28,37 @@ const App = () => {
   /* Genre */
   function handleGenreChange(e) {
     setQuery('');
-    if (e.target.checked && apply) {
-      setCheckedGenres([...checkedGenres, e.target.value]);
+    const selectedGenre = e.target.value;
+    if (e.target.checked) {
+      setTempCheckedGenres([...tempCheckedGenres, selectedGenre]);
     } else {
-      setCheckedGenres(checkedGenres.filter((item) => item !== e.target.value));
+      setTempCheckedGenres(
+        tempCheckedGenres.filter((item) => item !== selectedGenre)
+      );
     }
+  }
+
+  /*  Star */
+  function handleStarChange(e) {
+    const selectedStar = e.target.value;
+    if (e.target.checked) {
+      setTempCheckedStars([...tempCheckedStars, selectedStar]);
+    } else {
+      setTempCheckedStars(
+        tempCheckedStars.filter((item) => item !== selectedStar)
+      );
+    }
+  }
+
+  /* Apply Filters */
+  function handleApplyFilters() {
+    setCheckedGenres(tempCheckedGenres);
+  }
+
+  /* Clear Filters */
+  function handleClearFilters() {
+    setTempCheckedGenres([]);
+    setCheckedGenres([]);
   }
 
   const booksBySearch = useMemo(
@@ -53,14 +84,21 @@ const App = () => {
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const booksToBeFiltered = query ? booksBySearch : booksByGenres;
 
-  console.log(checkedGenres);
+  console.log(tempCheckedGenres);
+  console.log(tempCheckedStars);
 
   return (
     <div className='App'>
-      <NavBar query={query} onQueryChange={handleQueryChange}>
+      <NavBar
+        query={query}
+        onQueryChange={handleQueryChange}
+        onStarChange={handleStarChange}
+        onApplyFilters={handleApplyFilters}
+        onClearFilters={handleClearFilters}
+      >
         <GenreBtns
           genreItems={genreItems}
-          checkedGenres={checkedGenres}
+          tempCheckedGenres={tempCheckedGenres}
           onGenreChange={handleGenreChange}
         />
       </NavBar>

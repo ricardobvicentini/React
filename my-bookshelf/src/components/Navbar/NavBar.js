@@ -1,6 +1,13 @@
 import { FaFilter, FaStar } from 'react-icons/fa';
 
-const NavBar = ({ children, query, onQueryChange }) => {
+const NavBar = ({
+  children,
+  query,
+  onQueryChange,
+  onStarChange,
+  onApplyFilters,
+  onClearFilters,
+}) => {
   const starNum = 5;
 
   return (
@@ -129,8 +136,9 @@ const NavBar = ({ children, query, onQueryChange }) => {
                 <input
                   className='form-check-input'
                   type='checkbox'
-                  value=''
+                  value={starNum - i}
                   id={starNum - i + '-star'}
+                  onChange={onStarChange}
                 />
                 <label
                   className='form-check-label ps-2'
@@ -146,10 +154,18 @@ const NavBar = ({ children, query, onQueryChange }) => {
         </div>
         {/* Filter btns */}
         <div className='d-grid gap-2 col-6 mx-auto my-4'>
-          <button className='btn btn-outline-warning' type='button'>
+          <button
+            onClick={onClearFilters}
+            className='btn btn-outline-warning'
+            type='button'
+          >
             Clear
           </button>
-          <button className='btn btn-warning' type='button'>
+          <button
+            onClick={onApplyFilters}
+            className='btn btn-warning'
+            type='button'
+          >
             Apply
           </button>
         </div>
