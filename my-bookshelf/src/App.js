@@ -64,10 +64,11 @@ const App = () => {
   function handleClearFilters() {
     setTempCheckedGenres([]);
     setCheckedGenres([]);
+    setTempCheckedStars([]);
     setCheckedFilters({
       ...checkedFilters,
-      star: '',
-      genre: '',
+      star: [],
+      genre: [],
     });
   }
 

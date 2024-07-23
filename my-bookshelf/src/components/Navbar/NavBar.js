@@ -5,7 +5,7 @@ const NavBar = ({
   query,
   onQueryChange,
   onStarChange,
-
+  tempCheckedStars,
   onApplyFilters,
   onClearFilters,
 }) => {
@@ -129,28 +129,34 @@ const NavBar = ({
               </div>
             </div>
             {/* Star Rating */}
-            {Array.from({ length: starNum }, (_, i) => (
-              <div
-                key={starNum - i}
-                className='form-check d-flex align-items-center'
-              >
-                <input
-                  className='form-check-input'
-                  type='checkbox'
-                  value={starNum - i}
-                  id={starNum - i + '-star'}
-                  onChange={onStarChange}
-                />
-                <label
-                  className='form-check-label ps-2'
-                  htmlFor={starNum - i + '-star'}
+            {Array.from({ length: starNum }, (_, i) => {
+              const starValue = starNum - i;
+              const isChecked = tempCheckedStars.includes(starValue.toString());
+              console.log(isChecked);
+              return (
+                <div
+                  key={starValue}
+                  className='form-check d-flex align-items-center'
                 >
-                  {Array.from({ length: starNum - i }, (_, i) => (
-                    <FaStar key={starNum - i} style={{ color: '#ffc107' }} />
-                  ))}
-                </label>
-              </div>
-            ))}
+                  <input
+                    className='form-check-input'
+                    type='checkbox'
+                    value={starValue}
+                    id={`${starValue}-star`}
+                    checked={isChecked}
+                    onChange={onStarChange}
+                  />
+                  <label
+                    className='form-check-label ps-2'
+                    htmlFor={`${starValue}-star`}
+                  >
+                    {Array.from({ length: starValue }, (_, i) => (
+                      <FaStar key={i} style={{ color: '#ffc107' }} />
+                    ))}
+                  </label>
+                </div>
+              );
+            })}
           </div>
         </div>
         {/* Filter btns */}
