@@ -97,23 +97,19 @@ const App = () => {
   }, [checkedGenres, books]);
 
   const booksByFilter = useMemo(() => {
-    if (checkedFilters.genre.length === 0 && checkedFilters.star.length === 0) {
+    const { star, genre } = checkedFilters;
+    if (genre.length === 0 && star.length === 0) {
       return books;
     } else {
       return books.filter(({ genre, stars }) =>
-        checkedFilters.genre.some(
-          (checkedFilter) =>
-            genre.includes(checkedFilter) &&
-            checkedFilters.star.some((checkedFilter) =>
-              stars.includes(checkedFilter)
-            )
+        checkedFilters.star.some((checkedFilter) =>
+          stars.includes(checkedFilter)
         )
       );
     }
   }, [checkedFilters, books]);
 
-  console.log(booksByFilter);
-  console.log(tempCheckedStars);
+  /* console.log(booksByFilter); */
 
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const booksToBeFiltered = query ? booksBySearch : booksByGenres;
