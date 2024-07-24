@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import NavBar from './components/Navbar/NavBar';
-import GenreBtns from './components/Navbar/GenreBtns';
+import SidebarFilter from './components/Navbar/SidebarFilter';
 import Hero from './components/Hero';
 import Results from './components/Results';
 import CardBox from './components/CardBox';
@@ -95,22 +95,17 @@ const App = () => {
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const booksToBeFiltered = query ? booksBySearch : booksByGenres;
 
-  console.log(checkedFilters);
-
   return (
     <div className='App'>
-      <NavBar
-        query={query}
-        onQueryChange={handleQueryChange}
-        tempCheckedStars={tempCheckedStars}
-        onStarChange={handleStarChange}
-        onApplyFilters={handleApplyFilters}
-        onClearFilters={handleClearFilters}
-      >
-        <GenreBtns
+      <NavBar query={query} onQueryChange={handleQueryChange}>
+        <SidebarFilter
           genreItems={genreItems}
           tempCheckedGenres={tempCheckedGenres}
+          tempCheckedStars={tempCheckedStars}
           onGenreChange={handleGenreChange}
+          onStarChange={handleStarChange}
+          onApplyFilters={handleApplyFilters}
+          onClearFilters={handleClearFilters}
         />
       </NavBar>
       <Hero />
