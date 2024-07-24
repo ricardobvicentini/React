@@ -30,13 +30,12 @@ const Card = ({ image, title, author, genre, pages, stars }) => {
                   ))}
                 </li>
               </ul>
-              <a
-                href='/'
+              <button
                 className='btn btn-outline-warning mt-auto'
                 style={{ width: '40%' }}
               >
                 Edit
-              </a>
+              </button>
             </div>
           </div>
         </div>
