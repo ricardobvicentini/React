@@ -12,13 +12,14 @@ const App = () => {
   const [bookNum, setBookNum] = useState(4);
   const [books, setBooks] = useState(bookData);
   const [query, setQuery] = useState('');
-  /* const [checkedGenres, setCheckedGenres] = useState([]); */
   const [tempCheckedGenres, setTempCheckedGenres] = useState([]);
   const [tempCheckedStars, setTempCheckedStars] = useState([]);
   const [checkedFilters, setCheckedFilters] = useState({
     star: [],
     genre: [],
   });
+
+  const { star, genre } = checkedFilters;
 
   /*   function handleDeleteBook(el) {
     setBooks(books.filter((book) => book.title !== el));
@@ -56,7 +57,6 @@ const App = () => {
 
   /* Apply Filters */
   function handleApplyFilters() {
-    /* setCheckedGenres(tempCheckedGenres); */
     setCheckedFilters({
       ...checkedFilters,
       star: tempCheckedStars,
@@ -67,7 +67,6 @@ const App = () => {
   /* Clear Filters */
   function handleClearFilters() {
     setTempCheckedGenres([]);
-    /* setCheckedGenres([]); */
     setTempCheckedStars([]);
     setCheckedFilters({
       ...checkedFilters,
@@ -85,16 +84,6 @@ const App = () => {
       ),
     [books, query]
   );
-
-  /* const booksByGenres = useMemo(() => {
-    if (checkedGenres.length === 0) {
-      return books;
-    } else {
-      return books.filter(({ genre }) =>
-        checkedGenres.some((checkedGenre) => genre.includes(checkedGenre))
-      );
-    }
-  }, [checkedGenres, books]); */
 
   const booksByFilters = useMemo(() => {
     let filteredBooks = books;
@@ -138,7 +127,8 @@ const App = () => {
       {
         <Results
           query={query}
-          /* checkedGenres={checkedGenres} */
+          star={star}
+          genre={genre}
           booksToBeFiltered={booksToBeFiltered}
         />
       }
