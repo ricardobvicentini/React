@@ -12,7 +12,7 @@ const App = () => {
   const [bookNum, setBookNum] = useState(4);
   const [books, setBooks] = useState(bookData);
   const [query, setQuery] = useState('');
-  const [checkedGenres, setCheckedGenres] = useState([]);
+  /* const [checkedGenres, setCheckedGenres] = useState([]); */
   const [tempCheckedGenres, setTempCheckedGenres] = useState([]);
   const [tempCheckedStars, setTempCheckedStars] = useState([]);
   const [checkedFilters, setCheckedFilters] = useState({
@@ -56,7 +56,7 @@ const App = () => {
 
   /* Apply Filters */
   function handleApplyFilters() {
-    setCheckedGenres(tempCheckedGenres);
+    /* setCheckedGenres(tempCheckedGenres); */
     setCheckedFilters({
       ...checkedFilters,
       star: tempCheckedStars,
@@ -67,7 +67,7 @@ const App = () => {
   /* Clear Filters */
   function handleClearFilters() {
     setTempCheckedGenres([]);
-    setCheckedGenres([]);
+    /* setCheckedGenres([]); */
     setTempCheckedStars([]);
     setCheckedFilters({
       ...checkedFilters,
@@ -86,7 +86,7 @@ const App = () => {
     [books, query]
   );
 
-  const booksByGenres = useMemo(() => {
+  /* const booksByGenres = useMemo(() => {
     if (checkedGenres.length === 0) {
       return books;
     } else {
@@ -94,25 +94,32 @@ const App = () => {
         checkedGenres.some((checkedGenre) => genre.includes(checkedGenre))
       );
     }
-  }, [checkedGenres, books]);
+  }, [checkedGenres, books]); */
 
-  const booksByFilter = useMemo(() => {
-    const { star, genre } = checkedFilters;
-    if (genre.length === 0 && star.length === 0) {
-      return books;
-    } else {
-      return books.filter(({ genre, stars }) =>
-        checkedFilters.star.some((checkedFilter) =>
-          stars.includes(checkedFilter)
+  const booksByFilters = useMemo(() => {
+    let filteredBooks = books;
+
+    /* Genre filter */
+    if (checkedFilters.genre.length > 0) {
+      filteredBooks = filteredBooks.filter(({ genre }) =>
+        checkedFilters.genre.some((tempCheckedGenres) =>
+          genre.includes(tempCheckedGenres)
         )
       );
     }
-  }, [checkedFilters, books]);
 
-  /* console.log(booksByFilter); */
+    /* Star filter */
+    if (checkedFilters.star.length > 0) {
+      filteredBooks = filteredBooks.filter(({ stars }) =>
+        checkedFilters.star.includes(stars)
+      );
+    }
+
+    return filteredBooks;
+  }, [books, checkedFilters]);
 
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
-  const booksToBeFiltered = query ? booksBySearch : booksByGenres;
+  const booksToBeFiltered = query ? booksBySearch : booksByFilters;
 
   return (
     <div className='App'>
@@ -131,7 +138,7 @@ const App = () => {
       {
         <Results
           query={query}
-          checkedGenres={checkedGenres}
+          /* checkedGenres={checkedGenres} */
           booksToBeFiltered={booksToBeFiltered}
         />
       }

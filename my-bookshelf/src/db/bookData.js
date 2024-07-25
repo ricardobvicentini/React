@@ -35,7 +35,7 @@ const bookData = [
     author: 'Stephen Hawking',
     genre: 'Ciências - Cosmologia',
     pages: 309,
-    stars: '5',
+    stars: '4',
     description:
       'Após o enorme sucesso de Uma breve história do tempo, a Intrínseca traz a luxuosa reedição de O universo numa casca de noz, na qual Stephen Hawking se vale de ilustrações, fotos e esquemas detalhados para mostrar grandes descobertas no campo da física teórica. Tudo isso, é claro, com sua conhecida clareza, elucidando temas complexos por meio de conceitos e ideias do dia a dia, como a inflação, as cartas de baralho e as linhas ferroviárias, e permeado com seu peculiar senso de humor.',
   },
