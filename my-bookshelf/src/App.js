@@ -30,7 +30,7 @@ const App = () => {
   }
 
   function handleAlphaOrder() {
-    setCheckedFilters({ ...checkedFilters, alpha: !alpha });
+    setCheckedFilters({ ...checkedFilters, alpha: !checkedFilters.alpha });
   }
 
   /* Genre */
@@ -109,6 +109,13 @@ const App = () => {
       );
     }
 
+    /* Alpha order */
+    if (checkedFilters.alpha) {
+      filteredBooks = filteredBooks.sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+    }
+
     return filteredBooks;
   }, [books, checkedFilters]);
 
@@ -116,9 +123,7 @@ const App = () => {
   const { alpha, star, genre } = checkedFilters;
   const booksToBeFiltered = query ? booksBySearch : booksByFilters;
 
-  function handleSortingAlpha() {
-    return booksByFilters.sort((a, b) => a.title.localeCompare(b.title));
-  }
+  console.log(checkedFilters.alpha);
 
   return (
     <div className='App'>
