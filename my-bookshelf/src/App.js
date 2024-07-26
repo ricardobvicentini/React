@@ -29,8 +29,7 @@ const App = () => {
     setQuery(e.target.value);
   }
 
-  function handleAlphaOrder(e) {
-    console.log('Alpha');
+  function handleAlphaOrder() {
     setCheckedFilters({ ...checkedFilters, alpha: !alpha });
   }
 
@@ -116,6 +115,10 @@ const App = () => {
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const { alpha, star, genre } = checkedFilters;
   const booksToBeFiltered = query ? booksBySearch : booksByFilters;
+
+  function handleSortingAlpha() {
+    return booksByFilters.sort((a, b) => a.title.localeCompare(b.title));
+  }
 
   return (
     <div className='App'>
