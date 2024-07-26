@@ -15,11 +15,10 @@ const App = () => {
   const [tempCheckedGenres, setTempCheckedGenres] = useState([]);
   const [tempCheckedStars, setTempCheckedStars] = useState([]);
   const [checkedFilters, setCheckedFilters] = useState({
+    alpha: false,
     star: [],
     genre: [],
   });
-
-  const { star, genre } = checkedFilters;
 
   /*   function handleDeleteBook(el) {
     setBooks(books.filter((book) => book.title !== el));
@@ -28,6 +27,11 @@ const App = () => {
   /* Search */
   function handleQueryChange(e) {
     setQuery(e.target.value);
+  }
+
+  function handleAlphaOrder(e) {
+    console.log('Alpha');
+    setCheckedFilters({ ...checkedFilters, alpha: !alpha });
   }
 
   /* Genre */
@@ -45,6 +49,7 @@ const App = () => {
 
   /*  Star */
   function handleStarChange(e) {
+    setQuery('');
     const selectedStar = e.target.value;
     if (e.target.checked) {
       setTempCheckedStars([...tempCheckedStars, selectedStar]);
@@ -70,6 +75,7 @@ const App = () => {
     setTempCheckedStars([]);
     setCheckedFilters({
       ...checkedFilters,
+      alpha: false,
       star: [],
       genre: [],
     });
@@ -108,6 +114,7 @@ const App = () => {
   }, [books, checkedFilters]);
 
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
+  const { alpha, star, genre } = checkedFilters;
   const booksToBeFiltered = query ? booksBySearch : booksByFilters;
 
   return (
@@ -117,6 +124,8 @@ const App = () => {
           genreItems={genreItems}
           tempCheckedGenres={tempCheckedGenres}
           tempCheckedStars={tempCheckedStars}
+          alpha={alpha}
+          onAlphaOrder={handleAlphaOrder}
           onGenreChange={handleGenreChange}
           onStarChange={handleStarChange}
           onApplyFilters={handleApplyFilters}

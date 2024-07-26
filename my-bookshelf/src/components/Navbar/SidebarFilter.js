@@ -2,10 +2,12 @@ import { FaStar } from 'react-icons/fa';
 
 const SidebarFilter = ({
   genreItems,
-  onGenreChange,
   tempCheckedGenres,
-  onStarChange,
   tempCheckedStars,
+  alpha,
+  onAlphaOrder,
+  onGenreChange,
+  onStarChange,
   onApplyFilters,
   onClearFilters,
 }) => {
@@ -38,8 +40,10 @@ const SidebarFilter = ({
               <input
                 className='form-check-input'
                 type='checkbox'
-                value=''
+                value={alpha}
                 id='alphabetical'
+                checked={alpha}
+                onChange={onAlphaOrder}
               />
               <label className='form-check-label' htmlFor='alphabetical'>
                 Alphabetical order
