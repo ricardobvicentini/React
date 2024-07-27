@@ -2,9 +2,6 @@ import { FaStar } from 'react-icons/fa';
 
 const SidebarFilter = ({
   genreItems,
-  tempCheckedGenres,
-  tempCheckedStars,
-  alpha,
   tempAlpha,
   tempCheckedGenre,
   tempCheckedStar,

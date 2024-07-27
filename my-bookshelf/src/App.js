@@ -12,9 +12,6 @@ const App = () => {
   const [bookNum, setBookNum] = useState(4);
   const [books, setBooks] = useState(bookData);
   const [query, setQuery] = useState('');
-  /* const [tempCheckedGenres, setTempCheckedGenres] = useState([]); */
-  /* const [tempCheckedStars, setTempCheckedStars] = useState([]); */
-
   const [tempCheckedFilters, setTempCheckedFilters] = useState({
     tempAlpha: false,
     tempCheckedGenre: [],
@@ -24,7 +21,7 @@ const App = () => {
   const { tempAlpha, tempCheckedGenre, tempCheckedStar } = tempCheckedFilters;
 
   const [checkedFilters, setCheckedFilters] = useState({
-    alpha: false,
+    alpha: tempAlpha,
     star: tempCheckedStar,
     genre: tempCheckedGenre,
   });
@@ -46,18 +43,6 @@ const App = () => {
   }
 
   /* Genre */
-  /* function handleGenreChange(e) {
-    setQuery('');
-    const selectedGenre = e.target.value;
-    if (e.target.checked) {
-      setTempCheckedGenres([...tempCheckedGenres, selectedGenre]);
-    } else {
-      setTempCheckedGenres(
-        tempCheckedGenres.filter((item) => item !== selectedGenre)
-      );
-    }
-  } */
-
   function handleGenreChange(e) {
     setQuery('');
     const selectedGenre = e.target.value;
@@ -77,18 +62,6 @@ const App = () => {
   }
 
   /*  Star */
-  /* function handleStarChange(e) {
-    setQuery('');
-    const selectedStar = e.target.value;
-    if (e.target.checked) {
-      setTempCheckedStars([...tempCheckedStars, selectedStar]);
-    } else {
-      setTempCheckedStars(
-        tempCheckedStars.filter((item) => item !== selectedStar)
-      );
-    }
-  } */
-
   function handleStarChange(e) {
     setQuery('');
     const selectedStar = e.target.value;
@@ -119,8 +92,6 @@ const App = () => {
 
   /* Clear Filters */
   function handleClearFilters() {
-    /* setTempCheckedGenres([]); */
-    /* setTempCheckedStars([]); */
     setTempCheckedFilters({
       tempAlpha: false,
       tempCheckedGenre: [],
@@ -148,14 +119,6 @@ const App = () => {
     let filteredBooks = books;
 
     /* Genre filter */
-    /* if (checkedFilters.genre.length > 0) {
-      filteredBooks = filteredBooks.filter(({ genre }) =>
-        checkedFilters.genre.some((tempCheckedGenres) =>
-          genre.includes(tempCheckedGenres)
-        )
-      );
-    } */
-
     if (checkedFilters.genre.length > 0) {
       filteredBooks = filteredBooks.filter(({ genre }) =>
         checkedFilters.genre.some((tempCheckedGenre) =>
@@ -189,17 +152,11 @@ const App = () => {
 
   const booksToBeFiltered = query ? booksBySearch : booksByFilters;
 
-  console.log(tempCheckedFilters);
-  /* console.log(checkedFilters);
-  console.log(tempCheckedGenre); */
-
   return (
     <div className='App'>
       <NavBar query={query} onQueryChange={handleQueryChange}>
         <SidebarFilter
           genreItems={genreItems}
-          /* tempCheckedGenres={tempCheckedGenres} */
-          /* tempCheckedStars={tempCheckedStars} */
           alpha={alpha}
           tempAlpha={tempAlpha}
           tempCheckedGenre={tempCheckedGenre}
