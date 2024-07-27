@@ -5,6 +5,9 @@ const SidebarFilter = ({
   tempCheckedGenres,
   tempCheckedStars,
   alpha,
+  tempAlpha,
+  tempCheckedGenre,
+  tempCheckedStar,
   onAlphaOrder,
   onGenreChange,
   onStarChange,
@@ -12,7 +15,8 @@ const SidebarFilter = ({
   onClearFilters,
 }) => {
   const starNum = 5;
-  const isChecked = (genre) => tempCheckedGenres.includes(genre);
+  const isChecked = (genre) => tempCheckedGenre.includes(genre);
+
   return (
     <>
       <div
@@ -40,9 +44,9 @@ const SidebarFilter = ({
               <input
                 className='form-check-input'
                 type='checkbox'
-                value={alpha}
+                value={tempAlpha}
                 id='alphabetical'
-                checked={alpha}
+                checked={tempAlpha}
                 onChange={onAlphaOrder}
               />
               <label className='form-check-label' htmlFor='alphabetical'>
@@ -100,7 +104,7 @@ const SidebarFilter = ({
             {/* Star Rating */}
             {Array.from({ length: starNum }, (_, i) => {
               const starValue = starNum - i;
-              const isStarChecked = tempCheckedStars.includes(
+              const isStarChecked = tempCheckedStar.includes(
                 starValue.toString()
               );
 

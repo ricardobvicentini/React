@@ -12,12 +12,21 @@ const App = () => {
   const [bookNum, setBookNum] = useState(4);
   const [books, setBooks] = useState(bookData);
   const [query, setQuery] = useState('');
-  const [tempCheckedGenres, setTempCheckedGenres] = useState([]);
-  const [tempCheckedStars, setTempCheckedStars] = useState([]);
+  /* const [tempCheckedGenres, setTempCheckedGenres] = useState([]); */
+  /* const [tempCheckedStars, setTempCheckedStars] = useState([]); */
+
+  const [tempCheckedFilters, setTempCheckedFilters] = useState({
+    tempAlpha: false,
+    tempCheckedGenre: [],
+    tempCheckedStar: [],
+  });
+
+  const { tempAlpha, tempCheckedGenre, tempCheckedStar } = tempCheckedFilters;
+
   const [checkedFilters, setCheckedFilters] = useState({
     alpha: false,
-    star: [],
-    genre: [],
+    star: tempCheckedStar,
+    genre: tempCheckedGenre,
   });
 
   /*   function handleDeleteBook(el) {
@@ -30,11 +39,14 @@ const App = () => {
   }
 
   function handleAlphaOrder() {
-    setCheckedFilters({ ...checkedFilters, alpha: !checkedFilters.alpha });
+    setTempCheckedFilters({
+      ...tempCheckedFilters,
+      tempAlpha: !tempCheckedFilters.tempAlpha,
+    });
   }
 
   /* Genre */
-  function handleGenreChange(e) {
+  /* function handleGenreChange(e) {
     setQuery('');
     const selectedGenre = e.target.value;
     if (e.target.checked) {
@@ -44,10 +56,28 @@ const App = () => {
         tempCheckedGenres.filter((item) => item !== selectedGenre)
       );
     }
+  } */
+
+  function handleGenreChange(e) {
+    setQuery('');
+    const selectedGenre = e.target.value;
+    if (e.target.checked) {
+      setTempCheckedFilters((prevFilters) => ({
+        ...prevFilters,
+        tempCheckedGenre: [...prevFilters.tempCheckedGenre, selectedGenre],
+      }));
+    } else {
+      setTempCheckedFilters((prevFilters) => ({
+        ...prevFilters,
+        tempCheckedGenre: prevFilters.tempCheckedGenre.filter(
+          (item) => item !== selectedGenre
+        ),
+      }));
+    }
   }
 
   /*  Star */
-  function handleStarChange(e) {
+  /* function handleStarChange(e) {
     setQuery('');
     const selectedStar = e.target.value;
     if (e.target.checked) {
@@ -57,21 +87,45 @@ const App = () => {
         tempCheckedStars.filter((item) => item !== selectedStar)
       );
     }
+  } */
+
+  function handleStarChange(e) {
+    setQuery('');
+    const selectedStar = e.target.value;
+    if (e.target.checked) {
+      setTempCheckedFilters((prevFilters) => ({
+        ...prevFilters,
+        tempCheckedStar: [...prevFilters.tempCheckedStar, selectedStar],
+      }));
+    } else {
+      setTempCheckedFilters((prevFilters) => ({
+        ...prevFilters,
+        tempCheckedStar: prevFilters.tempCheckedStar.filter(
+          (item) => item !== selectedStar
+        ),
+      }));
+    }
   }
 
   /* Apply Filters */
   function handleApplyFilters() {
     setCheckedFilters({
       ...checkedFilters,
-      star: tempCheckedStars,
-      genre: tempCheckedGenres,
+      alpha: tempAlpha,
+      star: tempCheckedStar,
+      genre: tempCheckedGenre,
     });
   }
 
   /* Clear Filters */
   function handleClearFilters() {
-    setTempCheckedGenres([]);
-    setTempCheckedStars([]);
+    /* setTempCheckedGenres([]); */
+    /* setTempCheckedStars([]); */
+    setTempCheckedFilters({
+      tempAlpha: false,
+      tempCheckedGenre: [],
+      tempCheckedStar: [],
+    });
     setCheckedFilters({
       ...checkedFilters,
       alpha: false,
@@ -94,10 +148,18 @@ const App = () => {
     let filteredBooks = books;
 
     /* Genre filter */
-    if (checkedFilters.genre.length > 0) {
+    /* if (checkedFilters.genre.length > 0) {
       filteredBooks = filteredBooks.filter(({ genre }) =>
         checkedFilters.genre.some((tempCheckedGenres) =>
           genre.includes(tempCheckedGenres)
+        )
+      );
+    } */
+
+    if (checkedFilters.genre.length > 0) {
+      filteredBooks = filteredBooks.filter(({ genre }) =>
+        checkedFilters.genre.some((tempCheckedGenre) =>
+          genre.includes(tempCheckedGenre)
         )
       );
     }
@@ -110,29 +172,38 @@ const App = () => {
     }
 
     /* Alpha order */
-    if (checkedFilters.alpha) {
+    /* if (checkedFilters.alpha) {
       filteredBooks = filteredBooks.sort((a, b) =>
         a.title.localeCompare(b.title)
       );
-    }
+    } */
 
-    return filteredBooks;
+    /* return filteredBooks; */
+    return checkedFilters.alpha
+      ? filteredBooks.sort((a, b) => a.title.localeCompare(b.title))
+      : filteredBooks;
   }, [books, checkedFilters]);
 
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const { alpha, star, genre } = checkedFilters;
+
   const booksToBeFiltered = query ? booksBySearch : booksByFilters;
 
-  console.log(checkedFilters.alpha);
+  console.log(tempCheckedFilters);
+  /* console.log(checkedFilters);
+  console.log(tempCheckedGenre); */
 
   return (
     <div className='App'>
       <NavBar query={query} onQueryChange={handleQueryChange}>
         <SidebarFilter
           genreItems={genreItems}
-          tempCheckedGenres={tempCheckedGenres}
-          tempCheckedStars={tempCheckedStars}
+          /* tempCheckedGenres={tempCheckedGenres} */
+          /* tempCheckedStars={tempCheckedStars} */
           alpha={alpha}
+          tempAlpha={tempAlpha}
+          tempCheckedGenre={tempCheckedGenre}
+          tempCheckedStar={tempCheckedStar}
           onAlphaOrder={handleAlphaOrder}
           onGenreChange={handleGenreChange}
           onStarChange={handleStarChange}
