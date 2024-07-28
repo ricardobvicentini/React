@@ -11,20 +11,21 @@ import bookData from './db/bookData';
 const App = () => {
   const [bookNum, setBookNum] = useState(4);
   const [books, setBooks] = useState(bookData);
+  const originalBooks = bookData;
   const [query, setQuery] = useState('');
   const [tempCheckedFilters, setTempCheckedFilters] = useState({
     tempAlpha: false,
     tempCheckedGenre: [],
     tempCheckedStar: [],
   });
-
   const { tempAlpha, tempCheckedGenre, tempCheckedStar } = tempCheckedFilters;
-
   const [checkedFilters, setCheckedFilters] = useState({
     alpha: tempAlpha,
     star: tempCheckedStar,
     genre: tempCheckedGenre,
   });
+  const { alpha, star, genre } = checkedFilters;
+  const genreItems = [...new Set(bookData.map((item) => item.genre))];
 
   /*   function handleDeleteBook(el) {
     setBooks(books.filter((book) => book.title !== el));
@@ -35,11 +36,12 @@ const App = () => {
     setQuery(e.target.value);
   }
 
+  /*  Alpha order */
   function handleAlphaOrder() {
-    setTempCheckedFilters({
-      ...tempCheckedFilters,
-      tempAlpha: !tempCheckedFilters.tempAlpha,
-    });
+    setTempCheckedFilters((prevFilters) => ({
+      ...prevFilters,
+      tempAlpha: !prevFilters.tempAlpha,
+    }));
   }
 
   /* Genre */
@@ -83,11 +85,18 @@ const App = () => {
   /* Apply Filters */
   function handleApplyFilters() {
     setCheckedFilters({
-      ...checkedFilters,
       alpha: tempAlpha,
       star: tempCheckedStar,
       genre: tempCheckedGenre,
     });
+    /* Alpha conditional */
+    if (tempAlpha) {
+      setBooks(
+        [...originalBooks].sort((a, b) => a.title.localeCompare(b.title))
+      );
+    } else {
+      setBooks(originalBooks);
+    }
   }
 
   /* Clear Filters */
@@ -98,13 +107,14 @@ const App = () => {
       tempCheckedStar: [],
     });
     setCheckedFilters({
-      ...checkedFilters,
       alpha: false,
       star: [],
       genre: [],
     });
+    setBooks(originalBooks);
   }
 
+  /* Books using search */
   const booksBySearch = useMemo(
     () =>
       books.filter(
@@ -115,6 +125,7 @@ const App = () => {
     [books, query]
   );
 
+  /* Books using filters */
   const booksByFilters = useMemo(() => {
     let filteredBooks = books;
 
@@ -134,21 +145,8 @@ const App = () => {
       );
     }
 
-    /* Alpha order */
-    /* if (checkedFilters.alpha) {
-      filteredBooks = filteredBooks.sort((a, b) =>
-        a.title.localeCompare(b.title)
-      );
-    } */
-
-    /* return filteredBooks; */
-    return checkedFilters.alpha
-      ? filteredBooks.sort((a, b) => a.title.localeCompare(b.title))
-      : filteredBooks;
+    return filteredBooks;
   }, [books, checkedFilters]);
-
-  const genreItems = [...new Set(bookData.map((item) => item.genre))];
-  const { alpha, star, genre } = checkedFilters;
 
   const booksToBeFiltered = query ? booksBySearch : booksByFilters;
 
@@ -192,7 +190,12 @@ const App = () => {
           ))
           .slice(0, bookNum)}
       </CardBox>
-      <ShowMoreBtn setBookNum={setBookNum} />
+
+      <ShowMoreBtn
+        bookNum={bookNum}
+        setBookNum={setBookNum}
+        booksToBeFiltered={booksToBeFiltered}
+      />
     </div>
   );
 };
