@@ -8,18 +8,18 @@ const Card = ({ image, title, author, genre, pages, stars }) => {
         style={{ maxWidth: '33.75rem' }}
       >
         <div className='row g-0 h-100'>
-          <div className='col-4'>
+          <div className='col-5'>
             <img
               src={image}
               className='img-fluid img-thumbnail rounded-start h-100'
               alt='Book cover'
             />
           </div>
-          <div className='col-8'>
+          <div className='col-7'>
             <div className='card-body h-100 d-flex flex-column'>
               <h5 className='card-title'>{title}</h5>
 
-              <ul className='list-group list-group-flush mb-2'>
+              <ul className='list-group list-group-flush'>
                 <li className='list-group-item'>Author: {author}</li>
                 <li className='list-group-item'>Genre: {genre}</li>
                 <li className='list-group-item'>Pages: {pages}</li>
@@ -30,12 +30,12 @@ const Card = ({ image, title, author, genre, pages, stars }) => {
                   ))}
                 </li>
               </ul>
-              <button
+              {/* <button
                 className='btn btn-outline-warning mt-auto'
                 style={{ width: '40%' }}
               >
                 Edit
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
