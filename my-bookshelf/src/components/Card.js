@@ -11,7 +11,7 @@ const Card = ({ image, title, author, genre, pages, stars }) => {
           <div className='col-5'>
             <img
               src={image}
-              className='img-fluid img-thumbnail rounded-start h-100'
+              className='img-fluid object-fit-fill rounded-start h-100'
               alt='Book cover'
             />
           </div>
