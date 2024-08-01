@@ -11,6 +11,7 @@ const NavBar = ({ children, query, onQueryChange }) => {
           <a className='navbar-brand mx-0 fw-bold fs-4' href='/'>
             My Book<span style={{ color: '#ffc107' }}>s</span>helf
           </a>
+
           <button
             className='navbar-dark navbar-toggler my-2'
             data-bs-toggle='collapse'
@@ -20,26 +21,32 @@ const NavBar = ({ children, query, onQueryChange }) => {
           >
             <span className='navbar-dark navbar-toggler-icon'></span>
           </button>
-          <div className='collapse navbar-dark navbar-collapse gap-5' id='nav'>
-            <form
-              className='py-2 ms-auto'
+          <div
+            className='row mx-0 collapse navbar-dark navbar-collapse'
+            id='nav'
+          >
+            <div
+              className='col py-2 ms-auto d-flex justify-content-center'
               role='search'
-              style={{ width: 'min(20rem, 60%)' }}
             >
-              <div className='input-group'>
+              <div
+                className='input text-center'
+                style={{ width: 'min(20rem, 80%)' }}
+              >
                 <input
                   value={query}
                   onChange={onQueryChange}
                   type='search'
                   className='search-input form-control'
                   placeholder='Search...'
-                  aria-label='Input group example'
-                  aria-describedby='btnGroupAddon2'
                 />
               </div>
-            </form>
+            </div>
 
-            <div className='d-flex ms-auto mt-2 mt-sm-0'>
+            <div
+              className='col d-flex ms-auto mt-sm-0'
+              style={{ maxWidth: '10rem' }}
+            >
               <button
                 className='btn btn-warning ms-auto'
                 type='button'
