@@ -16,13 +16,13 @@ img {
 
 body {
   background-image: radial-gradient(circle, #eeeeee, #fcf8e6);
-
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
 }
 
 /* Navbar */
 .navbar {
+  min-height: 4.5rem;
   background-color: #6c757dc7;
   backdrop-filter: blur(10px);
   & .navbar-brand {
