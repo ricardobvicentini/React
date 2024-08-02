@@ -45,7 +45,7 @@ const NavBar = ({ children, query, onQueryChange }) => {
             </div>
 
             <div
-              className='col d-flex ms-auto mt-sm-0'
+              className='col d-flex ms-auto mt-sm-0 p-0'
               style={{ maxWidth: '10rem' }}
             >
               <button
