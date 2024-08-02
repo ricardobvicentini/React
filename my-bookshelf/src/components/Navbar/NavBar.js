@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FaFilter } from 'react-icons/fa';
 
 const NavBar = ({ children, query, onQueryChange }) => {
@@ -8,9 +9,9 @@ const NavBar = ({ children, query, onQueryChange }) => {
         /* style={{ backgroundColor: '#fcf8e6' }} */
       >
         <div className='container px-4'>
-          <a className='navbar-brand mx-0 fw-bold fs-4' href='/'>
+          <Link className='navbar-brand mx-0 fw-bold fs-4' to='/'>
             My Book<span style={{ color: '#ffc107' }}>s</span>helf
-          </a>
+          </Link>
 
           <button
             className='navbar-dark navbar-toggler my-2'
