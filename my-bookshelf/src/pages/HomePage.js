@@ -181,6 +181,7 @@ const HomePage = () => {
             .map(({ image, title, author, genre, pages, stars }, i) => (
               <Card
                 key={i}
+                id={i}
                 image={image}
                 title={title}
                 author={author}
