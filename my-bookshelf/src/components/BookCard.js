@@ -17,6 +17,7 @@ const BookCard = ({ image, title, author, genre, pages, stars }) => {
                 src={image}
                 className='img-fluid object-fit-fill rounded-start h-100'
                 alt='Book cover'
+                loading='lazy'
               />
             </div>
             <div className='col-7'>
