@@ -1,6 +1,12 @@
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import bookData from '../db/bookData';
 
 const BookCard = ({ image, title, author, genre, pages, stars }) => {
+  const { id } = useParams();
+  const [book, setBook] = useState(bookData);
+
   return (
     <div
       className='container'
