@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import bookData from '../db/bookData';
 
-const BookCard = ({ image, title, author, genre, pages, stars }) => {
+const BookCard = () => {
   const { id } = useParams();
   const [book, setBook] = useState(bookData);
+
+  useEffect(() => {
+    setBook(book.filter(({ bookId }) => bookId === id));
+  }, []);
+
+  const [filteredBook] = book;
 
   return (
     <div
@@ -20,7 +26,7 @@ const BookCard = ({ image, title, author, genre, pages, stars }) => {
           <div className='row g-0 h-100'>
             <div className='col-5'>
               <img
-                src={image}
+                src={`../${filteredBook.image}`}
                 className='img-fluid object-fit-fill rounded-start h-100'
                 alt='Book cover'
                 loading='lazy'
@@ -28,16 +34,25 @@ const BookCard = ({ image, title, author, genre, pages, stars }) => {
             </div>
             <div className='col-7'>
               <div className='card-body h-100 d-flex flex-column'>
-                <h5 className='card-title'>{title}</h5>
+                <h5 className='card-title'>{filteredBook.title}</h5>
 
                 <ul className='list-group list-group-flush'>
-                  <li className='list-group-item'>Author: {author}</li>
-                  <li className='list-group-item'>Genre: {genre}</li>
-                  <li className='list-group-item'>Pages: {pages}</li>
+                  <li className='list-group-item'>
+                    Author: {filteredBook.author}
+                  </li>
+                  <li className='list-group-item'>
+                    Genre: {filteredBook.genre}
+                  </li>
+                  <li className='list-group-item'>
+                    Pages: {filteredBook.pages}
+                  </li>
                   <li className='list-group-item d-flex align-items-center gap-1 '>
                     Rating:{' '}
-                    {Array.from({ length: stars }, (_, i) => (
-                      <FaStar key={stars - i} style={{ color: '#ffc107' }} />
+                    {Array.from({ length: filteredBook.stars }, (_, i) => (
+                      <FaStar
+                        key={filteredBook.stars - i}
+                        style={{ color: '#ffc107' }}
+                      />
                     ))}
                   </li>
                 </ul>

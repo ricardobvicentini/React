@@ -178,10 +178,10 @@ const HomePage = () => {
         }
         <CardBox>
           {booksToBeFiltered
-            .map(({ id, image, title, author, genre, pages, stars }, i) => (
+            .map(({ bookId, image, title, author, genre, pages, stars }, i) => (
               <Card
                 key={i}
-                id={id}
+                bookId={bookId}
                 image={image}
                 title={title}
                 author={author}

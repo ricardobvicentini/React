@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 
-const Card = ({ id, image, title, author, genre, pages, stars }) => {
+const Card = ({ bookId, image, title, author, genre, pages, stars }) => {
   return (
     <div className='col-sm-12 col-lg-6'>
       <div
@@ -35,7 +35,7 @@ const Card = ({ id, image, title, author, genre, pages, stars }) => {
                 className=' btn btn-outline-warning mt-auto align-self-center'
                 style={{ width: '40%' }}
                 /* onClick={(e) => console.log(id)} */
-                to={`/book/${id}`}
+                to={`/book/${bookId}`}
               >
                 Details
               </Link>
