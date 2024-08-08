@@ -53,6 +53,9 @@ const BookCard = () => {
                     Genre: {selectedBook.genre}
                   </li>
                   <li className='list-group-item'>
+                    Description: {selectedBook.description}
+                  </li>
+                  <li className='list-group-item'>
                     Pages: {selectedBook.pages}
                   </li>
                   <li className='list-group-item d-flex align-items-center gap-1 '>
