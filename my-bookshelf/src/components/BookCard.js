@@ -8,10 +8,17 @@ const BookCard = () => {
   const [book, setBook] = useState([]);
 
   useEffect(() => {
+    // Make sure bookData is an array of books
     const foundBook = bookData.find(({ bookId }) => bookId === id);
-    foundBook && setBook(foundBook);
-    console.log(foundBook);
-  }, [id]);
+    if (foundBook) {
+      setBook([foundBook]); // Set as an array with a single book object
+    }
+  }, [id]); // Add id as a dependency
+
+  // Early return if book is not yet set
+  if (book.length === 0) {
+    return <div>Loading...</div>;
+  }
 
   const [selectedBook] = book;
 
@@ -30,7 +37,7 @@ const BookCard = () => {
               <img
                 src={`../${selectedBook.image}`}
                 className='img-fluid object-fit-fill rounded-start h-100'
-                alt='selectedBook cover'
+                alt='Book cover'
                 loading='lazy'
               />
             </div>
