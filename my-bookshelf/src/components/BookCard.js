@@ -5,13 +5,15 @@ import bookData from '../db/bookData';
 
 const BookCard = () => {
   const { id } = useParams();
-  const [book, setBook] = useState(bookData);
+  const [book, setBook] = useState([]);
 
   useEffect(() => {
-    setBook(book.filter(({ bookId }) => bookId === id));
-  }, []);
+    const foundBook = bookData.find(({ bookId }) => bookId === id);
+    foundBook && setBook(foundBook);
+    console.log(foundBook);
+  }, [id]);
 
-  const [filteredBook] = book;
+  const [selectedBook] = book;
 
   return (
     <div
@@ -26,31 +28,31 @@ const BookCard = () => {
           <div className='row g-0 h-100'>
             <div className='col-5'>
               <img
-                src={`../${filteredBook.image}`}
+                src={`../${selectedBook.image}`}
                 className='img-fluid object-fit-fill rounded-start h-100'
-                alt='Book cover'
+                alt='selectedBook cover'
                 loading='lazy'
               />
             </div>
             <div className='col-7'>
               <div className='card-body h-100 d-flex flex-column'>
-                <h5 className='card-title'>{filteredBook.title}</h5>
+                <h5 className='card-title'>{selectedBook.title}</h5>
 
                 <ul className='list-group list-group-flush'>
                   <li className='list-group-item'>
-                    Author: {filteredBook.author}
+                    Author: {selectedBook.author}
                   </li>
                   <li className='list-group-item'>
-                    Genre: {filteredBook.genre}
+                    Genre: {selectedBook.genre}
                   </li>
                   <li className='list-group-item'>
-                    Pages: {filteredBook.pages}
+                    Pages: {selectedBook.pages}
                   </li>
                   <li className='list-group-item d-flex align-items-center gap-1 '>
                     Rating:{' '}
-                    {Array.from({ length: filteredBook.stars }, (_, i) => (
+                    {Array.from({ length: selectedBook.stars }, (_, i) => (
                       <FaStar
-                        key={filteredBook.stars - i}
+                        key={selectedBook.stars - i}
                         style={{ color: '#ffc107' }}
                       />
                     ))}
