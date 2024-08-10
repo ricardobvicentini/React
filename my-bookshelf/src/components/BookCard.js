@@ -7,6 +7,7 @@ const BookCard = () => {
   const { id } = useParams();
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   useEffect(() => {
     // Make sure bookData is an array of books
@@ -23,7 +24,7 @@ const BookCard = () => {
   }
 
   const [selectedBook] = book;
-  console.log(book);
+  console.log(showFullDescription);
 
   return (
     <div
@@ -62,6 +63,18 @@ const BookCard = () => {
                     </li>
                     <li className='list-group-item'>
                       Description: {selectedBook.description}
+                      <button
+                        onClick={() =>
+                          setShowFullDescription(
+                            (prevShowFullDescription) =>
+                              !prevShowFullDescription
+                          )
+                        }
+                        type='button'
+                        class='btn btn-outline-secondary btn-sm mt-3'
+                      >
+                        Show more
+                      </button>
                     </li>
                     <li className='list-group-item'>
                       Pages: {selectedBook.pages}
@@ -77,7 +90,7 @@ const BookCard = () => {
                     </li>
                   </ul>
                   <button
-                    className='btn btn-outline-warning mt-auto'
+                    className='btn btn-outline-warning mt-auto mt-auto align-self-center'
                     style={{ width: '40%' }}
                   >
                     Edit
