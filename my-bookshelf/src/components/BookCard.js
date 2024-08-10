@@ -62,7 +62,11 @@ const BookCard = () => {
                       Genre: {selectedBook.genre}
                     </li>
                     <li className='list-group-item'>
-                      Description: {selectedBook.description}
+                      Description:{' '}
+                      {showFullDescription
+                        ? selectedBook.description
+                        : selectedBook.description.substring(0, 90) + '...'}
+                      <br />
                       <button
                         onClick={() =>
                           setShowFullDescription(
@@ -73,7 +77,7 @@ const BookCard = () => {
                         type='button'
                         class='btn btn-outline-secondary btn-sm mt-3'
                       >
-                        Show more
+                        {!showFullDescription ? 'Show more' : 'Show less'}
                       </button>
                     </li>
                     <li className='list-group-item'>
