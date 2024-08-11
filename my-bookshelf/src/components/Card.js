@@ -5,7 +5,7 @@ const Card = ({ bookId, image, title, author, genre, pages, stars }) => {
   return (
     <div className='col-sm-12 col-lg-6'>
       <div
-        className='card shadow h-100 mb-3 mx-auto'
+        className='card shadow h-100 mb-3 mx-auto card-hover'
         style={{ maxWidth: '33.75rem' }}
       >
         <div className='row g-0 h-100'>
