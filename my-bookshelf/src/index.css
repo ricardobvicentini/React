@@ -92,7 +92,7 @@ input[type='checkbox'],
 }
 
 /* Cardbox */
-.card {
+.card-hover {
   user-select: none;
   transition: transform 300ms ease-in-out;
   &:hover {
