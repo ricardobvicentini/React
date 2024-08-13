@@ -10,7 +10,6 @@ const BookCard = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   useEffect(() => {
-    // Make sure bookData is an array of books
     const foundBook = bookData.find(({ bookId }) => bookId === id);
     if (foundBook) {
       setBook([foundBook]); // Set as an array with a single book object
@@ -24,7 +23,6 @@ const BookCard = () => {
   }
 
   const [selectedBook] = book;
-  console.log(showFullDescription);
 
   return (
     <div
@@ -75,7 +73,7 @@ const BookCard = () => {
                           )
                         }
                         type='button'
-                        class='btn btn-outline-secondary btn-sm mt-3'
+                        className='btn btn-outline-secondary btn-sm mt-3'
                       >
                         {!showFullDescription ? 'Show more' : 'Show less'}
                       </button>
