@@ -104,7 +104,8 @@ input[type='checkbox'],
   font-size: clamp(0.8rem, 0.7295774647887324rem + 0.300469483568075vw, 1rem);
   & .card-title,
   .btn {
-    font-size: 1rem;
-    font-size: clamp(1rem, 0.9295774647887324rem + 0.300469483568075vw, 1.2rem);
+    padding: 0.5em 0.25em;
+    font-size: 0.8rem;
+    font-size: clamp(0.8rem, 0.7295774647887324rem + 0.300469483568075vw, 1rem);
   }
 }
