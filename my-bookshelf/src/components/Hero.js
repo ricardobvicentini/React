@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Hero = () => {
   return (
     <div className='hero position-relative'>
@@ -5,9 +7,9 @@ const Hero = () => {
         <h1>
           <em>Organize your books quickly and easily</em>
         </h1>
-        <button type='button' className='btn btn-outline-warning'>
+        <Link className='btn btn-outline-warning' to='/add-book'>
           Add book
-        </button>
+        </Link>
       </div>
     </div>
   );
