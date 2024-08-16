@@ -37,7 +37,7 @@ const Card = ({ bookId, image, title, author, genre, pages, stars }) => {
                 /* onClick={(e) => console.log(id)} */
                 to={`/book/${bookId}`}
               >
-                Details
+                Info
               </Link>
             </div>
           </div>
