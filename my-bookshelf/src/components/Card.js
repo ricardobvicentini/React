@@ -9,7 +9,7 @@ const Card = ({ bookId, image, title, author, genre, pages, stars }) => {
         style={{ maxWidth: '33.75rem' }}
       >
         <div className='row g-0 h-100'>
-          <div className='col-5'>
+          <div className='col-5 h-100'>
             <img
               src={image}
               className='img-fluid object-fit-fill rounded-start h-100'
