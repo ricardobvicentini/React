@@ -22,14 +22,18 @@ const NavBar = ({ children, query, onQueryChange }) => {
           >
             <span className='navbar-dark navbar-toggler-icon'></span>
           </button>
-          <div className='mx-0 collapse navbar-dark navbar-collapse' id='nav'>
+          <div
+            className='row mx-0 collapse navbar-dark navbar-collapse'
+            id='nav'
+          >
             <div
-              className='py-2 ms-auto d-flex justify-content-end'
+              className='col-8 py-2 d-flex justify-content-end'
               role='search'
             >
               <div
-                className='input text-center'
-                style={{ width: 'min(20rem, 80%)' }}
+                className='input text-center '
+                /* style={{ width: 'min(20rem, 80%)' }} */
+                style={{ width: '80%' }}
               >
                 <input
                   value={query}
@@ -42,8 +46,8 @@ const NavBar = ({ children, query, onQueryChange }) => {
             </div>
 
             <div
-              className='d-flex ms-auto mt-sm-0 p-0'
-              /* style={{ maxWidth: '10rem' }} */
+              className='col d-flex ms-auto mt-sm-0 p-0'
+              style={{ maxWidth: '10rem' }}
             >
               <button
                 className='btn btn-warning ms-auto'
