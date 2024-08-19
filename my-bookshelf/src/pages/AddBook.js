@@ -1,8 +1,12 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
+import { useState } from 'react';
 import { FaRegStar } from 'react-icons/fa';
 import { FaStar } from 'react-icons/fa';
 
 const AddBook = () => {
+  const [stars, setStars] = useState(0);
+
+  console.log(stars);
   return (
     <div>
       <CommonNavBar />
@@ -56,12 +60,31 @@ const AddBook = () => {
           </label>
           <div className='d-flex align-items-center gap-1 '>
             {Array.from({ length: 5 }, (_, i) => (
-              <FaRegStar key={i + 1} /* style={{ color: '#ffc107' }} */ />
+              <Star
+                key={i + 1}
+                onRate={() => setStars(i + 1)}
+                full={stars >= i + 1}
+              />
             ))}
           </div>
         </div>
       </div>
     </div>
+  );
+};
+
+const Star = ({ onRate, full }) => {
+  return (
+    <>
+      {full ? (
+        <FaStar
+          onClick={onRate}
+          style={{ cursor: 'pointer', color: '#ffc107' }}
+        />
+      ) : (
+        <FaRegStar onClick={onRate} style={{ cursor: 'pointer' }} />
+      )}
+    </>
   );
 };
 
