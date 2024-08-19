@@ -1,4 +1,5 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
+import { FaRegStar } from 'react-icons/fa';
 import { FaStar } from 'react-icons/fa';
 
 const AddBook = () => {
@@ -53,9 +54,9 @@ const AddBook = () => {
           <label htmlFor='stars' className='form-label'>
             Stars
           </label>
-          <div>
+          <div className='d-flex align-items-center gap-1 '>
             {Array.from({ length: 5 }, (_, i) => (
-              <FaStar style={{ color: '#ffc107' }} />
+              <FaRegStar key={i + 1} /* style={{ color: '#ffc107' }} */ />
             ))}
           </div>
         </div>
