@@ -1,4 +1,5 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
+import { FaStar } from 'react-icons/fa';
 
 const AddBook = () => {
   return (
@@ -47,6 +48,16 @@ const AddBook = () => {
             Pages
           </label>
           <input type='number' id='pages' className='form-control' />
+        </div>
+        <div className='mb-3'>
+          <label htmlFor='stars' className='form-label'>
+            Stars
+          </label>
+          <div>
+            {Array.from({ length: 5 }, (_, i) => (
+              <FaStar style={{ color: '#ffc107' }} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
