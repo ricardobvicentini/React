@@ -4,6 +4,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 
 const AddBook = () => {
   const [stars, setStars] = useState(1);
+  const [tempStar, setTempStar] = useState(1);
 
   console.log(stars);
   return (
@@ -74,16 +75,9 @@ const AddBook = () => {
 
 const Star = ({ onRate, full }) => {
   return (
-    <>
-      {full ? (
-        <FaStar
-          onClick={onRate}
-          style={{ cursor: 'pointer', color: '#ffc107' }}
-        />
-      ) : (
-        <FaRegStar onClick={onRate} style={{ cursor: 'pointer' }} />
-      )}
-    </>
+    <span style={{ cursor: 'pointer' }} onClick={onRate}>
+      {full ? <FaStar style={{ color: '#ffc107' }} /> : <FaRegStar />}
+    </span>
   );
 };
 
