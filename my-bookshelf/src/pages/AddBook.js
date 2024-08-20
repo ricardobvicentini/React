@@ -1,10 +1,9 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
 import { useState } from 'react';
-import { FaRegStar } from 'react-icons/fa';
-import { FaStar } from 'react-icons/fa';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 
 const AddBook = () => {
-  const [stars, setStars] = useState(0);
+  const [stars, setStars] = useState(1);
 
   console.log(stars);
   return (
