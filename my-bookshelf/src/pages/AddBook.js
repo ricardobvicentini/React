@@ -4,9 +4,8 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 
 const AddBook = () => {
   const [stars, setStars] = useState(1);
-  const [tempStar, setTempStar] = useState(1);
+  const [tempStars, setTempStars] = useState(1);
 
-  console.log(stars);
   return (
     <div>
       <CommonNavBar />
@@ -52,7 +51,7 @@ const AddBook = () => {
           <label htmlFor='pages' className='form-label'>
             Pages
           </label>
-          <input type='number' id='pages' className='form-control' />
+          <input type='number' min='0' id='pages' className='form-control' />
         </div>
         <div className='mb-3'>
           <label htmlFor='stars' className='form-label'>
@@ -63,9 +62,12 @@ const AddBook = () => {
               <Star
                 key={i + 1}
                 onRate={() => setStars(i + 1)}
-                full={stars >= i + 1}
+                onHoverIn={() => setTempStars(i + 1)}
+                onHoverOut={() => setTempStars(stars)}
+                full={tempStars ? tempStars >= i + 1 : stars >= i + 1}
               />
             ))}
+            <span className='ms-2 align-middle'>{tempStars || stars}</span>
           </div>
         </div>
       </div>
@@ -73,9 +75,14 @@ const AddBook = () => {
   );
 };
 
-const Star = ({ onRate, full }) => {
+const Star = ({ onRate, onHoverIn, onHoverOut, full }) => {
   return (
-    <span style={{ cursor: 'pointer' }} onClick={onRate}>
+    <span
+      style={{ cursor: 'pointer' }}
+      onClick={onRate}
+      onMouseEnter={onHoverIn}
+      onMouseLeave={onHoverOut}
+    >
       {full ? <FaStar style={{ color: '#ffc107' }} /> : <FaRegStar />}
     </span>
   );
