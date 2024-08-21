@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --btn-gradient: linear-gradient(#ffc107, #fde292);
+}
+
 img {
   width: 100%;
   height: auto;
@@ -20,6 +24,14 @@ a {
 
 body {
   background-image: radial-gradient(circle, #eeeeee, #fcf8e6);
+
+  background-image: linear-gradient(
+    135deg,
+    #fde087,
+    0%,
+    #fcecbf 35%,
+    #fff5dc 100%
+  );
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
 }
@@ -31,6 +43,9 @@ body {
   backdrop-filter: blur(10px);
   & .navbar-brand {
     color: #fff;
+  }
+  & button {
+    background-image: var(--btn-gradient);
   }
 }
 
