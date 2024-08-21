@@ -4,7 +4,7 @@ const ShowMoreBtn = ({ bookNum, setBookNum, booksToBeFiltered }) => {
       {booksToBeFiltered.length > bookNum && (
         <button
           onClick={() => setBookNum((prevBookNum) => prevBookNum + 4)}
-          className='btn btn-outline-primary shadow-sm'
+          className='btn btn-outline-primary shadow-sm show-more-btns'
           type='button'
         >
           Show more

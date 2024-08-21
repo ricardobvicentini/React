@@ -7,7 +7,7 @@ const Hero = () => {
         <h1>
           <em>Organize your books quickly and easily</em>
         </h1>
-        <Link className='btn btn-outline-warning' to='/add-book'>
+        <Link className='btn btn-outline-warning outlined-btns' to='/add-book'>
           Add book
         </Link>
       </div>

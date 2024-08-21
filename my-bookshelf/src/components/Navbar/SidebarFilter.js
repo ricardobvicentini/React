@@ -135,14 +135,14 @@ const SidebarFilter = ({
         <div className='d-grid gap-2 col-6 mx-auto my-4'>
           <button
             onClick={onClearFilters}
-            className='btn btn-outline-warning'
+            className='btn btn-outline-warning outlined-btns'
             type='button'
           >
             Clear
           </button>
           <button
             onClick={onApplyFilters}
-            className='btn btn-warning'
+            className='btn full-btns'
             type='button'
           >
             Apply

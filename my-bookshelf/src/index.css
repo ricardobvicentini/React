@@ -10,6 +10,7 @@
 
 :root {
   --btn-gradient: linear-gradient(#ffc107, #fde292);
+  --btn-hover-gradient: linear-gradient(#fde292, #ffc107);
 }
 
 img {
@@ -24,7 +25,6 @@ a {
 
 body {
   background-image: radial-gradient(circle, #eeeeee, #fcf8e6);
-
   background-image: linear-gradient(
     135deg,
     #fde087,
@@ -43,9 +43,6 @@ body {
   backdrop-filter: blur(10px);
   & .navbar-brand {
     color: #fff;
-  }
-  & button {
-    background-image: var(--btn-gradient);
   }
 }
 
@@ -123,4 +120,30 @@ input[type='checkbox'],
     font-size: 0.8rem;
     font-size: clamp(0.8rem, 0.7295774647887324rem + 0.300469483568075vw, 1rem);
   }
+}
+
+/* Utility */
+.outlined-btns,
+.full-btns,
+.show-more-btns {
+  transition: all 200ms ease-in-out;
+}
+.outlined-btns:hover,
+.outlined-btns:focus {
+  background-image: var(--btn-gradient);
+}
+
+.full-btns {
+  background-image: var(--btn-gradient);
+  transition: background-image 200ms ease-in-out;
+}
+
+.full-btns:hover,
+.full-btns:focus {
+  background-image: var(--btn-hover-gradient);
+}
+
+.show-more-btns:hover,
+.show-more-btns:focus {
+  background-image: linear-gradient(#0d6efd, #77abfa);
 }

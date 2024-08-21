@@ -32,7 +32,7 @@ const Card = ({ bookId, image, title, author, genre, pages, stars }) => {
                 </li>
               </ul>
               <Link
-                className=' btn btn-outline-warning mt-auto align-self-center'
+                className=' btn btn-outline-warning mt-auto align-self-center outlined-btns'
                 style={{ width: '40%' }}
                 /* onClick={(e) => console.log(id)} */
                 to={`/book/${bookId}`}

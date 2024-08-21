@@ -13,7 +13,7 @@ const CommonNavBar = () => {
             My Book<span style={{ color: '#ffc107' }}>s</span>helf
           </Link>
           <Link to='/'>
-            <button className='btn btn-warning ms-auto' type='button'>
+            <button className='btn btn-warning ms-auto full-btns' type='button'>
               <FaCircleLeft />
             </button>
           </Link>

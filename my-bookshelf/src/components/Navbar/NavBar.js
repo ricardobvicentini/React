@@ -50,7 +50,7 @@ const NavBar = ({ children, query, onQueryChange }) => {
               style={{ maxWidth: '10rem' }}
             >
               <button
-                className='btn btn-warning ms-auto'
+                className='btn ms-auto full-btns'
                 type='button'
                 data-bs-toggle='offcanvas'
                 data-bs-target='#offcanvasRight'

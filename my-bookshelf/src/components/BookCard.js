@@ -73,7 +73,7 @@ const BookCard = () => {
                           )
                         }
                         type='button'
-                        className='btn btn-outline-secondary btn-sm mt-3'
+                        className='btn btn-outline-primary btn-sm mt-3 show-more-btns'
                       >
                         {!showFullDescription ? 'Show more' : 'Show less'}
                       </button>
@@ -92,7 +92,7 @@ const BookCard = () => {
                     </li>
                   </ul>
                   <button
-                    className='btn btn-outline-warning mt-auto mt-auto align-self-center'
+                    className='btn btn-outline-warning mt-auto mt-auto align-self-center outlined-btns'
                     style={{ width: '40%' }}
                   >
                     Edit
