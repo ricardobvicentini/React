@@ -62,7 +62,7 @@ input[type='checkbox'],
     background-color: #ffc107;
     border-color: #ffc107;
   }
-  &:focus {
+  &:focus-visible {
     box-shadow: none;
     border-color: #ffc107;
   }
@@ -129,7 +129,7 @@ input[type='checkbox'],
   transition: all 200ms ease-in-out;
 }
 .outlined-btns:hover,
-.outlined-btns:focus {
+.outlined-btns:focus-visible {
   background-image: var(--btn-gradient);
 }
 
@@ -139,11 +139,11 @@ input[type='checkbox'],
 }
 
 .full-btns:hover,
-.full-btns:focus {
+.full-btns:focus-visible {
   background-image: var(--btn-hover-gradient);
 }
 
 .show-more-btns:hover,
-.show-more-btns:focus {
+.show-more-btns:focus-visible {
   background-image: linear-gradient(#0d6efd, #77abfa);
 }
