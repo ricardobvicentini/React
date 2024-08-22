@@ -37,7 +37,7 @@ const BookCard = () => {
         ) : (
           <div
             className='card shadow h-100 mb-3 mx-auto'
-            style={{ maxWidth: '33.75rem' }}
+            style={{ maxWidth: '40rem' }}
           >
             <div className='row g-0 h-100'>
               <div className='col-5'>
