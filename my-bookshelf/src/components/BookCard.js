@@ -65,23 +65,25 @@ const BookCard = () => {
                         ? selectedBook.description
                         : selectedBook.description.substring(0, 90) + '...'}
                       <br />
-                      <button
-                        onClick={() =>
-                          setShowFullDescription(
-                            (prevShowFullDescription) =>
-                              !prevShowFullDescription
-                          )
-                        }
-                        type='button'
-                        className='btn btn-outline-primary btn-sm my-2 show-more-btns'
-                        style={{
-                          paddingInline: '.25rem',
-                          paddingBlock: '.5rem',
-                          fontSize: '.75rem',
-                        }}
-                      >
-                        {!showFullDescription ? 'Show more' : 'Show less'}
-                      </button>
+                      <div className='mx-auto d-flex justify-content-center'>
+                        <button
+                          onClick={() =>
+                            setShowFullDescription(
+                              (prevShowFullDescription) =>
+                                !prevShowFullDescription
+                            )
+                          }
+                          type='button'
+                          className='btn btn-outline-primary btn-sm my-2 show-more-btns'
+                          style={{
+                            paddingInline: '.25rem',
+                            paddingBlock: '.5rem',
+                            fontSize: '.75rem',
+                          }}
+                        >
+                          {!showFullDescription ? 'Show more' : 'Show less'}
+                        </button>
+                      </div>
                     </li>
                     <li className='list-group-item'>
                       Pages: {selectedBook.pages}
