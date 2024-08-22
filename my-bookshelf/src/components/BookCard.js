@@ -73,7 +73,12 @@ const BookCard = () => {
                           )
                         }
                         type='button'
-                        className='btn btn-outline-primary btn-sm mt-3 show-more-btns'
+                        className='btn btn-outline-primary btn-sm my-2 show-more-btns'
+                        style={{
+                          paddingInline: '.25rem',
+                          paddingBlock: '.5rem',
+                          fontSize: '.75rem',
+                        }}
                       >
                         {!showFullDescription ? 'Show more' : 'Show less'}
                       </button>
