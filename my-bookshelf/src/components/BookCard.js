@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import Loader from '../components/Loader';
 import bookData from '../db/bookData';
 
 const BookCard = () => {
   const { id } = useParams();
   const [book, setBook] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const foundBook = bookData.find(({ bookId }) => bookId === id);
     if (foundBook) {
       setBook([foundBook]); // Set as an array with a single book object
@@ -31,9 +33,7 @@ const BookCard = () => {
     >
       <div className='col-sm-12'>
         {loading ? (
-          <div className='spinner-border' role='status'>
-            <span className='visually-hidden'>Loading...</span>
-          </div>
+          <Loader />
         ) : (
           <div
             className='card shadow h-100 mb-3 mx-auto'

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import NavBar from '../components/Navbar/NavBar';
 import SidebarFilter from '../components/Navbar/SidebarFilter';
 import Hero from '../components/Hero';
@@ -6,11 +6,14 @@ import Results from '../components/Results';
 import CardBox from '../components/CardBox';
 import Card from '../components/Card';
 import ShowMoreBtn from '../components/ShowMoreBtn';
+import Loader from '../components/Loader';
 import bookData from '../db/bookData';
 
 const HomePage = () => {
   const [bookNum, setBookNum] = useState(4);
-  const [books, setBooks] = useState(bookData);
+  /* const [books, setBooks] = useState(bookData); */
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
   const originalBooks = bookData;
   const [query, setQuery] = useState('');
   const [tempCheckedFilters, setTempCheckedFilters] = useState({
@@ -26,6 +29,15 @@ const HomePage = () => {
   });
   const { alpha, star, genre } = checkedFilters;
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
+
+  useEffect(() => {
+    setLoading(true);
+    function getBooks() {
+      setBooks(bookData);
+      setLoading(false);
+    }
+    getBooks();
+  }, []);
 
   /*   function handleDeleteBook(el) {
     setBooks(books.filter((book) => book.title !== el));
@@ -177,20 +189,26 @@ const HomePage = () => {
           />
         }
         <CardBox>
-          {booksToBeFiltered
-            .map(({ bookId, image, title, author, genre, pages, stars }, i) => (
-              <Card
-                key={i}
-                bookId={bookId}
-                image={image}
-                title={title}
-                author={author}
-                genre={genre}
-                pages={pages}
-                stars={stars}
-              />
-            ))
-            .slice(0, bookNum)}
+          {loading ? (
+            <Loader />
+          ) : (
+            booksToBeFiltered
+              .map(
+                ({ bookId, image, title, author, genre, pages, stars }, i) => (
+                  <Card
+                    key={i}
+                    bookId={bookId}
+                    image={image}
+                    title={title}
+                    author={author}
+                    genre={genre}
+                    pages={pages}
+                    stars={stars}
+                  />
+                )
+              )
+              .slice(0, bookNum)
+          )}
         </CardBox>
 
         <ShowMoreBtn
