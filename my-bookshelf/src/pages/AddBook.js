@@ -11,7 +11,7 @@ const AddBook = () => {
       <CommonNavBar />
       <div
         className='container'
-        style={{ width: 'min(30rem, 85vw)', marginTop: '9rem' }}
+        style={{ width: 'min(30rem, 85vw)', marginTop: '2rem' }}
       >
         <div className='mb-3'>
           <label htmlFor='formFile' className='form-label'>

@@ -5,7 +5,7 @@ const CommonNavBar = () => {
   return (
     <>
       <nav
-        className='navbar navbar-expand fixed-top '
+        className='navbar navbar-expand'
         /* style={{ backgroundColor: '#fcf8e6' }} */
       >
         <div className='container px-4'>
