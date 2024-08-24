@@ -39,6 +39,19 @@ const HomePage = () => {
     getBooks();
   }, []);
 
+  /*  useEffect(() => {
+    async function fetchBooks() {
+      setLoading(true);
+      const res = await fetch(`./bookData.json`);
+      const data = await res.json();
+      setBooks(data);
+      setLoading(false);
+      console.log(data);
+    }
+
+    fetchBooks();
+  }, []); */
+
   /*   function handleDeleteBook(el) {
     setBooks(books.filter((book) => book.title !== el));
   } */
