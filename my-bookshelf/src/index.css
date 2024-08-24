@@ -111,6 +111,9 @@ input[type='checkbox'],
     z-index: 2;
     & h1 {
       color: #fff;
+
+      text-shadow: 0 1px 0 #181a13, 0 2px 0 #181a13, 0 3px 0 #181a13,
+        0 4px 0 #181a13, 0 5px 0 #181a13;
     }
   }
 }
