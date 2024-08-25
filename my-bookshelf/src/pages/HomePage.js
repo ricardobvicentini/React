@@ -39,14 +39,19 @@ const HomePage = () => {
     getBooks();
   }, []);
 
-  /*  useEffect(() => {
+  /*    useEffect(() => {
     async function fetchBooks() {
-      setLoading(true);
+      try {setLoading(true);
       const res = await fetch(`./bookData.json`);
+
+    if(!res.ok) throw new Error("Something went wrong!")
+
       const data = await res.json();
       setBooks(data);
-      setLoading(false);
-      console.log(data);
+      setLoading(false)} catch (err) {
+        console.error(err.message)
+      }
+      
     }
 
     fetchBooks();
@@ -54,7 +59,7 @@ const HomePage = () => {
 
   /*   function handleDeleteBook(el) {
     setBooks(books.filter((book) => book.title !== el));
-  } */
+  }
 
   /* Search */
   function handleQueryChange(e) {
