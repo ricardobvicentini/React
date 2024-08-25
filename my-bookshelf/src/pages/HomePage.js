@@ -48,8 +48,10 @@ const HomePage = () => {
 
       const data = await res.json();
       setBooks(data);
-      setLoading(false)} catch (err) {
+      } catch (err) {
         console.error(err.message)
+      } finally {
+       setLoading(false)
       }
       
     }
