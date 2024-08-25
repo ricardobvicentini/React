@@ -34,9 +34,7 @@ body {
   );
   background-image: linear-gradient(
     to bottom,
-    #83834d 0%,
-    #999963 10%,
-    #a5a578 15%,
+    #a5a578 0%,
     #c5c5a1 25%,
     #e6e6cb 65%,
     #fffedf 100%
