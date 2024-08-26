@@ -1,10 +1,17 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 
 const AddBook = () => {
   const [stars, setStars] = useState(1);
   const [tempStars, setTempStars] = useState(1);
+
+  useEffect(() => {
+    document.title = 'Add Book';
+    return function cleanTitle() {
+      document.title = 'My Bookshelf';
+    };
+  }, []);
 
   return (
     <div>

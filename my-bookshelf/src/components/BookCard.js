@@ -16,7 +16,12 @@ const BookCard = () => {
     if (foundBook) {
       setBook([foundBook]); // Set as an array with a single book object
       setLoading(false);
+      document.title = `${foundBook.title}`; // Change to book title
     }
+    // Return to original title
+    return function cleanTitle() {
+      document.title = 'My Bookshelf';
+    };
   }, [id]); // Add id as a dependency
 
   // Early return if book is not yet set
