@@ -14,7 +14,7 @@ const AddBook = () => {
   }, []);
 
   return (
-    <div>
+    <div className='add-book-wrapper'>
       <CommonNavBar />
       <div
         className='container'
