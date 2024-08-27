@@ -82,6 +82,17 @@ const AddBook = () => {
             <span className='ms-2 align-middle'>{tempStars || stars}</span>
           </div>
         </div>
+        <div className='d-flex col-12 gap-2 mx-auto my-4'>
+          <button className='col-6 btn full-btns' type='button'>
+            Add
+          </button>
+          <button
+            className='col-6 btn btn-outline-primary show-more-btns'
+            type='button'
+          >
+            Clear
+          </button>
+        </div>
       </div>
     </div>
   );
