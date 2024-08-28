@@ -5,6 +5,15 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 const AddBook = () => {
   const [stars, setStars] = useState(1);
   const [tempStars, setTempStars] = useState(1);
+  const [newBook, setNewBook] = useState({
+    image: '',
+    title: '',
+    author: '',
+    genre: '',
+    description: '',
+    pages: 0,
+    rating: stars,
+  });
 
   useEffect(() => {
     document.title = 'Add Book';
@@ -12,6 +21,8 @@ const AddBook = () => {
       document.title = 'My Bookshelf';
     };
   }, []);
+
+  console.log(newBook);
 
   return (
     <div className='add-book-wrapper'>
@@ -24,25 +35,49 @@ const AddBook = () => {
           <label htmlFor='image-to-add' className='form-label'>
             Image
           </label>
-          <input id='image-to-add' className='form-control' type='file' />
+          <input
+            id='image-to-add'
+            className='form-control'
+            type='file'
+            /* value={newBook.image} */
+            onChange={({ target }) => setNewBook(target.value)}
+          />
         </div>
         <div className='mb-3'>
           <label htmlFor='title-to-add' className='form-label'>
             Title
           </label>
-          <input type='text' id='title-to-add' className='form-control' />
+          <input
+            type='text'
+            id='title-to-add'
+            className='form-control'
+            value={newBook.title}
+            onChange={({ target }) => setNewBook(target.value)}
+          />
         </div>
         <div className='mb-3'>
           <label htmlFor='author-to-add' className='form-label'>
             Author
           </label>
-          <input type='text' id='author-to-add' className='form-control' />
+          <input
+            type='text'
+            id='author-to-add'
+            className='form-control'
+            value={newBook.author}
+            onChange={({ target }) => setNewBook(target.value)}
+          />
         </div>
         <div className='mb-3'>
           <label htmlFor='genre-to-add' className='form-label'>
             Genre
           </label>
-          <input type='text' id='genre-to-add' className='form-control' />
+          <input
+            type='text'
+            id='genre-to-add'
+            className='form-control'
+            value={newBook.genre}
+            onChange={({ target }) => setNewBook(target.value)}
+          />
         </div>
         <div className='mb-3'>
           <label htmlFor='description-to-add' className='form-label'>
@@ -52,6 +87,8 @@ const AddBook = () => {
             className='form-control'
             id='description-to-add'
             rows='3'
+            value={newBook.description}
+            onChange={({ target }) => setNewBook(target.value)}
           ></textarea>
         </div>
         <div className='mb-3'>
@@ -63,6 +100,8 @@ const AddBook = () => {
             min='0'
             id='pages-to-add'
             className='form-control'
+            value={newBook.pages}
+            onChange={({ target }) => setNewBook(target.value)}
           />
         </div>
         <div className='mb-3'>
