@@ -20,6 +20,7 @@ const AddBook = () => {
       ...prevNewBook,
       [e.target.name]: e.target.value,
     }));
+    console.log(e.target.name);
   }
 
   useEffect(() => {
@@ -39,12 +40,12 @@ const AddBook = () => {
         style={{ width: 'min(30rem, 85vw)', marginTop: '2rem' }}
       >
         <div className='mb-3'>
-          <label htmlFor='image-to-add' className='form-label'>
+          <label htmlFor='image' className='form-label'>
             Image
           </label>
           <input
-            id='image-to-add'
-            name='image-to-add'
+            id='image'
+            name='image'
             className='form-control'
             type='file'
             value={newBook.name}
@@ -52,73 +53,73 @@ const AddBook = () => {
           />
         </div>
         <div className='mb-3'>
-          <label htmlFor='title-to-add' className='form-label'>
+          <label htmlFor='title' className='form-label'>
             Title
           </label>
           <input
             type='text'
-            id='title-to-add'
-            name='title-to-add'
+            id='title'
+            name='title'
             className='form-control'
             value={newBook.name}
             onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
-          <label htmlFor='author-to-add' className='form-label'>
+          <label htmlFor='author' className='form-label'>
             Author
           </label>
           <input
             type='text'
-            id='author-to-add'
-            name='author-to-add'
+            id='author'
+            name='author'
             className='form-control'
             value={newBook.name}
             onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
-          <label htmlFor='genre-to-add' className='form-label'>
+          <label htmlFor='genre' className='form-label'>
             Genre
           </label>
           <input
             type='text'
-            id='genre-to-add'
-            name='genre-to-add'
+            id='genre'
+            name='genre'
             className='form-control'
             value={newBook.name}
             onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
-          <label htmlFor='description-to-add' className='form-label'>
+          <label htmlFor='description' className='form-label'>
             Description
           </label>
           <textarea
             className='form-control'
-            id='description-to-add'
-            name='description-to-add'
+            id='description'
+            name='description'
             rows='3'
             value={newBook.name}
             onChange={handleChange}
           ></textarea>
         </div>
         <div className='mb-3'>
-          <label htmlFor='pages-to-add' className='form-label'>
+          <label htmlFor='pages' className='form-label'>
             Pages
           </label>
           <input
             type='number'
             min='0'
-            id='pages-to-add'
-            name='pages-to-add'
+            id='pages'
+            name='pages'
             className='form-control'
             value={newBook.name}
             onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
-          <label htmlFor='stars-to-add' className='form-label'>
+          <label htmlFor='stars' className='form-label'>
             Stars
           </label>
           <div className='d-flex align-items-center gap-1 '>
