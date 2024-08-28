@@ -15,6 +15,13 @@ const AddBook = () => {
     rating: stars,
   });
 
+  function handleChange(e) {
+    setNewBook((prevNewBook) => ({
+      ...prevNewBook,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
   useEffect(() => {
     document.title = 'Add Book';
     return function cleanTitle() {
@@ -37,10 +44,11 @@ const AddBook = () => {
           </label>
           <input
             id='image-to-add'
+            name='image-to-add'
             className='form-control'
             type='file'
-            /* value={newBook.image} */
-            onChange={({ target }) => setNewBook(target.value)}
+            value={newBook.name}
+            onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
@@ -50,9 +58,10 @@ const AddBook = () => {
           <input
             type='text'
             id='title-to-add'
+            name='title-to-add'
             className='form-control'
-            value={newBook.title}
-            onChange={({ target }) => setNewBook(target.value)}
+            value={newBook.name}
+            onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
@@ -62,9 +71,10 @@ const AddBook = () => {
           <input
             type='text'
             id='author-to-add'
+            name='author-to-add'
             className='form-control'
-            value={newBook.author}
-            onChange={({ target }) => setNewBook(target.value)}
+            value={newBook.name}
+            onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
@@ -74,9 +84,10 @@ const AddBook = () => {
           <input
             type='text'
             id='genre-to-add'
+            name='genre-to-add'
             className='form-control'
-            value={newBook.genre}
-            onChange={({ target }) => setNewBook(target.value)}
+            value={newBook.name}
+            onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
@@ -86,9 +97,10 @@ const AddBook = () => {
           <textarea
             className='form-control'
             id='description-to-add'
+            name='description-to-add'
             rows='3'
-            value={newBook.description}
-            onChange={({ target }) => setNewBook(target.value)}
+            value={newBook.name}
+            onChange={handleChange}
           ></textarea>
         </div>
         <div className='mb-3'>
@@ -99,9 +111,10 @@ const AddBook = () => {
             type='number'
             min='0'
             id='pages-to-add'
+            name='pages-to-add'
             className='form-control'
-            value={newBook.pages}
-            onChange={({ target }) => setNewBook(target.value)}
+            value={newBook.name}
+            onChange={handleChange}
           />
         </div>
         <div className='mb-3'>
