@@ -5,15 +5,16 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 const AddBook = () => {
   const [stars, setStars] = useState(1);
   const [tempStars, setTempStars] = useState(1);
-  const [newBook, setNewBook] = useState({
+  const defaultBook = {
     image: '',
     title: '',
     author: '',
     genre: '',
     description: '',
-    pages: '',
-    rating: '',
-  });
+    pages: 0,
+    rating: 1,
+  };
+  const [newBook, setNewBook] = useState(defaultBook);
 
   function handleChange(e) {
     setNewBook((prevNewBook) => ({
@@ -28,15 +29,8 @@ const AddBook = () => {
   }
 
   function handleClear() {
-    setNewBook({
-      image: '',
-      title: '',
-      author: '',
-      genre: '',
-      description: '',
-      pages: '',
-      rating: '',
-    });
+    setNewBook(defaultBook);
+    setTempStars(1);
   }
 
   useEffect(() => {
@@ -77,7 +71,7 @@ const AddBook = () => {
             id='title'
             name='title'
             className='form-control'
-            value={newBook.name}
+            value={newBook.title}
             onChange={handleChange}
           />
         </div>
@@ -90,7 +84,7 @@ const AddBook = () => {
             id='author'
             name='author'
             className='form-control'
-            value={newBook.name}
+            value={newBook.author}
             onChange={handleChange}
           />
         </div>
@@ -103,7 +97,7 @@ const AddBook = () => {
             id='genre'
             name='genre'
             className='form-control'
-            value={newBook.name}
+            value={newBook.genre}
             onChange={handleChange}
           />
         </div>
@@ -116,7 +110,7 @@ const AddBook = () => {
             id='description'
             name='description'
             rows='3'
-            value={newBook.name}
+            value={newBook.description}
             onChange={handleChange}
           ></textarea>
         </div>
@@ -130,7 +124,7 @@ const AddBook = () => {
             id='pages'
             name='pages'
             className='form-control'
-            value={newBook.name}
+            value={newBook.pages}
             onChange={handleChange}
           />
         </div>
