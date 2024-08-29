@@ -6,7 +6,7 @@ const AddBook = () => {
   const [stars, setStars] = useState(1);
   const [tempStars, setTempStars] = useState(1);
   const defaultBook = {
-    image: '',
+    image: '/assets/images/coming-soon.jpg',
     title: '',
     author: '',
     genre: '',
@@ -77,7 +77,8 @@ const AddBook = () => {
             name='image'
             className='form-control'
             type='file'
-            value={newBook.name}
+            /* value={newBook.image} */
+            accept='image/*'
             onChange={handleChange}
           />
         </div>
