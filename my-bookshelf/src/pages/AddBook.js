@@ -23,6 +23,25 @@ const AddBook = () => {
     }));
   }
 
+  // Clear the input when focused if it's zero
+  function handleFocus(e) {
+    if (e.target.value === '0') {
+      e.target.value = '';
+    }
+  }
+
+  // Reset the input to zero if it's empty
+  function handleBlur(e) {
+    if (e.target.value === '') {
+      e.target.value = '0';
+      setNewBook((prevNewBook) => ({
+        ...prevNewBook,
+        [e.target.name]: 0,
+      }));
+    }
+  }
+
+  // Update rating in newBook
   function handleRate(n) {
     setStars(n + 1);
     setNewBook({ ...newBook, rating: n + 1 });
@@ -126,6 +145,8 @@ const AddBook = () => {
             className='form-control'
             value={newBook.pages}
             onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
         </div>
         <div className='mb-3'>
