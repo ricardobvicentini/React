@@ -11,8 +11,8 @@ const AddBook = () => {
     author: '',
     genre: '',
     description: '',
-    pages: 0,
-    rating: stars,
+    pages: '',
+    rating: '',
   });
 
   function handleChange(e) {
@@ -20,7 +20,23 @@ const AddBook = () => {
       ...prevNewBook,
       [e.target.name]: e.target.value,
     }));
-    console.log(e.target.name);
+  }
+
+  function handleRate(n) {
+    setStars(n + 1);
+    setNewBook({ ...newBook, rating: n + 1 });
+  }
+
+  function handleClear() {
+    setNewBook({
+      image: '',
+      title: '',
+      author: '',
+      genre: '',
+      description: '',
+      pages: '',
+      rating: '',
+    });
   }
 
   useEffect(() => {
@@ -126,7 +142,7 @@ const AddBook = () => {
             {Array.from({ length: 5 }, (_, i) => (
               <Star
                 key={i + 1}
-                onRate={() => setStars(i + 1)}
+                onRate={() => handleRate(i)}
                 onHoverIn={() => setTempStars(i + 1)}
                 onHoverOut={() => setTempStars(stars)}
                 full={tempStars ? tempStars >= i + 1 : stars >= i + 1}
@@ -142,6 +158,7 @@ const AddBook = () => {
           <button
             className='col-6 btn btn-outline-primary show-more-btns'
             type='button'
+            onClick={handleClear}
           >
             Clear
           </button>
