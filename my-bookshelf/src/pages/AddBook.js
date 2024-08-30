@@ -198,7 +198,7 @@ const AddBook = () => {
           <div class='modal-content'>
             <div class='modal-header'>
               <h1 class='modal-title fs-5' id='exampleModalLabel'>
-                Modal title
+                {newBook.title}
               </h1>
               <button
                 type='button'
@@ -223,8 +223,6 @@ const AddBook = () => {
                   </div>
                   <div className='col-7'>
                     <div className='card-body h-100 d-flex flex-column'>
-                      <h5 className='card-title'>{newBook.title}</h5>
-
                       <ul className='list-group list-group-flush'>
                         <li className='list-group-item'>
                           Author: {newBook.author}
