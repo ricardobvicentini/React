@@ -1,5 +1,4 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
-import Card from '../components/Card';
 import { useEffect, useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 
@@ -16,7 +15,7 @@ const AddBook = () => {
     rating: 1,
   };
   const [newBook, setNewBook] = useState(defaultBook);
-  const [showModal, setShowModal] = useState(false);
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   function handleChange(e) {
     setNewBook((prevNewBook) => ({
@@ -62,7 +61,6 @@ const AddBook = () => {
   }, []);
 
   console.log(newBook);
-  console.log(showModal);
 
   return (
     <div className='add-book-wrapper'>
@@ -174,7 +172,6 @@ const AddBook = () => {
           <button
             className='col-6 btn full-btns'
             type='button'
-            onClick={() => setShowModal(true)}
             data-bs-toggle='modal'
             data-bs-target='#exampleModal'
           >
@@ -211,7 +208,73 @@ const AddBook = () => {
               ></button>
             </div>
             <div class='modal-body'>
-              <Card />
+              <div
+                className='card shadow h-100 mb-3 mx-auto'
+                style={{ maxWidth: '40rem' }}
+              >
+                <div className='row g-0 h-100'>
+                  <div className='col-5'>
+                    <img
+                      src={`../${newBook.image}`}
+                      className='img-fluid object-fit-fill rounded-start h-100'
+                      alt='Book cover'
+                      loading='lazy'
+                    />
+                  </div>
+                  <div className='col-7'>
+                    <div className='card-body h-100 d-flex flex-column'>
+                      <h5 className='card-title'>{newBook.title}</h5>
+
+                      <ul className='list-group list-group-flush'>
+                        <li className='list-group-item'>
+                          Author: {newBook.author}
+                        </li>
+                        <li className='list-group-item'>
+                          Genre: {newBook.genre}
+                        </li>
+                        <li className='list-group-item'>
+                          Description:{' '}
+                          {showFullDescription
+                            ? newBook.description
+                            : newBook.description.substring(0, 90) + '...'}
+                          <br />
+                          <div className='mx-auto d-flex justify-content-center'>
+                            <button
+                              onClick={() =>
+                                setShowFullDescription(
+                                  (prevShowFullDescription) =>
+                                    !prevShowFullDescription
+                                )
+                              }
+                              type='button'
+                              className='btn btn-outline-primary btn-sm my-2 show-more-btns'
+                              style={{
+                                paddingInline: '.25rem',
+                                paddingBlock: '.5rem',
+                                fontSize: '.75rem',
+                              }}
+                            >
+                              {!showFullDescription ? 'Show more' : 'Show less'}
+                            </button>
+                          </div>
+                        </li>
+                        <li className='list-group-item'>
+                          Pages: {newBook.pages}
+                        </li>
+                        <li className='list-group-item d-flex align-items-center gap-1 '>
+                          Rating:{' '}
+                          {Array.from({ length: newBook.stars }, (_, i) => (
+                            <FaStar
+                              key={newBook.stars - i}
+                              style={{ color: '#ffc107' }}
+                            />
+                          ))}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class='modal-footer'>
               <button
