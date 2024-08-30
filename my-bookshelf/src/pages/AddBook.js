@@ -1,4 +1,5 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
+import Card from '../components/Card';
 import { useEffect, useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 
@@ -15,6 +16,7 @@ const AddBook = () => {
     rating: 1,
   };
   const [newBook, setNewBook] = useState(defaultBook);
+  const [showModal, setShowModal] = useState(false);
 
   function handleChange(e) {
     setNewBook((prevNewBook) => ({
@@ -60,6 +62,7 @@ const AddBook = () => {
   }, []);
 
   console.log(newBook);
+  console.log(showModal);
 
   return (
     <div className='add-book-wrapper'>
@@ -168,7 +171,13 @@ const AddBook = () => {
           </div>
         </div>
         <div className='d-flex col-12 gap-2 mx-auto my-4'>
-          <button className='col-6 btn full-btns' type='button'>
+          <button
+            className='col-6 btn full-btns'
+            type='button'
+            onClick={() => setShowModal(true)}
+            data-bs-toggle='modal'
+            data-bs-target='#exampleModal'
+          >
             Add
           </button>
           <button
@@ -178,6 +187,45 @@ const AddBook = () => {
           >
             Clear
           </button>
+        </div>
+      </div>
+      {/* Modal */}
+      <div
+        class='modal fade'
+        id='exampleModal'
+        tabindex='-1'
+        aria-labelledby='exampleModalLabel'
+        aria-hidden='true'
+      >
+        <div class='modal-dialog'>
+          <div class='modal-content'>
+            <div class='modal-header'>
+              <h1 class='modal-title fs-5' id='exampleModalLabel'>
+                Modal title
+              </h1>
+              <button
+                type='button'
+                class='btn-close'
+                data-bs-dismiss='modal'
+                aria-label='Close'
+              ></button>
+            </div>
+            <div class='modal-body'>
+              <Card />
+            </div>
+            <div class='modal-footer'>
+              <button
+                type='button'
+                class='btn btn-secondary'
+                data-bs-dismiss='modal'
+              >
+                Close
+              </button>
+              <button type='button' class='btn btn-primary'>
+                Save changes
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
