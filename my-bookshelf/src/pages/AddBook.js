@@ -188,26 +188,26 @@ const AddBook = () => {
       </div>
       {/* Modal */}
       <div
-        class='modal fade'
+        className='modal fade'
         id='exampleModal'
-        tabindex='-1'
+        tabIndex='-1'
         aria-labelledby='exampleModalLabel'
         aria-hidden='true'
       >
-        <div class='modal-dialog'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <h1 class='modal-title fs-5' id='exampleModalLabel'>
+        <div className='modal-dialog'>
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <h1 className='modal-title fs-5' id='exampleModalLabel'>
                 {newBook.title}
               </h1>
               <button
                 type='button'
-                class='btn-close'
+                className='btn-close'
                 data-bs-dismiss='modal'
                 aria-label='Close'
               ></button>
             </div>
-            <div class='modal-body'>
+            <div className='modal-body'>
               <div
                 className='card shadow h-100 mb-3 mx-auto'
                 style={{ maxWidth: '40rem' }}
@@ -262,9 +262,14 @@ const AddBook = () => {
                         <li className='list-group-item d-flex align-items-center gap-1 '>
                           Rating:
                           <div className='d-flex align-items-center gap-1 '>
-                            {Array.from({ length: stars }, (_, i) => (
-                              <FaStar key={i} style={{ color: '#ffc107' }} />
+                            {Array.from({ length: newBook.rating }, (_, i) => (
+                              <span>
+                                <FaStar key={i} style={{ color: '#ffc107' }} />
+                              </span>
                             ))}
+                            <span className='ms-2 align-middle'>
+                              {tempStars || stars}
+                            </span>
                           </div>
                         </li>
                       </ul>
@@ -273,15 +278,15 @@ const AddBook = () => {
                 </div>
               </div>
             </div>
-            <div class='modal-footer'>
+            <div className='modal-footer'>
               <button
                 type='button'
-                class='btn btn-secondary'
+                className='btn btn-outline-primary show-more-btns'
                 data-bs-dismiss='modal'
               >
                 Close
               </button>
-              <button type='button' class='btn full-btns'>
+              <button type='button' className='btn full-btns'>
                 Add book
               </button>
             </div>
@@ -295,10 +300,10 @@ const AddBook = () => {
 const Star = ({ onRate, onHoverIn, onHoverOut, full }) => {
   return (
     <span
-      style={{ cursor: 'pointer' }}
       onClick={onRate}
       onMouseEnter={onHoverIn}
       onMouseLeave={onHoverOut}
+      style={{ cursor: 'pointer' }}
     >
       {full ? <FaStar style={{ color: '#ffc107' }} /> : <FaRegStar />}
     </span>
