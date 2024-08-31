@@ -260,13 +260,12 @@ const AddBook = () => {
                           Pages: {newBook.pages}
                         </li>
                         <li className='list-group-item d-flex align-items-center gap-1 '>
-                          Rating:{' '}
-                          {Array.from({ length: newBook.stars }, (_, i) => (
-                            <FaStar
-                              key={newBook.stars - i}
-                              style={{ color: '#ffc107' }}
-                            />
-                          ))}
+                          Rating:
+                          <div className='d-flex align-items-center gap-1 '>
+                            {Array.from({ length: stars }, (_, i) => (
+                              <FaStar key={i} style={{ color: '#ffc107' }} />
+                            ))}
+                          </div>
                         </li>
                       </ul>
                     </div>
