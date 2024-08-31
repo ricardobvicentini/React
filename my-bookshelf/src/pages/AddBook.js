@@ -282,8 +282,8 @@ const AddBook = () => {
               >
                 Close
               </button>
-              <button type='button' class='btn btn-primary'>
-                Save changes
+              <button type='button' class='btn full-btns'>
+                Add book
               </button>
             </div>
           </div>
