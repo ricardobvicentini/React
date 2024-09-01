@@ -34,7 +34,7 @@ const BookCard = () => {
   return (
     <div
       className='container'
-      style={{ width: 'min(50rem, 85vw)', marginTop: '9rem' }}
+      style={{ width: 'min(50rem, 80vw)', marginTop: '9rem' }}
     >
       <div className='col-sm-12'>
         {loading ? (
@@ -48,7 +48,7 @@ const BookCard = () => {
               <div className='col-5'>
                 <img
                   src={`../${selectedBook.image}`}
-                  className='img-fluid object-fit-fill rounded-start h-100'
+                  className='img-fluid object-fit-fill rounded'
                   alt='Book cover'
                   loading='lazy'
                 />

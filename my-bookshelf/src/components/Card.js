@@ -12,7 +12,7 @@ const Card = ({ bookId, image, title, author, genre, pages, stars }) => {
           <div className='col-5 h-100'>
             <img
               src={image}
-              className='img-fluid object-fit-fill rounded-start h-100'
+              className='img-fluid object-fit-fill rounded'
               alt='Book cover'
               loading='lazy'
             />
