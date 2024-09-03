@@ -216,7 +216,7 @@ const AddBook = () => {
                   <div className='col-5'>
                     <img
                       src={`../${newBook.image}`}
-                      className='img-fluid object-fit-fill rounded-start h-100'
+                      className='img-fluid object-fit-fill rounded-start'
                       alt='Book cover'
                       loading='lazy'
                     />
@@ -263,8 +263,8 @@ const AddBook = () => {
                           Rating:
                           <div className='d-flex align-items-center gap-1 '>
                             {Array.from({ length: newBook.rating }, (_, i) => (
-                              <span>
-                                <FaStar key={i} style={{ color: '#ffc107' }} />
+                              <span key={i}>
+                                <FaStar style={{ color: '#ffc107' }} />
                               </span>
                             ))}
                             <span className='ms-2 align-middle'>
