@@ -1,6 +1,7 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
 import { useEffect, useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import bookData from '../db/bookData';
 
 const AddBook = () => {
   const [stars, setStars] = useState(1);
@@ -297,7 +298,11 @@ const AddBook = () => {
                 >
                   Close
                 </button>
-                <button type='submit' className='btn full-btns'>
+                <button
+                  type='submit'
+                  className='btn full-btns'
+                  data-bs-dismiss='modal'
+                >
                   Add book
                 </button>
               </div>
