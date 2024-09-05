@@ -33,6 +33,12 @@ h6 {
   text-wrap: balance;
 }
 
+p,
+li {
+  text-wrap: pretty;
+  max-width: 65ch;
+}
+
 a {
   text-decoration: none;
 }
