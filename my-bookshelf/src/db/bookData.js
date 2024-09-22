@@ -98,6 +98,17 @@ const bookData = [
     description:
       'Esta é uma das melhores obras já escritas sobre batalhas. Listadas por ordem de importância desde 490 A.C. até a atualidade, o livro não celebra a guerra. Além das batalhas, que tiveram importância vital na formação cultural e geográfica dos povos e das nações, o livro analisa as razões e conseqüências de cada conflito. A preservação da democracia, prevenção de anarquia, promoção da ordem, disputas religiosas, econômicas, conquistas de território são exemplos de justificativas ou razões para as batalhas.',
   },
+  {
+    bookId: '10',
+    image: 'assets/images/coming-soon.jpg',
+    title: 'Brasil: uma história',
+    author: 'Eduardo Bueno',
+    genre: 'História Geral',
+    pages: 480,
+    stars: '3',
+    description:
+      'A história do Brasil como você nunca viu antes! Há mais de cinco séculos diz-se que o Brasil é o país do futuro. O problema, é que nunca chegamos lá. Procurando sanar esse problema, Eduardo Bueno tira a História da prisão das salas de aula e a leva para as ruas. Transforma-a em conversa de mesa de bar, a leva para favelas, esquinas, ruas, shoppings, estádios de futebol. Em "Brasil – Uma história", Eduardo Bueno atualiza seu famoso livro, incluindo fatos como a posse de Dilma Roussef e o julgamento do Mensalão.',
+  },
 ];
 
 export default bookData;
