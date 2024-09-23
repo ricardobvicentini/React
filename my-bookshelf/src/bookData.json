@@ -98,7 +98,17 @@
       "genre": "História Geral",
       "pages": 480,
       "stars": "3",
-      "description": "A história do Brasil como você nunca viu antes! Há mais de cinco séculos diz-se que o Brasil é o país do futuro. O problema, é que nunca chegamos lá. Procurando sanar esse problema, Eduardo Bueno tira a História da prisão das salas de aula e a leva para as ruas. Transforma-a em conversa de mesa de bar, a leva para favelas, esquinas, ruas, shoppings, estádios de futebol. Em 'Brasil – Uma história', Eduardo Bueno atualiza seu famoso livro, incluindo fatos como a posse de Dilma Roussef e o julgamento do Mensalão.."
+      "description": "A história do Brasil como você nunca viu antes! Há mais de cinco séculos diz-se que o Brasil é o país do futuro. O problema, é que nunca chegamos lá. Procurando sanar esse problema, Eduardo Bueno tira a História da prisão das salas de aula e a leva para as ruas. Transforma-a em conversa de mesa de bar, a leva para favelas, esquinas, ruas, shoppings, estádios de futebol. Em 'Brasil – Uma história', Eduardo Bueno atualiza seu famoso livro, incluindo fatos como a posse de Dilma Roussef e o julgamento do Mensalão."
+    },
+    {
+      "bookId": "11",
+      "image": "assets/images/coming-soon.jpg",
+      "title": "Renoir: A Sensuous Vision",
+      "author": "Anne Distel",
+      "genre": "Artes",
+      "pages": 175,
+      "stars": "4",
+      "description": "Uma visão geral ilustrada da obra do mestre impressionista Pierre-Auguste Renoir, com citações do artista e de sua família e amigos, explorando sua relação com os negociantes, críticos e compradores de sua época. Original."
     }
   ]
 }
