@@ -120,6 +120,18 @@ const bookData = [
     description:
       'Uma visão geral ilustrada da obra do mestre impressionista Pierre-Auguste Renoir, com citações do artista e de sua família e amigos, explorando sua relação com os negociantes, críticos e compradores de sua época. Original.',
   },
+  {
+    bookId: '12',
+    image: 'assets/images/image-10.jpg',
+    title:
+      'Vícios privados, benefícios públicos?: A ética na riqueza das nações',
+    author: 'Eduardo Giannetti',
+    genre: 'Artes',
+    pages: 239,
+    stars: '5',
+    description:
+      'Ganância, inveja, egoísmo, esperteza: o que tudo isso tem a ver com a riqueza das nações? Qual a relação entre ética e racionalidade? Até que ponto a "mão invisível" do mercado é suficiente para levar uma sociedade da pobreza ao máximo de prosperidade? Ou será que o próprio progresso científico, tecnológico e material do mundo moderno é a causa da decadência moral do homem? Examinando a evolução do pensamento filosófico e econômico da Antigüidade clássica aos nossos dias, este livro busca a resposta para estas e outras questões que envolvem as relações entre ética e economia. Sem cair no moralismo fácil nem na pura engenharia econômica, Eduardo Giannetti da Fonseca recupera o papel das virtudes privadas para a vida comunitária organizada e o progresso das nações. Prêmio Jabuti 1994 de Melhor Ensaio e Biografia.',
+  },
 ];
 
 export default bookData;
