@@ -126,7 +126,7 @@ const bookData = [
     title:
       'Vícios privados, benefícios públicos?: A ética na riqueza das nações',
     author: 'Eduardo Giannetti',
-    genre: 'Artes',
+    genre: 'Ensaios',
     pages: 239,
     stars: '5',
     description:
