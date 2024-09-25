@@ -187,7 +187,7 @@ const HomePage = () => {
       <div className='App'>
         <NavBar query={query} onQueryChange={handleQueryChange}>
           <SidebarFilter
-            genreItems={genreItems}
+            genreItems={genreItems.sort()}
             alpha={alpha}
             tempAlpha={tempAlpha}
             tempCheckedGenre={tempCheckedGenre}
