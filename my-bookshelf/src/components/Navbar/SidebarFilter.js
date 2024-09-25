@@ -77,26 +77,21 @@ const SidebarFilter = ({
                       style={{ height: '10rem' }}
                     >
                       <div>
-                        {genreItems
-                          .map((item, i) => (
-                            <div className='form-check' key={i + item}>
-                              <input
-                                className='form-check-input'
-                                type='checkbox'
-                                value={item}
-                                id={item}
-                                checked={isChecked(item)}
-                                onChange={onGenreChange}
-                              />
-                              <label
-                                className='form-check-label'
-                                htmlFor={item}
-                              >
-                                {item}
-                              </label>
-                            </div>
-                          ))
-                          .sort()}
+                        {genreItems.map((item, i) => (
+                          <div className='form-check' key={i + item}>
+                            <input
+                              className='form-check-input'
+                              type='checkbox'
+                              value={item}
+                              id={item}
+                              checked={isChecked(item)}
+                              onChange={onGenreChange}
+                            />
+                            <label className='form-check-label' htmlFor={item}>
+                              {item}
+                            </label>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
