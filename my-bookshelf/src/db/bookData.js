@@ -132,6 +132,17 @@ const bookData = [
     description:
       'Ganância, inveja, egoísmo, esperteza: o que tudo isso tem a ver com a riqueza das nações? Qual a relação entre ética e racionalidade? Até que ponto a "mão invisível" do mercado é suficiente para levar uma sociedade da pobreza ao máximo de prosperidade? Ou será que o próprio progresso científico, tecnológico e material do mundo moderno é a causa da decadência moral do homem? Examinando a evolução do pensamento filosófico e econômico da Antigüidade clássica aos nossos dias, este livro busca a resposta para estas e outras questões que envolvem as relações entre ética e economia. Sem cair no moralismo fácil nem na pura engenharia econômica, Eduardo Giannetti da Fonseca recupera o papel das virtudes privadas para a vida comunitária organizada e o progresso das nações. Prêmio Jabuti 1994 de Melhor Ensaio e Biografia.',
   },
+  {
+    bookId: '13',
+    image: 'assets/images/coming-soon.jpg',
+    title: "The Pocket Louvre: A Visitor's Guide to 500 Works",
+    author: 'Claude Mignot',
+    genre: 'Artes',
+    pages: 540,
+    stars: '5',
+    description:
+      'Enciclopédico em seu escopo e exaustivo em sua magnitude, o Louvre tem vastas coleções que vão do século VI a.C. até meados do século XIX. Sua arquitetura impressionante remonta a 800 anos, às suas origens como uma fortaleza que guardava a Paris medieval. Em sua encarnação contemporânea, recentemente reconfigurado e rebatizado de "O Grande Louvre", ele se espalha por quatro níveis e ostenta mais de 30.000 obras de arte; suas galerias, lojas e escritórios ocupam cerca de 1,6 milhão de pés quadrados, dos quais cerca de 645.000 são dedicados a exposições.',
+  },
 ];
 
 export default bookData;
