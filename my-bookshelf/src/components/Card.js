@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 
-const Card = ({ bookId, image, title, author, genre, pages, stars }) => {
+const Card = ({ bookId, image, title, author, genre, pages, stars, room }) => {
   return (
     <div className='col-sm-12 col-lg-6'>
       <div
@@ -24,6 +24,9 @@ const Card = ({ bookId, image, title, author, genre, pages, stars }) => {
                 <li className='list-group-item'>Author: {author}</li>
                 <li className='list-group-item'>Genre: {genre}</li>
                 <li className='list-group-item'>Pages: {pages}</li>
+                <li className='list-group-item'>
+                  Where am I? <p className='m-0'>{room}</p>
+                </li>
                 <li className='list-group-item d-flex align-items-center gap-1 '>
                   Rating:{' '}
                   {Array.from({ length: stars }, (_, i) => (
