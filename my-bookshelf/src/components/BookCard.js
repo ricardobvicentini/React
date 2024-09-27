@@ -93,6 +93,9 @@ const BookCard = () => {
                     <li className='list-group-item'>
                       Pages: {selectedBook.pages}
                     </li>
+                    <li className='list-group-item'>
+                      Where am I? <p className='m-0'>{selectedBook.room}</p>
+                    </li>
                     <li className='list-group-item d-flex align-items-center gap-1 '>
                       Rating:{' '}
                       {Array.from({ length: selectedBook.stars }, (_, i) => (
@@ -104,7 +107,7 @@ const BookCard = () => {
                     </li>
                   </ul>
                   <button
-                    className='btn btn-outline-warning mt-auto mt-auto align-self-center outlined-btns'
+                    className='btn btn-outline-warning mt-3 align-self-center outlined-btns'
                     style={{ width: '40%' }}
                   >
                     Edit
