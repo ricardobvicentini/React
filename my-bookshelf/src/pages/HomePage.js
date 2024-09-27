@@ -214,7 +214,10 @@ const HomePage = () => {
           ) : (
             booksToBeFiltered
               .map(
-                ({ bookId, image, title, author, genre, pages, stars }, i) => (
+                (
+                  { bookId, image, title, author, genre, pages, stars, room },
+                  i
+                ) => (
                   <Card
                     key={i}
                     bookId={bookId}
@@ -224,6 +227,7 @@ const HomePage = () => {
                     genre={genre}
                     pages={pages}
                     stars={stars}
+                    room={room}
                   />
                 )
               )
