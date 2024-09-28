@@ -98,6 +98,54 @@ const SidebarFilter = ({
                 </div>
               </div>
             </div>
+            {/* Room */}
+            <div className='accordion' id='accordion-room'>
+              <div className='accordion-item'>
+                <h2 className='accordion-header' id='room'>
+                  <button
+                    className='accordion-button collapsed'
+                    type='button'
+                    data-bs-toggle='collapse'
+                    data-bs-target='#collapseTwo'
+                    aria-expanded='false'
+                    aria-controls='collapseTwo'
+                  >
+                    Where am I?
+                  </button>
+                </h2>
+                <div
+                  id='collapseTwo'
+                  className='accordion-collapse collapse'
+                  aria-labelledby='room'
+                  data-bs-parent='#accordion-room'
+                >
+                  <div className='accordion-body'>
+                    <div
+                      className='vstack gap-2 overflow-auto'
+                      style={{ height: '10rem' }}
+                    >
+                      <div>
+                        {genreItems.map((item, i) => (
+                          <div className='form-check' key={i + item}>
+                            <input
+                              className='form-check-input'
+                              type='checkbox'
+                              value={item}
+                              id={item}
+                              checked={isChecked(item)}
+                              onChange={onGenreChange}
+                            />
+                            <label className='form-check-label' htmlFor={item}>
+                              {item}
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* Star Rating */}
             {Array.from({ length: starNum }, (_, i) => {
               const starValue = starNum - i;
