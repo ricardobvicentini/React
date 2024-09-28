@@ -18,7 +18,6 @@ const SidebarFilter = ({
   const isGenreChecked = (genre) => tempCheckedGenre.includes(genre);
   const isRoomChecked = (room) => tempCheckedRoom.includes(room);
 
-  console.log(tempCheckedRoom);
   return (
     <>
       <div
@@ -125,10 +124,7 @@ const SidebarFilter = ({
                   data-bs-parent='#accordion-room'
                 >
                   <div className='accordion-body'>
-                    <div
-                      className='vstack gap-2 overflow-auto'
-                      style={{ height: '10rem' }}
-                    >
+                    <div className='vstack gap-2 overflow-auto'>
                       <div>
                         {roomItems.map((item, i) => (
                           <div className='form-check' key={i + item}>
