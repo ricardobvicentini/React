@@ -2,18 +2,23 @@ import { FaStar } from 'react-icons/fa';
 
 const SidebarFilter = ({
   genreItems,
+  roomItems,
   tempAlpha,
   tempCheckedGenre,
+  tempCheckedRoom,
   tempCheckedStar,
   onAlphaOrder,
   onGenreChange,
+  onRoomChange,
   onStarChange,
   onApplyFilters,
   onClearFilters,
 }) => {
   const starNum = 5;
-  const isChecked = (genre) => tempCheckedGenre.includes(genre);
+  const isGenreChecked = (genre) => tempCheckedGenre.includes(genre);
+  const isRoomChecked = (room) => tempCheckedRoom.includes(room);
 
+  console.log(tempCheckedRoom);
   return (
     <>
       <div
@@ -84,7 +89,7 @@ const SidebarFilter = ({
                               type='checkbox'
                               value={item}
                               id={item}
-                              checked={isChecked(item)}
+                              checked={isGenreChecked(item)}
                               onChange={onGenreChange}
                             />
                             <label className='form-check-label' htmlFor={item}>
@@ -125,15 +130,15 @@ const SidebarFilter = ({
                       style={{ height: '10rem' }}
                     >
                       <div>
-                        {genreItems.map((item, i) => (
+                        {roomItems.map((item, i) => (
                           <div className='form-check' key={i + item}>
                             <input
                               className='form-check-input'
                               type='checkbox'
                               value={item}
                               id={item}
-                              checked={isChecked(item)}
-                              onChange={onGenreChange}
+                              checked={isRoomChecked(item)}
+                              onChange={onRoomChange}
                             />
                             <label className='form-check-label' htmlFor={item}>
                               {item}

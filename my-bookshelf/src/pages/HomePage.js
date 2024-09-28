@@ -20,15 +20,19 @@ const HomePage = () => {
     tempAlpha: false,
     tempCheckedGenre: [],
     tempCheckedStar: [],
+    tempCheckedRoom: [],
   });
-  const { tempAlpha, tempCheckedGenre, tempCheckedStar } = tempCheckedFilters;
+  const { tempAlpha, tempCheckedGenre, tempCheckedStar, tempCheckedRoom } =
+    tempCheckedFilters;
   const [checkedFilters, setCheckedFilters] = useState({
     alpha: tempAlpha,
     star: tempCheckedStar,
     genre: tempCheckedGenre,
+    room: tempCheckedRoom,
   });
-  const { alpha, star, genre } = checkedFilters;
+  const { alpha, star, genre, room } = checkedFilters;
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
+  const roomItems = [...new Set(bookData.map((item) => item.room))];
 
   useEffect(() => {
     setLoading(true);
@@ -95,6 +99,25 @@ const HomePage = () => {
     }
   }
 
+  /* Room */
+  function handleRoomChange(e) {
+    setQuery('');
+    const selectedRoom = e.target.value;
+    if (e.target.checked) {
+      setTempCheckedFilters((prevFilters) => ({
+        ...prevFilters,
+        tempCheckedRoom: [...prevFilters.tempCheckedRoom, selectedRoom],
+      }));
+    } else {
+      setTempCheckedFilters((prevFilters) => ({
+        ...prevFilters,
+        tempCheckedRoom: prevFilters.tempCheckedRoom.filter(
+          (item) => item !== selectedRoom
+        ),
+      }));
+    }
+  }
+
   /*  Star */
   function handleStarChange(e) {
     setQuery('');
@@ -120,6 +143,7 @@ const HomePage = () => {
       alpha: tempAlpha,
       star: tempCheckedStar,
       genre: tempCheckedGenre,
+      room: tempCheckedRoom,
     });
     /* Alpha conditional */
     if (tempAlpha) {
@@ -137,11 +161,13 @@ const HomePage = () => {
       tempAlpha: false,
       tempCheckedGenre: [],
       tempCheckedStar: [],
+      tempCheckedRoom: [],
     });
     setCheckedFilters({
       alpha: false,
       star: [],
       genre: [],
+      room: [],
     });
     setBooks(originalBooks);
   }
@@ -169,6 +195,14 @@ const HomePage = () => {
         )
       );
     }
+    /* Room filter */
+    if (checkedFilters.room.length > 0) {
+      filteredBooks = filteredBooks.filter(({ room }) =>
+        checkedFilters.room.some((tempCheckedRoom) =>
+          room.includes(tempCheckedRoom)
+        )
+      );
+    }
 
     /* Star filter */
     if (checkedFilters.star.length > 0) {
@@ -188,13 +222,16 @@ const HomePage = () => {
         <NavBar query={query} onQueryChange={handleQueryChange}>
           <SidebarFilter
             genreItems={genreItems.sort()}
+            roomItems={roomItems.sort()}
             alpha={alpha}
             tempAlpha={tempAlpha}
             tempCheckedGenre={tempCheckedGenre}
             tempCheckedStar={tempCheckedStar}
+            tempCheckedRoom={tempCheckedRoom}
             onAlphaOrder={handleAlphaOrder}
             onGenreChange={handleGenreChange}
             onStarChange={handleStarChange}
+            onRoomChange={handleRoomChange}
             onApplyFilters={handleApplyFilters}
             onClearFilters={handleClearFilters}
           />
@@ -205,6 +242,7 @@ const HomePage = () => {
             query={query}
             star={star}
             genre={genre}
+            room={room}
             booksToBeFiltered={booksToBeFiltered}
           />
         }
