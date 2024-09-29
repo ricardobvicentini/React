@@ -15,8 +15,7 @@ const SidebarFilter = ({
   onClearFilters,
 }) => {
   const starNum = 5;
-  const isGenreChecked = (genre) => tempCheckedGenre.includes(genre);
-  const isRoomChecked = (room) => tempCheckedRoom.includes(room);
+  const isChecked = (el, tempChecked) => tempChecked.includes(el);
 
   return (
     <>
@@ -88,7 +87,7 @@ const SidebarFilter = ({
                               type='checkbox'
                               value={item}
                               id={item}
-                              checked={isGenreChecked(item)}
+                              checked={isChecked(item, tempCheckedGenre)}
                               onChange={onGenreChange}
                             />
                             <label className='form-check-label' htmlFor={item}>
@@ -133,7 +132,7 @@ const SidebarFilter = ({
                               type='checkbox'
                               value={item}
                               id={item}
-                              checked={isRoomChecked(item)}
+                              checked={isChecked(item, tempCheckedRoom)}
                               onChange={onRoomChange}
                             />
                             <label className='form-check-label' htmlFor={item}>
