@@ -185,6 +185,9 @@ const SidebarFilter = ({
             onClick={onClearFilters}
             className='btn btn-outline-warning outlined-btns'
             type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#collapseOne, #collapseTwo'
+            aria-controls='collapseOne, collapseTwo'
           >
             Clear
           </button>
