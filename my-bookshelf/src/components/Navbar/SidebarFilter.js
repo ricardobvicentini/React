@@ -188,6 +188,7 @@ const SidebarFilter = ({
             data-bs-toggle='collapse'
             data-bs-target='#collapseOne, #collapseTwo'
             aria-controls='collapseOne, collapseTwo'
+            aria-expanded='false'
           >
             Clear
           </button>
