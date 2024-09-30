@@ -16,7 +16,7 @@ const SidebarFilter = ({
   onClearFilters,
 }) => {
   const [isGenreOpen, setIsGenreOpen] = useState(false);
-  /* const [isRoomOpen, setIsRoomOpen] = useState(false); */
+  const [isRoomOpen, setIsRoomOpen] = useState(false);
   const [collapse, setCollapse] = useState({
     collapseOneId: '',
     collapseOne: '',
@@ -26,19 +26,35 @@ const SidebarFilter = ({
   const starNum = 5;
   const isChecked = (el, tempChecked) => tempChecked.includes(el);
 
-  function handleCollapse() {
+  function handleGenreCollapse(cOneId, cOne) {
     setIsGenreOpen(!isGenreOpen);
     if (!isGenreOpen)
       setCollapse((prevCollapse) => ({
         ...prevCollapse,
-        collapseOneId: '#collapseOne',
-        collapseOne: 'collapseOne',
+        collapseOneId: cOneId,
+        collapseOne: cOne,
       }));
     if (isGenreOpen)
       setCollapse((prevCollapse) => ({
         ...prevCollapse,
         collapseOneId: '',
         collapseOne: '',
+      }));
+  }
+
+  function handleRoomCollapse(cTwoId, cTwo) {
+    setIsRoomOpen(!isRoomOpen);
+    if (!isRoomOpen)
+      setCollapse((prevCollapse) => ({
+        ...prevCollapse,
+        collapseTwoId: cTwoId,
+        collapseTwo: cTwo,
+      }));
+    if (isRoomOpen)
+      setCollapse((prevCollapse) => ({
+        ...prevCollapse,
+        collapseTwoId: '',
+        collapseTwo: '',
       }));
   }
 
@@ -95,7 +111,9 @@ const SidebarFilter = ({
                     data-bs-target='#collapseOne'
                     aria-expanded='false'
                     aria-controls='collapseOne'
-                    onClick={handleCollapse}
+                    onClick={() =>
+                      handleGenreCollapse('#collapseOne', 'collapseOne')
+                    }
                   >
                     Genre
                   </button>
@@ -144,6 +162,9 @@ const SidebarFilter = ({
                     data-bs-target='#collapseTwo'
                     aria-expanded='false'
                     aria-controls='collapseTwo'
+                    onClick={() =>
+                      handleRoomCollapse('#collapseTwo', 'collapseTwo')
+                    }
                   >
                     Where am I?
                   </button>
