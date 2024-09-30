@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 
 const SidebarFilter = ({
@@ -14,8 +15,18 @@ const SidebarFilter = ({
   onApplyFilters,
   onClearFilters,
 }) => {
+  const [isGenreOpen, setIsGenreOpen] = useState(false);
+  const [isRoomOpen, setIsRoomOpen] = useState(false);
   const starNum = 5;
   const isChecked = (el, tempChecked) => tempChecked.includes(el);
+
+  function handleClearAll() {
+    onClearFilters();
+    setIsGenreOpen(false);
+    setIsRoomOpen(false);
+  }
+
+  console.log(isGenreOpen, isRoomOpen);
 
   return (
     <>
@@ -64,6 +75,7 @@ const SidebarFilter = ({
                     data-bs-target='#collapseOne'
                     aria-expanded='false'
                     aria-controls='collapseOne'
+                    onClick={() => setIsGenreOpen(!isGenreOpen)}
                   >
                     Genre
                   </button>
@@ -112,6 +124,7 @@ const SidebarFilter = ({
                     data-bs-target='#collapseTwo'
                     aria-expanded='false'
                     aria-controls='collapseTwo'
+                    onClick={() => setIsRoomOpen(!isRoomOpen)}
                   >
                     Where am I?
                   </button>
@@ -182,12 +195,12 @@ const SidebarFilter = ({
         {/* Filter btns */}
         <div className='d-grid gap-2 col-6 mx-auto my-4'>
           <button
-            onClick={onClearFilters}
+            onClick={handleClearAll}
             className='btn btn-outline-warning outlined-btns'
             type='button'
             data-bs-toggle='collapse'
-            data-bs-target='#collapseOne, #collapseTwo'
-            aria-controls='collapseOne, collapseTwo'
+            data-bs-target={isGenreOpen ? '#collapseOne' : ''}
+            aria-controls={isGenreOpen ? 'collapseOne' : ''}
             aria-expanded='false'
           >
             Clear
