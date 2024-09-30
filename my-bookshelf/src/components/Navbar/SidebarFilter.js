@@ -16,17 +16,37 @@ const SidebarFilter = ({
   onClearFilters,
 }) => {
   const [isGenreOpen, setIsGenreOpen] = useState(false);
-  const [isRoomOpen, setIsRoomOpen] = useState(false);
+  /* const [isRoomOpen, setIsRoomOpen] = useState(false); */
+  const [collapse, setCollapse] = useState({
+    collapseOneId: '',
+    collapseOne: '',
+    collapseTwoId: '',
+    collapseTwo: '',
+  });
   const starNum = 5;
   const isChecked = (el, tempChecked) => tempChecked.includes(el);
 
-  function handleClearAll() {
-    onClearFilters();
-    setIsGenreOpen(false);
-    setIsRoomOpen(false);
+  function handleCollapse() {
+    setIsGenreOpen(!isGenreOpen);
+    if (!isGenreOpen)
+      setCollapse((prevCollapse) => ({
+        ...prevCollapse,
+        collapseOneId: '#collapseOne',
+        collapseOne: 'collapseOne',
+      }));
+    if (isGenreOpen)
+      setCollapse((prevCollapse) => ({
+        ...prevCollapse,
+        collapseOneId: '',
+        collapseOne: '',
+      }));
   }
 
-  console.log(isGenreOpen, isRoomOpen);
+  function handleClearAll() {
+    onClearFilters();
+  }
+
+  console.log(isGenreOpen, collapse);
 
   return (
     <>
@@ -75,7 +95,7 @@ const SidebarFilter = ({
                     data-bs-target='#collapseOne'
                     aria-expanded='false'
                     aria-controls='collapseOne'
-                    onClick={() => setIsGenreOpen(!isGenreOpen)}
+                    onClick={handleCollapse}
                   >
                     Genre
                   </button>
@@ -124,7 +144,6 @@ const SidebarFilter = ({
                     data-bs-target='#collapseTwo'
                     aria-expanded='false'
                     aria-controls='collapseTwo'
-                    onClick={() => setIsRoomOpen(!isRoomOpen)}
                   >
                     Where am I?
                   </button>
@@ -199,8 +218,12 @@ const SidebarFilter = ({
             className='btn btn-outline-warning outlined-btns'
             type='button'
             data-bs-toggle='collapse'
-            data-bs-target={isGenreOpen ? '#collapseOne' : ''}
-            aria-controls={isGenreOpen ? 'collapseOne' : ''}
+            /* data-bs-target={
+              isGenreOpen ? '#collapseOne' : isRoomOpen ? '#collapseTwo' : ''
+            }
+            aria-controls={
+              isGenreOpen ? 'collapseOne' : isRoomOpen ? 'collapseTwo' : ''
+            } */
             aria-expanded='false'
           >
             Clear
