@@ -15,8 +15,6 @@ const SidebarFilter = ({
   onApplyFilters,
   onClearFilters,
 }) => {
-  /* const [collapseGenre, setCollapseGenre] = useState([]);
-  const [collapseRoom, setCollapseRoom] = useState([]); */
   const [collapse, setCollapse] = useState({
     collapseGenre: [],
     collapseRoom: [],
@@ -58,26 +56,6 @@ const SidebarFilter = ({
       }));
   }
 
-  /* function addCollapseGenre() {
-    if (collapseGenre.length === 0)
-      setCollapseGenre((prevCollapse) => [
-        ...prevCollapse,
-        '#collapseOne',
-        'collapseOne',
-      ]);
-    else setCollapseGenre([]);
-  }
-
-  function addCollapseRoom() {
-    if (collapseRoom.length === 0)
-      setCollapseRoom((prevCollapse) => [
-        ...prevCollapse,
-        '#collapseTwo',
-        'collapseTwo',
-      ]);
-    else setCollapseRoom([]);
-  } */
-
   function handleClearAll() {
     onClearFilters();
     setCollapse((prevCollapse) => ({
@@ -86,8 +64,6 @@ const SidebarFilter = ({
       collapseRoom: [],
     }));
   }
-
-  console.log(collapse);
 
   return (
     <>
@@ -260,8 +236,8 @@ const SidebarFilter = ({
             className='btn btn-outline-warning outlined-btns'
             type='button'
             data-bs-toggle='collapse'
-            /* data-bs-target={`${collapseGenre[0]}, ${collapseRoom[0]}`}
-            aria-controls={`${collapseGenre[1]}, ${collapseRoom[1]}`} */
+            data-bs-target={`${collapse.collapseGenre[0]}, ${collapse.collapseRoom[0]}`}
+            aria-controls={`${collapse.collapseGenre[1]}, ${collapse.collapseRoom[1]}`}
             aria-expanded='false'
           >
             Clear
