@@ -15,12 +15,50 @@ const SidebarFilter = ({
   onApplyFilters,
   onClearFilters,
 }) => {
-  const [collapseGenre, setCollapseGenre] = useState([]);
-  const [collapseRoom, setCollapseRoom] = useState([]);
+  /* const [collapseGenre, setCollapseGenre] = useState([]);
+  const [collapseRoom, setCollapseRoom] = useState([]); */
+  const [collapse, setCollapse] = useState({
+    collapseGenre: [],
+    collapseRoom: [],
+  });
   const starNum = 5;
   const isChecked = (el, tempChecked) => tempChecked.includes(el);
 
-  function addCollapseGenre() {
+  function handleCollapse(collapseItem) {
+    console.log(collapseItem);
+    if (
+      collapseItem === 'collapseGenre' &&
+      collapse['collapseGenre'].length === 0
+    )
+      setCollapse((prevCollapse) => ({
+        ...prevCollapse,
+        collapseGenre: [
+          ...prevCollapse.collapseGenre,
+          '#collapseOne',
+          'collapseOne',
+        ],
+      }));
+    else if (
+      collapseItem === 'collapseRoom' &&
+      collapse['collapseRoom'].length === 0
+    )
+      setCollapse((prevCollapse) => ({
+        ...prevCollapse,
+        collapseRoom: [
+          ...prevCollapse.collapseRoom,
+          '#collapseTwo',
+          'collapseTwo',
+        ],
+      }));
+    else
+      setCollapse((prevCollapse) => ({
+        ...prevCollapse,
+        collapseGenre: [],
+        collapseRoom: [],
+      }));
+  }
+
+  /* function addCollapseGenre() {
     if (collapseGenre.length === 0)
       setCollapseGenre((prevCollapse) => [
         ...prevCollapse,
@@ -38,15 +76,15 @@ const SidebarFilter = ({
         'collapseTwo',
       ]);
     else setCollapseRoom([]);
-  }
+  } */
 
-  function handleClearAll() {
+  /* function handleClearAll() {
     onClearFilters();
     setCollapseGenre([]);
     setCollapseRoom([]);
-  }
+  } */
 
-  console.log(collapseGenre, collapseRoom);
+  console.log(collapse);
 
   return (
     <>
@@ -95,7 +133,7 @@ const SidebarFilter = ({
                     data-bs-target='#collapseOne'
                     aria-expanded='false'
                     aria-controls='collapseOne'
-                    onClick={addCollapseGenre}
+                    onClick={() => handleCollapse('collapseGenre')}
                   >
                     Genre
                   </button>
@@ -144,7 +182,7 @@ const SidebarFilter = ({
                     data-bs-target='#collapseTwo'
                     aria-expanded='false'
                     aria-controls='collapseTwo'
-                    onClick={addCollapseRoom}
+                    onClick={() => handleCollapse('collapseRoom')}
                   >
                     Where am I?
                   </button>
@@ -215,12 +253,12 @@ const SidebarFilter = ({
         {/* Filter btns */}
         <div className='d-grid gap-2 col-6 mx-auto my-4'>
           <button
-            onClick={handleClearAll}
+            /* onClick={handleClearAll} */
             className='btn btn-outline-warning outlined-btns'
             type='button'
             data-bs-toggle='collapse'
-            data-bs-target={`${collapseGenre[0]}, ${collapseRoom[0]}`}
-            aria-controls={`${collapseGenre[1]}, ${collapseRoom[1]}`}
+            /* data-bs-target={`${collapseGenre[0]}, ${collapseRoom[0]}`}
+            aria-controls={`${collapseGenre[1]}, ${collapseRoom[1]}`} */
             aria-expanded='false'
           >
             Clear
