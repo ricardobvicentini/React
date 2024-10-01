@@ -78,11 +78,14 @@ const SidebarFilter = ({
     else setCollapseRoom([]);
   } */
 
-  /* function handleClearAll() {
+  function handleClearAll() {
     onClearFilters();
-    setCollapseGenre([]);
-    setCollapseRoom([]);
-  } */
+    setCollapse((prevCollapse) => ({
+      ...prevCollapse,
+      collapseGenre: [],
+      collapseRoom: [],
+    }));
+  }
 
   console.log(collapse);
 
@@ -253,7 +256,7 @@ const SidebarFilter = ({
         {/* Filter btns */}
         <div className='d-grid gap-2 col-6 mx-auto my-4'>
           <button
-            /* onClick={handleClearAll} */
+            onClick={handleClearAll}
             className='btn btn-outline-warning outlined-btns'
             type='button'
             data-bs-toggle='collapse'
