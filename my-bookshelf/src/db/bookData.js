@@ -146,7 +146,7 @@ const bookData = [
   },
   {
     bookId: '13',
-    image: 'assets/images/coming-soon.jpg',
+    image: 'assets/images/image-13.jpg',
     title: "The Pocket Louvre: A Visitor's Guide to 500 Works",
     author: 'Claude Mignot',
     genre: 'Artes',
