@@ -23,7 +23,6 @@ const SidebarFilter = ({
   const isChecked = (el, tempChecked) => tempChecked.includes(el);
 
   function handleCollapse(collapseItem) {
-    console.log(collapseItem);
     if (
       collapseItem === 'collapseGenre' &&
       collapse['collapseGenre'].length === 0
