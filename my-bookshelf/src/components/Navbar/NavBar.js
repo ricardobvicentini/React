@@ -1,7 +1,28 @@
 import { Link } from 'react-router-dom';
 import { FaFilter } from 'react-icons/fa';
+import { useEffect, useRef, useState } from 'react';
 
 const NavBar = ({ children, query, onQueryChange }) => {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  function handleResize() {
+    setWidth(window.innerWidth); // Update state with new width
+  }
+  const showRef = useRef(null);
+  useEffect(() => {
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+    // Initial call to set the width
+    handleResize();
+    if (width > 576 && showRef.current.classList.contains('show')) {
+      showRef.current.classList.remove('show');
+    }
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [width]);
+
   return (
     <>
       <nav
@@ -25,6 +46,7 @@ const NavBar = ({ children, query, onQueryChange }) => {
           <div
             className='row mx-0 collapse navbar-dark navbar-collapse'
             id='nav'
+            ref={showRef}
           >
             <div
               className='col-8 py-2 d-flex justify-content-end'
