@@ -71,6 +71,13 @@ const NavBar = ({ children, query, onQueryChange }) => {
               className='col d-flex ms-auto mt-sm-0 p-0'
               style={{ maxWidth: '10rem' }}
             >
+              <div className='col d-flex m-auto' style={{ maxWidth: '1.5rem' }}>
+                <img
+                  className='rounded border border-warning border-2'
+                  src='assets/images/us.svg'
+                  alt='Flag'
+                />
+              </div>
               <button
                 className='btn ms-auto full-btns'
                 type='button'
