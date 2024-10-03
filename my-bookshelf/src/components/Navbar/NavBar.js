@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaFilter } from 'react-icons/fa';
 import { useEffect, useRef, useState } from 'react';
+import LanguageFlags from './LanguageFlags';
 
 const NavBar = ({ children, query, onQueryChange }) => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -71,13 +72,7 @@ const NavBar = ({ children, query, onQueryChange }) => {
               className='col d-flex ms-auto mt-sm-0 p-0'
               style={{ maxWidth: '10rem' }}
             >
-              <div className='col d-flex m-auto' style={{ maxWidth: '1.5rem' }}>
-                <img
-                  className='rounded border border-warning border-2'
-                  src='assets/images/us.svg'
-                  alt='Flag'
-                />
-              </div>
+              <LanguageFlags />
               <button
                 className='btn ms-auto full-btns'
                 type='button'
