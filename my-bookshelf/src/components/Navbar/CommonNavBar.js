@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaCircleLeft } from 'react-icons/fa6';
+import LanguageFlags from './LanguageFlags';
 
 const CommonNavBar = () => {
   return (
@@ -12,6 +13,7 @@ const CommonNavBar = () => {
           <Link className='navbar-brand mx-0 fw-bold fs-4' to='/'>
             My Book<span style={{ color: '#ffc107' }}>s</span>helf
           </Link>
+          <LanguageFlags />
           <Link to='/'>
             <button className='btn btn-warning ms-auto full-btns' type='button'>
               <FaCircleLeft />
