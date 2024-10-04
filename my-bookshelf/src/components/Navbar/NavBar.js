@@ -69,12 +69,12 @@ const NavBar = ({ children, query, onQueryChange }) => {
             </div>
 
             <div
-              className='col d-flex ms-auto mt-sm-0 p-0'
+              className='col d-flex ms-auto mt-sm-0 p-0 justify-content-end'
               style={{ maxWidth: '10rem' }}
             >
               <LanguageFlags />
               <button
-                className='btn ms-auto full-btns'
+                className='btn mx-0 full-btns'
                 type='button'
                 data-bs-toggle='offcanvas'
                 data-bs-target='#offcanvasRight'

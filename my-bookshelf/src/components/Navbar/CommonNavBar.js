@@ -13,12 +13,17 @@ const CommonNavBar = () => {
           <Link className='navbar-brand mx-0 fw-bold fs-4' to='/'>
             My Book<span style={{ color: '#ffc107' }}>s</span>helf
           </Link>
-          <LanguageFlags />
-          <Link to='/'>
-            <button className='btn btn-warning ms-auto full-btns' type='button'>
-              <FaCircleLeft />
-            </button>
-          </Link>
+          <div className='d-flex'>
+            <LanguageFlags />
+            <Link to='/'>
+              <button
+                className='btn btn-warning ms-auto full-btns'
+                type='button'
+              >
+                <FaCircleLeft />
+              </button>
+            </Link>
+          </div>
         </div>
       </nav>
     </>
