@@ -1,7 +1,6 @@
 import CommonNavBar from '../components/Navbar/CommonNavBar';
 import { useEffect, useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import bookData from '../db/bookData';
 
 const AddBook = () => {
   const [stars, setStars] = useState(1);
@@ -56,7 +55,6 @@ const AddBook = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(newBook);
   }
 
   useEffect(() => {
@@ -65,8 +63,6 @@ const AddBook = () => {
       document.title = 'My Bookshelf';
     };
   }, []);
-
-  console.log(newBook);
 
   return (
     <div className='add-book-wrapper'>
