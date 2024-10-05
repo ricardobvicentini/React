@@ -8,8 +8,8 @@ const LanguageFlags = () => {
   };
 
   const flags = [
-    { value: '1', src: '/assets/images/us.svg', label: 'USA' },
-    { value: '2', src: '/assets/images/br.svg', label: 'Brazil' },
+    { value: '1', src: '/assets/images/us.svg', label: 'English' },
+    { value: '2', src: '/assets/images/br.svg', label: 'Portuguese' },
   ];
 
   return (
@@ -19,18 +19,18 @@ const LanguageFlags = () => {
     >
       <div className='dropdown'>
         <div
-          className='form-select form-select-sm'
+          className='form-select form-select-sm border border-warning'
           data-bs-toggle='dropdown'
           aria-expanded='false'
         >
           <img
-            className='rounded border border-secondary-emphasis border-2'
+            className='rounded border border-warning border-2'
             src={selectedFlag}
             alt='Flag'
             style={{ width: '2rem', height: 'auto' }}
           />
         </div>
-        <ul className='dropdown-menu'>
+        <ul className='dropdown-menu border border-warning'>
           {flags.map((flag) => (
             <li
               key={flag.value}
@@ -38,10 +38,10 @@ const LanguageFlags = () => {
               className='d-flex align-items-center p-2'
             >
               <img
-                className='rounded border border-secondary-emphasis border-2 me-2'
+                className='rounded border border-warning border-2 me-2'
                 src={flag.src}
                 alt={flag.label}
-                style={{ width: '1.5rem', height: 'auto' }}
+                style={{ width: '2rem', height: 'auto' }}
               />
               {flag.label}
             </li>
