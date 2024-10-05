@@ -19,6 +19,7 @@ const CommonNavBar = () => {
               <button
                 className='btn btn-warning ms-auto full-btns'
                 type='button'
+                style={{ height: '100%' }}
               >
                 <FaCircleLeft />
               </button>

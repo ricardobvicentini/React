@@ -24,7 +24,7 @@ const LanguageFlags = () => {
           aria-expanded='false'
         >
           <img
-            className='rounded border border-warning border-2'
+            className='rounded border border-secondary-emphasis border-2'
             src={selectedFlag}
             alt='Flag'
             style={{ width: '2rem', height: 'auto' }}
@@ -38,7 +38,7 @@ const LanguageFlags = () => {
               className='d-flex align-items-center p-2'
             >
               <img
-                className='rounded border border-warning border-2 me-2'
+                className='rounded border border-secondary-emphasis border-2 me-2'
                 src={flag.src}
                 alt={flag.label}
                 style={{ width: '1.5rem', height: 'auto' }}
