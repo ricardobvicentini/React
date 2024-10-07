@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 const LanguageFlags = () => {
   const [selectedFlag, setSelectedFlag] = useState('/assets/images/us.svg');
 
-  const handleSelect = (flag) => {
+  function handleSelect(flag) {
     setSelectedFlag(flag);
-  };
+  }
 
   const flags = [
     { value: '1', src: '/assets/images/us.svg', label: 'English' },
@@ -14,7 +14,7 @@ const LanguageFlags = () => {
 
   return (
     <div
-      className='col d-flex m-auto ms-0 me-3'
+      className='col d-flex m-auto ms-0 me-2'
       style={{ maxWidth: '5rem', cursor: 'pointer' }}
     >
       <div className='dropdown'>
@@ -27,7 +27,7 @@ const LanguageFlags = () => {
             className='rounded  border-2'
             src={selectedFlag}
             alt='Flag'
-            style={{ width: '2rem', height: 'auto' }}
+            style={{ width: '1.5rem', height: 'auto' }}
           />
         </div>
         <ul className='dropdown-menu '>
