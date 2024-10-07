@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
 
 const LanguageFlags = () => {
-  const [selectedFlag, setSelectedFlag] = useState('/assets/images/us.svg');
+  const [selectedFlag, setSelectedFlag] = useState('EN');
 
   function handleSelect(flag) {
     setSelectedFlag(flag);
   }
 
   const flags = [
-    { value: '1', src: '/assets/images/us.svg', label: 'English' },
-    { value: '2', src: '/assets/images/br.svg', label: 'Portuguese' },
+    {
+      value: '1',
+      src: '/assets/images/us.svg',
+      label: 'EN',
+    },
+    {
+      value: '2',
+      src: '/assets/images/br.svg',
+      label: 'PT',
+    },
   ];
+
+  console.log(selectedFlag);
 
   return (
     <div
@@ -23,18 +33,19 @@ const LanguageFlags = () => {
           data-bs-toggle='dropdown'
           aria-expanded='false'
         >
-          <img
+          {selectedFlag}
+          {/* <img
             className='rounded  border-2'
             src={selectedFlag}
             alt='Flag'
             style={{ width: '1.5rem', height: 'auto' }}
-          />
+          /> */}
         </div>
         <ul className='dropdown-menu '>
           {flags.map((flag) => (
             <li
               key={flag.value}
-              onClick={() => handleSelect(flag.src)}
+              onClick={() => handleSelect(flag.label)}
               className='d-flex align-items-center p-2'
             >
               <img
