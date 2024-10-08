@@ -20,8 +20,6 @@ const LanguageFlags = () => {
     },
   ];
 
-  console.log(selectedFlag);
-
   return (
     <div
       className='col d-flex m-auto ms-0 me-3 justify-content-end'
@@ -41,19 +39,18 @@ const LanguageFlags = () => {
             style={{ width: '1.5rem', height: 'auto' }}
           /> */}
         </div>
-        <ul className='dropdown-menu mt-2' style={{ width: '5rem' }}>
+        <ul className='dropdown-menu mt-2' style={{ minWidth: 'fit-content' }}>
           {flags.map((flag) => (
             <li
               key={flag.value}
               onClick={() => handleSelect(flag.label)}
-              className='d-flex align-items-center p-2'
-              style={{ width: '5rem' }}
+              className='d-flex align-items-center p-2 '
             >
               <img
-                className='rounded border-2 me-2'
+                className='rounded border border-secondary border-1 me-2'
                 src={flag.src}
                 alt={flag.label}
-                style={{ width: '1.5rem', height: 'auto' }}
+                style={{ width: '1.2rem', height: 'auto' }}
               />
               {flag.label}
             </li>
