@@ -50,7 +50,7 @@ const NavBar = ({ children, query, onQueryChange }) => {
             ref={showRef}
           >
             <div
-              className='col-8 py-2 d-flex justify-content-end'
+              className='col py-2 px-3 d-flex justify-content-end'
               role='search'
             >
               <div
@@ -69,7 +69,7 @@ const NavBar = ({ children, query, onQueryChange }) => {
             </div>
 
             <div
-              className='col d-flex ms-auto mt-sm-0 p-0 justify-content-end'
+              className='col-4 d-flex ps-3 p-0 justify-content-end'
               /* style={{ maxWidth: '8rem' }} */
             >
               <LanguageFlags />
