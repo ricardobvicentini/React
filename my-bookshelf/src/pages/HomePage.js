@@ -8,7 +8,6 @@ import Card from '../components/Card';
 import ShowMoreBtn from '../components/ShowMoreBtn';
 import Loader from '../components/Loader';
 import bookData from '../db/bookData';
-import LanguageFlags from '../components/Navbar/LanguageFlags';
 
 const HomePage = () => {
   const [bookNum, setBookNum] = useState(4);
