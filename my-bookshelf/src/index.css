@@ -114,7 +114,8 @@ body {
   --bs-accordion-btn-focus-box-shadow: none;
 }
 
-.offcanvas {
+.offcanvas,
+.language-btn {
   user-select: none;
 }
 

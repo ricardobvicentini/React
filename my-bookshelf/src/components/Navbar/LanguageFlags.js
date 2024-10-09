@@ -25,9 +25,9 @@ const LanguageFlags = () => {
       className='col d-flex m-auto ms-0 me-3 justify-content-end'
       style={{ maxWidth: '5rem' }}
     >
-      <div className='dropdown'>
+      <div className='dropdown' style={{ minWidth: ' 3.94rem' }}>
         <div
-          className='form-select form-select-sm'
+          className='form-select form-select-sm language-btn'
           data-bs-toggle='dropdown'
           aria-expanded='false'
         >
@@ -45,6 +45,7 @@ const LanguageFlags = () => {
               key={flag.value}
               onClick={() => handleSelect(flag.label)}
               className='d-flex align-items-center p-2 '
+              style={{ cursor: 'pointer' }}
             >
               <img
                 className='rounded border border-secondary border-1 me-2'
