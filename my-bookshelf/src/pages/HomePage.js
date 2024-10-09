@@ -8,6 +8,7 @@ import Card from '../components/Card';
 import ShowMoreBtn from '../components/ShowMoreBtn';
 import Loader from '../components/Loader';
 import bookData from '../db/bookData';
+import LanguageFlags from '../components/Navbar/LanguageFlags';
 
 const HomePage = () => {
   const [bookNum, setBookNum] = useState(4);
@@ -33,6 +34,19 @@ const HomePage = () => {
   const { alpha, star, genre, room } = checkedFilters;
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const roomItems = [...new Set(bookData.map((item) => item.room))];
+  const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const languages = [
+    {
+      value: '1',
+      src: '/assets/images/us.svg',
+      label: 'EN',
+    },
+    {
+      value: '2',
+      src: '/assets/images/br.svg',
+      label: 'PT',
+    },
+  ];
 
   useEffect(() => {
     setLoading(true);
@@ -47,24 +61,30 @@ const HomePage = () => {
     async function fetchBooks() {
       try {setLoading(true);
       const res = await fetch(`./bookData.json`);
-
-    if(!res.ok) throw new Error("Something went wrong!")
-
+      
+      if(!res.ok) throw new Error("Something went wrong!")
+      
       const data = await res.json();
       setBooks(data);
       } catch (err) {
         console.error(err.message)
-      } finally {
-       setLoading(false)
-      }
-      
-    }
-
-    fetchBooks();
-  }, []); */
+        } finally {
+          setLoading(false)
+          }
+          
+          }
+          
+          fetchBooks();
+          }, []); */
 
   /*   function handleDeleteBook(el) {
-    setBooks(books.filter((book) => book.title !== el));
+            setBooks(books.filter((book) => book.title !== el));
+            }
+            
+            
+            /* Language */
+  function handleLanguage(language) {
+    setSelectedLanguage(language);
   }
 
   /* Search */
@@ -219,7 +239,13 @@ const HomePage = () => {
   return (
     <>
       <div className='App'>
-        <NavBar query={query} onQueryChange={handleQueryChange}>
+        <NavBar
+          query={query}
+          onQueryChange={handleQueryChange}
+          selectedLanguage={selectedLanguage}
+          languages={languages}
+          onLanguage={handleLanguage}
+        >
           <SidebarFilter
             genreItems={genreItems.sort()}
             roomItems={roomItems.sort()}

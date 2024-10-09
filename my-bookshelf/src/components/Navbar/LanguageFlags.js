@@ -1,25 +1,4 @@
-import React, { useState } from 'react';
-
-const LanguageFlags = () => {
-  const [selectedFlag, setSelectedFlag] = useState('EN');
-
-  function handleSelect(flag) {
-    setSelectedFlag(flag);
-  }
-
-  const flags = [
-    {
-      value: '1',
-      src: '/assets/images/us.svg',
-      label: 'EN',
-    },
-    {
-      value: '2',
-      src: '/assets/images/br.svg',
-      label: 'PT',
-    },
-  ];
-
+const LanguageFlags = ({ selectedLanguage, languages, onLanguage }) => {
   return (
     <div
       className='col d-flex m-auto ms-0 me-3 justify-content-end'
@@ -31,7 +10,7 @@ const LanguageFlags = () => {
           data-bs-toggle='dropdown'
           aria-expanded='false'
         >
-          {selectedFlag}
+          {selectedLanguage}
           {/* <img
             className='rounded  border-2'
             src={selectedFlag}
@@ -40,20 +19,20 @@ const LanguageFlags = () => {
           /> */}
         </div>
         <ul className='dropdown-menu mt-2' style={{ minWidth: 'fit-content' }}>
-          {flags.map((flag) => (
+          {languages.map((language) => (
             <li
-              key={flag.value}
-              onClick={() => handleSelect(flag.label)}
+              key={language.value}
+              onClick={() => onLanguage(language.label)}
               className='d-flex align-items-center p-2 '
               style={{ cursor: 'pointer' }}
             >
               <img
                 className='rounded border border-secondary border-1 me-2'
-                src={flag.src}
-                alt={flag.label}
+                src={language.src}
+                alt={language.label}
                 style={{ width: '1.2rem', height: 'auto' }}
               />
-              {flag.label}
+              {language.label}
             </li>
           ))}
         </ul>

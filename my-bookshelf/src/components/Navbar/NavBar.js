@@ -3,7 +3,14 @@ import { FaFilter } from 'react-icons/fa';
 import { useEffect, useRef, useState } from 'react';
 import LanguageFlags from './LanguageFlags';
 
-const NavBar = ({ children, query, onQueryChange }) => {
+const NavBar = ({
+  children,
+  query,
+  onQueryChange,
+  selectedLanguage,
+  languages,
+  onLanguage,
+}) => {
   const [width, setWidth] = useState(window.innerWidth);
 
   function handleResize() {
@@ -72,7 +79,13 @@ const NavBar = ({ children, query, onQueryChange }) => {
               className='col-4 d-flex ps-3 p-0 justify-content-end'
               /* style={{ maxWidth: '8rem' }} */
             >
-              <LanguageFlags />
+              {
+                <LanguageFlags
+                  selectedLanguage={selectedLanguage}
+                  languages={languages}
+                  onLanguage={onLanguage}
+                />
+              }
               <button
                 className='btn mx-0 full-btns'
                 type='button'
