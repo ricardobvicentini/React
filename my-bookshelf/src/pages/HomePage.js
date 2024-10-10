@@ -11,7 +11,6 @@ import bookData from '../db/bookData';
 
 const HomePage = () => {
   const [bookNum, setBookNum] = useState(4);
-  /* const [books, setBooks] = useState(bookData); */
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const originalBooks = bookData;
@@ -47,6 +46,8 @@ const HomePage = () => {
     },
   ];
 
+  console.log(selectedLanguage);
+
   useEffect(() => {
     setLoading(true);
     function getBooks() {
@@ -81,7 +82,7 @@ const HomePage = () => {
             }
             
             
-            /* Language */
+            /* Languages */
   function handleLanguage(language) {
     setSelectedLanguage(language);
   }
