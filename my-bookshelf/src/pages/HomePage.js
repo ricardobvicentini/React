@@ -32,21 +32,6 @@ const HomePage = () => {
   const { alpha, star, genre, room } = checkedFilters;
   const genreItems = [...new Set(bookData.map((item) => item.genre))];
   const roomItems = [...new Set(bookData.map((item) => item.room))];
-  const [selectedLanguage, setSelectedLanguage] = useState('EN');
-  const languages = [
-    {
-      value: '1',
-      src: '/assets/images/us.svg',
-      label: 'EN',
-    },
-    {
-      value: '2',
-      src: '/assets/images/br.svg',
-      label: 'PT',
-    },
-  ];
-
-  console.log(selectedLanguage);
 
   useEffect(() => {
     setLoading(true);
@@ -82,10 +67,6 @@ const HomePage = () => {
             }
             
             
-            /* Languages */
-  function handleLanguage(language) {
-    setSelectedLanguage(language);
-  }
 
   /* Search */
   function handleQueryChange(e) {
@@ -239,13 +220,7 @@ const HomePage = () => {
   return (
     <>
       <div className='App'>
-        <NavBar
-          query={query}
-          onQueryChange={handleQueryChange}
-          selectedLanguage={selectedLanguage}
-          languages={languages}
-          onLanguage={handleLanguage}
-        >
+        <NavBar query={query} onQueryChange={handleQueryChange}>
           <SidebarFilter
             genreItems={genreItems.sort()}
             roomItems={roomItems.sort()}

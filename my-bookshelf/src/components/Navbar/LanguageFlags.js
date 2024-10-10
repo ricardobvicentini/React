@@ -1,4 +1,24 @@
-const LanguageFlags = ({ selectedLanguage, languages, onLanguage }) => {
+import { useState } from 'react';
+
+const LanguageFlags = () => {
+  const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const languages = [
+    {
+      value: '1',
+      src: '/assets/images/us.svg',
+      label: 'EN',
+    },
+    {
+      value: '2',
+      src: '/assets/images/br.svg',
+      label: 'PT',
+    },
+  ];
+
+  function handleLanguage(language) {
+    setSelectedLanguage(language);
+  }
+
   return (
     <div
       className='col d-flex m-auto ms-0 me-3 justify-content-end'
@@ -22,7 +42,7 @@ const LanguageFlags = ({ selectedLanguage, languages, onLanguage }) => {
           {languages.map((language) => (
             <li
               key={language.value}
-              onClick={() => onLanguage(language.label)}
+              onClick={() => handleLanguage(language.label)}
               className='d-flex align-items-center p-2 '
               style={{ cursor: 'pointer' }}
             >
