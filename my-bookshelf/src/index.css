@@ -119,6 +119,17 @@ body {
   user-select: none;
 }
 
+.btn-close {
+  position: relative;
+}
+
+.close-collapse {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+}
+
 input[type='checkbox'],
 .search-input {
   &:checked {
