@@ -22,9 +22,15 @@ const SidebarFilter = ({
   const starNum = 5;
   const isChecked = (el, tempChecked) => tempChecked.includes(el);
 
+  console.log(collapse);
+
   function handleCloseClear() {
     if (tempCheckedGenre.length === 0 && tempCheckedRoom.length === 0) {
-      console.log('close');
+      setCollapse((prevCollapse) => ({
+        ...prevCollapse,
+        collapseGenre: [],
+        collapseRoom: [],
+      }));
     }
   }
 
@@ -88,6 +94,18 @@ const SidebarFilter = ({
             className='btn-close'
             data-bs-dismiss='offcanvas'
             aria-label='Close'
+          ></button>
+          <button
+            type='button'
+            className='btn-close close-collapse'
+            data-bs-toggle={
+              tempCheckedGenre.length === 0 && tempCheckedRoom.length === 0
+                ? 'collapse'
+                : ''
+            }
+            data-bs-target={`${collapse.collapseGenre[0]}, ${collapse.collapseRoom[0]}`}
+            aria-controls={`${collapse.collapseGenre[1]}, ${collapse.collapseRoom[1]}`}
+            aria-expanded='false'
             onClick={handleCloseClear}
           ></button>
         </div>
