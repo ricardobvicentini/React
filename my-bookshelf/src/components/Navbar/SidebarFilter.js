@@ -95,7 +95,8 @@ const SidebarFilter = ({
             data-bs-dismiss='offcanvas'
             aria-label='Close'
           >
-            {/* <button
+            {/* Fix this */}
+            <button
               type='button'
               className='btn-close close-collapse'
               data-bs-toggle={
@@ -107,7 +108,7 @@ const SidebarFilter = ({
               aria-controls={`${collapse.collapseGenre[1]}, ${collapse.collapseRoom[1]}`}
               aria-expanded='false'
               onClick={handleCloseClear}
-            ></button> */}
+            ></button>
           </button>
         </div>
         <div className='offcanvas-body'>

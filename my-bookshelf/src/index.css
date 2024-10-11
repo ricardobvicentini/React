@@ -111,6 +111,7 @@ body {
 .accordion {
   --bs-accordion-active-bg: none;
   --bs-accordion-active-color: #ffc107;
+  /* --bs-accordion-btn-focus-box-shadow: none; */
 }
 
 .offcanvas,
@@ -122,15 +123,18 @@ body {
   position: relative;
 }
 
+/* Fix this */
 .close-collapse {
   position: absolute;
   inset: 0;
   width: 100%;
   height: auto;
-  &:focus-visible {
-    border: none;
-    outline: none;
-  }
+  border: none;
+}
+
+.close-collapse:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 input[type='checkbox'],
