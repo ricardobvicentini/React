@@ -22,8 +22,6 @@ const SidebarFilter = ({
   const starNum = 5;
   const isChecked = (el, tempChecked) => tempChecked.includes(el);
 
-  console.log(collapse);
-
   function handleCloseClear() {
     if (tempCheckedGenre.length === 0 && tempCheckedRoom.length === 0) {
       setCollapse((prevCollapse) => ({
@@ -95,7 +93,6 @@ const SidebarFilter = ({
             data-bs-dismiss='offcanvas'
             aria-label='Close'
           >
-            {/* Fix this */}
             <span
               type='button'
               className='btn-close close-collapse'
